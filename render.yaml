@@ -1,0 +1,18 @@
+# Render Blueprint: a free static site, no server needed.
+services:
+  - type: web
+    name: shaligram-site
+    runtime: static
+    buildCommand: echo "Plain HTML site, nothing to build"
+    staticPublishPath: ./
+    headers:
+      # preview only: keep it out of Google until the real launch
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow
+      - path: /img/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /models/*
+        name: Cache-Control
+        value: public, max-age=604800
