@@ -1047,7 +1047,6 @@ html.pg-lock,html.pg-lock body{overflow:hidden}
           <div><dt>Developer</dt><dd>M/s COT Industries</dd></div>
           <div><dt>Architect</dt><dd>Rachaita Sthapatya &amp; Interior Designer</dd></div>
         </dl>
-        <p class="builder-note"><span class="tbd">Add years in business and past projects</span></p>
       </div>
     </div>
   </section>
@@ -2378,7 +2377,9 @@ function initStory(){
   var PXM=6.6,CX=1000,CY=900;
   function wx(px){return(px-CX)/PXM}function wz(py){return(py-CY)/PXM}
   var GATE={px:1950,py:885};var gateX=wx(GATE.px),gateZ=wz(GATE.py);
-  var BND=SITE.boundary.map(function(p){return[wx(p[0]),wz(p[1])]});
+  /* the bottom compound wall runs straight along the garden, as on the layout plan */
+  var BSRC=[];SITE.boundary.forEach(function(p){if(p[0]>=874&&p[0]<=1895&&p[1]>1480){if(!BSRC.wallDone){BSRC.push([874,1529],[1895,1505]);BSRC.wallDone=1}return}BSRC.push(p)});
+  var BND=BSRC.map(function(p){return[wx(p[0]),wz(p[1])]});
   function inside(x,z){var c=false;for(var i=0,j=BND.length-1;i<BND.length;j=i++){var a=BND[i],b=BND[j];if(((a[1]>z)!==(b[1]>z))&&(x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0]))c=!c}return c}
 
   var skyU={top:{value:new T.Color()},hor:{value:new T.Color()},bot:{value:new T.Color()},sunDir:{value:new T.Vector3(0,1,0)},sunCol:{value:new T.Color('#ffd09a')},sunAmt:{value:0},cloud:{value:1}};
@@ -2608,8 +2609,8 @@ function initStory(){
   var trees=[],tries=0;
   while(trees.length<380&&tries<9000){tries++;var ang=rnd()*Math.PI*2,rad=170+Math.pow(rnd(),.8)*560,tx=gateX*.2+Math.cos(ang)*rad*1.15,tz=Math.sin(ang)*rad;
     if(inside(tx,tz)||Math.abs(tx-wx(2050))<22)continue;trees.push({x:tx,z:tz,s:.8+rnd()*.9,a:-1,y:0,v:rnd()<.85?0:1})}
-  var GSTRIP=[[52,642,103,919],[293,923,403,1653],[911,1314,1852,1465]];
-  var GKEEP=[[1310,1340,1470,1440],[1028,1340,1152,1440],[1665,1355,1735,1425],[1505,1355,1575,1415],[296,1165,400,1295]];
+  var GSTRIP=[[52,642,103,919],[293,923,403,1653],[911,1314,1852,1500]];
+  var GKEEP=[[1310,1355,1470,1462],[1028,1360,1152,1460],[1665,1375,1735,1445],[1505,1370,1575,1430],[296,1165,400,1295]];
   SITE.trees.forEach(function(p){if(!GSTRIP.some(function(r){return p[0]>r[0]-4&&p[0]<r[2]+4&&p[1]>r[1]-4&&p[1]<r[3]+4}))return;if(GKEEP.some(function(r){return p[0]>r[0]&&p[0]<r[2]&&p[1]>r[1]&&p[1]<r[3]}))return;trees.push({x:wx(p[0]),z:wz(p[1]),s:.75+rnd()*.35,a:.81+rnd()*.06,y:.2,v:rnd()<.45?2:(rnd()<.5?0:1)})});
   function leafBlob(g,cx,cy,rx,ry,n,pal,rmin,rmax){
     for(var i=0;i<n;i++){var a=rnd()*Math.PI*2,r=Math.sqrt(rnd()),x=cx+Math.cos(a)*r*rx,y=cy+Math.sin(a)*r*ry,
@@ -2962,10 +2963,10 @@ function initStory(){
     var l=roundRectShape(w-width+.06,d-width+.06,Math.max(.5,r-width/2)),li=roundRectShape(w-width-.06,d-width-.06,Math.max(.5,r-width/2));l.holes.push(li);
     var g2=new T.ExtrudeGeometry(l,{depth:.065,bevelEnabled:false,curveSegments:10});g2.rotateX(-Math.PI/2);GR.add(g2,gM.trackLine,cx,.305,cz)}
   /* --- main garden (bottom common plot) --- */
-  var A0=PX(911,1314),A1=PX(1852,1465),ax=(A0[0]+A1[0])/2,az=(A0[1]+A1[1])/2,aw=A1[0]-A0[0],ad=A1[1]-A0[1];
+  var A0=PX(911,1314),A1=PX(1852,1503),ax=(A0[0]+A1[0])/2,az=(A0[1]+A1[1])/2,aw=A1[0]-A0[0],ad=A1[1]-A0[1];
   trackLoop(ax,az,aw-2.4,ad-2.4,1.8,5);
   /* hedges along the edges */
-  GR.box(gM.hedge,ax,.75,A0[1]+.5,aw-1,.9,.7);GR.box(gM.hedge,ax,.75,A1[1]-.5,aw-1,.9,.7);
+  GR.box(gM.hedge,ax,.75,A0[1]+.5,aw-1,.9,.7);(function(){var a=PX(911,1529-24*37/1021-2.6),b=PX(1852,1529-24*978/1021-2.6);GR.box(gM.hedge,(a[0]+b[0])/2,.75,(a[1]+b[1])/2,Math.hypot(b[0]-a[0],b[1]-a[1]),.9,.7,0,Math.atan2(a[1]-b[1],b[0]-a[0]),0)})();
   /* club house */
   var cx=wx(1390),cz=az;
   GR.box(gM.stone,cx,.45,cz,21,.3,12.5);GR.box(gM.white,cx,2.4,cz-1,17,3.8,8);GR.box(gM.mauve,cx-5.5,2.4,cz-1,6,3.8,8.05);
