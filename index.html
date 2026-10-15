@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#2F3437">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shaligram, Detroj Road, Kadi">
 <meta property="og:description" content="Shaligram, Detroj Road, Kadi: premium 3 and 4 BHK bungalows in four designs, Glory, Prime and Pride. 66 in phase one, 140 planned. GujRERA registered.">
-<meta property="og:image" content="https://shaligram-site.onrender.com/img/aerial-1200.jpg">
+<meta property="og:image" content="https://shaligram-site.onrender.com/img/prime-front-1000.jpg">
 <meta property="og:url" content="https://shaligram-site.onrender.com/">
 <meta name="twitter:card" content="summary_large_image">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -93,9 +93,10 @@ button{font:inherit;color:inherit}
 /* hero */
 main{position:relative;z-index:1}
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:var(--on-dark);padding-block:120px clamp(28px,6vh,56px);background:#1b2433;overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 55%;transform-origin:65% 60%;animation:slowzoom 26s ease-out both}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform-origin:50% 60%;animation:slowzoom 26s ease-out both}
 @keyframes slowzoom{from{transform:scale(1.12)}to{transform:scale(1)}}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(10,13,18,.9) 0%,rgba(10,13,18,.5) 36%,rgba(10,13,18,0) 62%),linear-gradient(90deg,rgba(10,13,18,.62) 0%,rgba(10,13,18,0) 58%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(10,13,18,.5) 0,rgba(10,13,18,0) 20%),linear-gradient(0deg,rgba(10,13,18,.9) 0%,rgba(10,13,18,.55) 40%,rgba(10,13,18,0) 70%),linear-gradient(90deg,rgba(10,13,18,.66) 0%,rgba(10,13,18,0) 60%)}
+@media (max-width:760px){.hero::before{background:linear-gradient(180deg,rgba(10,13,18,.45) 0,rgba(10,13,18,0) 16%),linear-gradient(0deg,rgba(10,13,18,.94) 0%,rgba(10,13,18,.78) 52%,rgba(10,13,18,.3) 78%,rgba(10,13,18,.1) 100%)}}
 .hero-in{position:relative;z-index:2}
 .hero .eyebrow{color:rgba(242,240,234,.8);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .hero .eyebrow i{width:28px;height:1px;background:var(--brass-lt);display:inline-block}
@@ -146,6 +147,8 @@ html.no-gl #gl{display:none}
 .story{position:relative}
 .panel{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding-block:0 clamp(28px,9vh,96px)}
 .panel:last-child{min-height:135svh}
+.panel.spacer{min-height:140vh;min-height:140svh;align-items:center}
+.done-chip{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);background:rgba(21,25,26,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:12px 16px;border-radius:999px;position:sticky;top:calc(50vh + 120px)}
 .card{width:min(470px,100%);background:rgba(250,250,247,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:clamp(22px,3vw,34px);border-radius:3px;box-shadow:0 24px 60px -30px rgba(10,12,13,.55)}
 .card .kicker{display:flex;justify-content:space-between;gap:12px;font:600 11px/1.3 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .card .script{display:block;font-family:var(--f-script);font-size:clamp(58px,6.6vw,92px);line-height:.9;color:var(--brass-ink);margin:18px 0 0 -4px;font-weight:400}
@@ -343,7 +346,7 @@ html.walk-lock main{z-index:70}
 .bv{position:relative;width:min(440px,100%);margin-inline:auto;aspect-ratio:4/5;perspective:1100px}
 .bv-inner{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateY(-11deg) rotateX(4deg);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .bv-frame{position:absolute;left:0;right:0;bottom:0;top:17%;border-radius:4px;overflow:hidden;background:radial-gradient(120% 85% at 50% 8%,#3A3226 0%,#1D1F1D 55%,#131617 100%);box-shadow:0 50px 90px -40px rgba(10,12,13,.75)}
-.bv-sun{position:absolute;left:50%;top:-6%;width:135%;transform:translateX(-50%);opacity:.55}
+.bv-sun{position:absolute;left:50%;top:4%;width:120%;height:auto;transform:translateX(-50%);opacity:.6}
 .bv-edge{position:absolute;left:14px;right:14px;bottom:14px;top:calc(17% + 14px);border:1px solid rgba(230,190,114,.6);border-radius:3px;transform:translateZ(28px);pointer-events:none}
 .bv-person{position:absolute;bottom:0;left:50%;height:97%;width:auto;max-width:none;transform:translateX(-50%) translateZ(64px);filter:drop-shadow(0 28px 26px rgba(0,0,0,.38))}
 .bv-plate{position:absolute;left:24px;bottom:24px;transform:translateZ(96px);background:var(--brass);color:var(--shila);padding:10px 14px;font:600 12px/1.25 var(--f-body);letter-spacing:.14em;text-transform:uppercase;border-radius:2px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
@@ -457,6 +460,154 @@ html.walk-lock main{z-index:70}
   .hero-img,.cloud,.pulse{animation:none}
   .bv-inner{transition:none}
 }
+/* hero gallery button */
+.btn-gal{padding:8px 18px 8px 8px;gap:14px;border:1px solid rgba(242,240,234,.5);background:rgba(250,248,241,.12);color:var(--on-dark);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn-gal:hover{border-color:var(--brass-lt);background:rgba(250,248,241,.2)}
+.gal-stack{position:relative;width:62px;height:40px;flex:none}
+.gal-stack img{position:absolute;top:0;width:46px;height:34px;object-fit:cover;border:2px solid #FBF8F1;border-radius:3px;box-shadow:0 3px 8px rgba(0,0,0,.35);transition:transform .25s}
+.gal-stack img:nth-child(1){left:0;transform:rotate(-8deg);top:4px}
+.gal-stack img:nth-child(2){left:8px;transform:rotate(-1deg);top:2px}
+.gal-stack img:nth-child(3){left:16px;transform:rotate(7deg);top:4px}
+.btn-gal:hover .gal-stack img:nth-child(1){transform:rotate(-14deg) translateX(-4px)}
+.btn-gal:hover .gal-stack img:nth-child(3){transform:rotate(13deg) translateX(4px)}
+.gal-lbl{display:inline-flex;align-items:center;gap:8px}
+.gal-lbl small{font:500 11px/1 var(--f-body);letter-spacing:.08em;text-transform:none;color:var(--brass-lt);margin-left:2px}
+
+/* gallery overlay */
+html.pg-lock,html.pg-lock body{overflow:hidden}
+.pg{position:fixed;inset:0;z-index:95;background:#101415;color:var(--on-dark);display:flex;flex-direction:column;color-scheme:dark;overscroll-behavior:contain}
+.pg[hidden]{display:none}
+.pg-top{display:flex;align-items:center;gap:18px;padding:calc(14px + env(safe-area-inset-top,0px)) var(--gut) 12px;border-bottom:1px solid var(--line-dark);flex:none}
+.pg-logo{width:104px;height:auto;flex:none}
+.pg-title{display:grid;gap:2px;min-width:0}
+.pg-title h2{font-size:clamp(20px,2.4vw,30px)}
+.pg-title p{font-size:13px;color:rgba(242,240,234,.6)}
+.pg-x{margin-left:auto;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);background:transparent;color:var(--on-dark);font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.pg-x:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
+.pg-tabs{display:flex;gap:8px;padding:12px var(--gut);overflow-x:auto;scrollbar-width:none;flex:none;border-bottom:1px solid var(--line-dark)}
+.pg-tabs::-webkit-scrollbar{display:none}
+.pg-tab{flex:none;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--line-dark);background:transparent;color:rgba(242,240,234,.78);font:600 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.pg-tab i{width:9px;height:9px;border-radius:50%;background:var(--c,#fff);flex:none}
+.pg-tab b{font-weight:600;color:rgba(242,240,234,.5)}
+.pg-tab:hover{border-color:rgba(242,240,234,.4);color:#fff}
+.pg-tab[aria-selected="true"]{background:var(--on-dark);color:var(--shila);border-color:var(--on-dark)}
+.pg-tab[aria-selected="true"] b{color:var(--muted)}
+.pg-body{flex:1;overflow-y:auto;padding:8px var(--gut) calc(40px + env(safe-area-inset-bottom,0px));-webkit-overflow-scrolling:touch}
+.pg-block{padding-top:26px}
+.pg-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.pg-head i{align-self:center;width:28px;height:4px;border-radius:2px;background:var(--c)}
+.pg-head h3{font-size:clamp(16px,1.6vw,20px);letter-spacing:.06em}
+.pg-head span{font-size:13px;color:rgba(242,240,234,.55)}
+.pg-head p{margin-left:auto;font-size:13px;color:rgba(242,240,234,.55);text-align:right}
+.pg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));grid-auto-rows:190px;gap:10px;grid-auto-flow:dense}
+.pg-tile{position:relative;overflow:hidden;border-radius:4px;border:0;padding:0;background:#222a2c;cursor:zoom-in;display:block;text-align:left;color:#fff}
+.pg-tile.big{grid-column:span 2;grid-row:span 2}
+.pg-tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .3s}
+.pg-tile.flat{background:#fff}
+.pg-tile.flat img{object-fit:contain;padding:10px 10px 58px}
+.pg-tile.flat::after{background:linear-gradient(0deg,rgba(14,17,18,.92) 0,rgba(14,17,18,.92) 52px,rgba(14,17,18,0) 53px)}
+.pg-tile:hover img{transform:scale(1.05)}
+.pg-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,10,11,.82) 0%,rgba(8,10,11,0) 52%);pointer-events:none}
+.pg-tile .pg-cap{position:absolute;left:12px;right:12px;bottom:11px;z-index:1;display:grid;gap:6px}
+.pg-badge{justify-self:start;display:inline-flex;align-items:center;gap:6px;font:700 10px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#14191a;background:var(--c);padding:6px 8px 5px;border-radius:2px}
+.pg-cap span{font-size:14px;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.pg-tile.big .pg-cap span{font-size:17px}
+.pg-star{position:absolute;top:10px;right:10px;z-index:1;font:600 10px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;background:rgba(16,20,21,.72);color:var(--brass-lt);padding:6px 8px;border-radius:2px}
+@media (max-width:620px){
+  .pg-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:120px;gap:8px}
+  .pg-tile.big{grid-column:span 2;grid-row:span 2}
+  .pg-cap span{font-size:12.5px}
+  .pg-tile .pg-cap{left:8px;right:8px;bottom:8px;gap:4px}
+  .pg-badge{font-size:9px;padding:5px 6px 4px}
+  .pg-head p{display:none}
+  .pg-logo{width:84px}
+  .pg-title p{display:none}
+  .pg-tile.flat img{padding:6px 6px 46px}
+  .pg-tile.flat::after{background:linear-gradient(0deg,rgba(14,17,18,.92) 0,rgba(14,17,18,.92) 44px,rgba(14,17,18,0) 45px)}
+  .pg-tile.flat .pg-badge{display:none}
+}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:96;background:#0A0C0D;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;color:var(--on-dark)}
+.lb[hidden]{display:none}
+.lb-top{display:flex;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gut) 8px}
+.lb-top .pg-badge{font-size:11px}
+.lb-n{font-size:13px;color:rgba(242,240,234,.6);font-variant-numeric:tabular-nums}
+.lb-stage{position:relative;min-height:0;display:grid;place-items:center;padding:0 var(--gut);touch-action:pan-y}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.5);transition:opacity .2s}
+.lb-stage img.flat{background:#fff}
+.lb-stage img.fade{opacity:.15}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(242,240,234,.3);background:rgba(16,20,21,.6);color:#fff;font-size:24px;cursor:pointer;display:grid;place-items:center}
+.lb-nav:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
+.lb-prev{left:max(10px,calc(var(--gut) - 6px))}.lb-next{right:max(10px,calc(var(--gut) - 6px))}
+.lb-cap{padding:12px var(--gut) 6px;font-size:15px;text-align:center}
+.lb-strip{display:flex;gap:6px;padding:6px var(--gut) calc(14px + env(safe-area-inset-bottom,0px));overflow-x:auto;scrollbar-width:none;justify-content:safe center}
+.lb-strip::-webkit-scrollbar{display:none}
+.lb-strip button{flex:none;width:70px;height:48px;padding:0;border:2px solid transparent;border-radius:3px;overflow:hidden;cursor:pointer;opacity:.5;background:#fff}
+.lb-strip button img{width:100%;height:100%;object-fit:cover}
+.lb-strip button[aria-current="true"]{border-color:var(--brass-lt);opacity:1}
+@media (max-width:620px){.lb-nav{width:42px;height:42px;font-size:20px;top:auto;bottom:8px;transform:none}.lb-stage{padding-bottom:58px}.lb-strip button{width:56px;height:40px}}
+/* NRI section */
+.nri{position:relative;overflow:hidden;background:#0C3550;background:linear-gradient(160deg,#0F4C6E 0%,#0B3047 55%,#0A2232 100%);color:var(--on-dark);padding-block:clamp(80px,12vh,140px);color-scheme:dark}
+.nri-glow{position:absolute;right:-12vw;top:-18vw;width:56vw;height:56vw;border-radius:50%;background:radial-gradient(circle,rgba(230,190,114,.22) 0%,rgba(230,190,114,0) 62%);pointer-events:none}
+.nri .wrap{position:relative}
+.nri .eyebrow{color:var(--brass-lt)}
+.nri-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,5vw,72px);align-items:end}
+.nri h2{font-size:clamp(30px,4.4vw,60px);margin-top:18px}
+.nri h2 em{font-style:normal;color:var(--brass-lt)}
+.nri .guj{font-family:var(--f-guj);font-size:clamp(17px,1.6vw,21px);margin-top:16px;color:rgba(242,240,234,.82)}
+.nri-lede p{color:rgba(242,240,234,.82);font-size:17px;max-width:56ch}
+.nri-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.nri-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(40px,7vh,72px);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+.nri-stats div{display:flex;flex-direction:column-reverse;gap:6px;padding:22px 18px 22px 0}
+.nri-stats div+div{padding-left:22px;border-left:1px solid var(--line-dark)}
+.nri-stats dd{margin:0;font-family:var(--f-display);font-weight:300;font-size:clamp(34px,4vw,56px);line-height:1;color:#fff}
+.nri-stats dd small{font:600 13px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;margin-left:6px;color:var(--brass-lt)}
+.nri-stats dt{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,240,234,.62)}
+.nri-sub{font-size:clamp(18px,2vw,26px);letter-spacing:.05em;margin:clamp(48px,8vh,84px) 0 22px}
+.nri-why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.nri-why li{background:rgba(255,255,255,.05);border:1px solid rgba(242,240,234,.12);border-radius:4px;padding:22px 20px 24px;transition:background .25s,border-color .25s,transform .25s}
+.nri-why li:hover{background:rgba(255,255,255,.08);border-color:rgba(230,190,114,.5);transform:translateY(-2px)}
+.nri-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(230,190,114,.14);color:var(--brass-lt);margin-bottom:16px}
+.nri-ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.nri-why h4{font:600 16px/1.3 var(--f-body);margin:0 0 8px;color:#fff}
+.nri-why p{font-size:14.5px;line-height:1.55;color:rgba(242,240,234,.72)}
+.cmp-scroll{overflow-x:auto;border:1px solid var(--line-dark);border-radius:4px}
+.cmp{width:100%;min-width:620px;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line-dark);vertical-align:top}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp thead th{font:600 12px/1.3 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:rgba(242,240,234,.6);background:rgba(0,0,0,.14)}
+.cmp tbody th{font-weight:600;color:rgba(242,240,234,.7);width:18%}
+.cmp td{color:rgba(242,240,234,.66)}
+.cmp .me{background:rgba(230,190,114,.12);color:#fff;font-weight:600}
+.cmp thead .me{color:var(--brass-lt);background:rgba(230,190,114,.2)}
+.cmp td.me::before{content:"✓";color:var(--brass-lt);margin-right:8px}
+.nri-steps ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;counter-reset:st;border-top:1px solid var(--line-dark)}
+.nri-steps li{counter-increment:st;display:grid;align-content:start;gap:6px;padding:22px 22px 24px 0;border-bottom:1px solid var(--line-dark)}
+.nri-steps li:not(:nth-child(3n+1)){padding-left:22px;border-left:1px solid var(--line-dark)}
+.nri-steps li::before{content:"0" counter(st);font:300 28px/1 var(--f-display);color:var(--brass-lt)}
+.nri-steps b{font-size:16px;color:#fff}
+.nri-steps span{font-size:14.5px;color:rgba(242,240,234,.72)}
+.nri .text-link{color:var(--brass-lt)}
+.nri-note{margin-top:20px;font-size:12.5px;color:rgba(242,240,234,.5);max-width:90ch}
+@media (max-width:1100px){.nri-why{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1020px){
+  .nri-hero{grid-template-columns:minmax(0,1fr)}
+  .nri-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nri-stats div:nth-child(3){padding-left:0;border-left:0}
+  .nri-stats div:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  .nri-steps ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nri-steps li:nth-child(n){padding-left:0;border-left:0}
+  .nri-steps li:nth-child(even){padding-left:22px;border-left:1px solid var(--line-dark)}
+}
+@media (max-width:620px){
+  .nri-why{grid-template-columns:minmax(0,1fr)}
+  .nri-steps ol{grid-template-columns:minmax(0,1fr)}
+  .nri-steps li:nth-child(n){padding-left:0;border-left:0}
+  .nri-stats div{padding:18px 12px 18px 0}
+  .nri-stats div:nth-child(even){padding-left:14px}
+  .nri-lede p{font-size:16px}
+}
 /* assistant */
 .ask-btn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 13px 15px;border:1px solid rgba(242,240,234,.2);border-radius:999px;background:var(--shila);color:var(--on-dark);font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(12,14,15,.3);transition:transform .2s,background .2s}
 .ask-btn:hover{background:var(--shila-2);transform:translateY(-1px)}
@@ -466,7 +617,7 @@ html.walk-lock main{z-index:70}
 .ask[hidden]{display:none}
 .ask:focus{outline:none}
 .ask-head{display:flex;align-items:center;gap:12px;padding:12px 10px 12px 16px;background:var(--shila);color:var(--on-dark)}
-.ask-sun{width:44px;height:32px;flex:none}
+.ask-sun{width:48px;height:32px;flex:none;object-fit:contain;object-position:50% 100%}
 .ask-head b{display:block;font:600 15px/1.25 var(--f-body)}
 .ask-head small{display:block;font-size:12px;line-height:1.3;color:rgba(242,240,234,.72)}
 .ask-x{margin-left:auto;flex:none;width:40px;height:40px;border:0;border-radius:50%;background:transparent;color:var(--on-dark);font-size:26px;line-height:1;cursor:pointer}
@@ -508,31 +659,6 @@ html.walk-lock main{z-index:70}
 </style>
 </head>
 <body>
-<!-- Shaligram logo, redrawn as vector from the brand artwork -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <radialGradient id="sunDisc" cx="50%" cy="72%" r="70%"><stop offset="0" stop-color="#FFE45C"/><stop offset=".55" stop-color="#FDC228"/><stop offset="1" stop-color="#F59A1C"/></radialGradient>
-    <linearGradient id="sunRay" x1="0" y1="-12" x2="0" y2="190" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F29318"/><stop offset="1" stop-color="#FCC536"/></linearGradient>
-    <linearGradient id="leafG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B5D94E"/><stop offset="1" stop-color="#3C9A3A"/></linearGradient>
-    <g id="sunmark">
-      <path fill="url(#sunRay)" d="M408.4 188.0 L345.5 189.4 L400.6 159.1ZM400.4 156.5 L364.1 142.1 L401.5 130.8ZM402.0 128.2 L349.6 93.3 L412.2 100.1ZM413.5 97.8 L392.1 65.2 L429.2 77.4ZM431.0 75.6 L408.2 16.9 L455.5 58.4ZM457.9 57.3 L459.1 18.3 L482.5 49.5ZM485.0 49.1 L500.0 -12.0 L515.0 49.1ZM517.5 49.5 L540.9 18.3 L542.1 57.3ZM544.5 58.4 L591.8 16.9 L569.0 75.6ZM570.8 77.4 L607.9 65.2 L586.5 97.8ZM587.8 100.1 L650.4 93.3 L598.0 128.2ZM598.5 130.8 L635.9 142.1 L599.6 156.5ZM599.4 159.1 L654.5 189.4 L591.6 188.0Z"/>
-      <circle cx="500" cy="148" r="91" fill="url(#sunDisc)"/>
-    </g>
-    <g id="leafL">
-      <path fill="url(#leafG)" d="M0 0 C 14 -34 52 -50 86 -44 C 74 -12 40 12 0 0 Z"/>
-      <path fill="none" stroke="#2C7A2E" stroke-width="2.4" stroke-linecap="round" d="M6 -3 C 30 -16 56 -30 80 -41"/>
-    </g>
-    <g id="logo">
-      <use href="#sunmark"/>
-      <use href="#leafL" transform="translate(196 252) rotate(-100)"/>
-      <use href="#leafL" transform="translate(804 252) scale(-1 1) rotate(-100)"/>
-      <path fill="#1F8A4C" d="M150 262 C 240 296 370 296 452 252 C 372 284 246 284 150 262 Z"/>
-      <path fill="#1F8A4C" d="M850 262 C 760 296 630 296 548 252 C 628 284 754 284 850 262 Z"/>
-      <text x="500" y="232" text-anchor="middle" font-size="124" font-family="Poppins, 'Hanken Grotesk', Arial, sans-serif" font-weight="600" style="font-family:Poppins,'Hanken Grotesk',Arial,sans-serif;font-weight:600;font-style:normal;text-transform:none;letter-spacing:-2px" fill="currentColor">Shaligram</text>
-    </g>
-  </defs>
-</svg>
-
 <div id="stage" class="is-off" aria-hidden="true">
   <canvas id="gl"></canvas>
   <ol class="rail" id="rail">
@@ -540,19 +666,21 @@ html.walk-lock main{z-index:70}
     <li><span>Foundations</span></li>
     <li><span>Structure</span></li>
     <li><span>Finishes</span></li>
-    <li><span>Gardens</span></li>
+    <li><span>Completed</span></li>
   </ol>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Shaligram, back to top"><svg class="logo" viewBox="100 -16 800 312" aria-hidden="true"><use href="#logo"/></svg></a>
+    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#gallery" data-gallery>Gallery</a>
       <a href="#build">Construction</a>
       <a href="#homes">Homes in 3D</a>
       <a href="#layout">Layout</a>
       <a href="#gardens">Amenities</a>
       <a href="#location">Location</a>
+      <a href="#nri">For NRIs</a>
       <a href="#builder">Builder</a>
       <a href="#visit">Visit</a>
     </nav>
@@ -562,15 +690,19 @@ html.walk-lock main{z-index:70}
 
 <main>
   <section class="hero" id="top">
-    <img class="hero-img" src="img/prime-dusk-1000.jpg" srcset="img/prime-dusk-1000.jpg 1000w, img/prime-dusk-2000.jpg 2000w" sizes="100vw" alt="" fetchpriority="high">
+    <img class="hero-img" src="img/prime-front-1000.jpg" srcset="img/prime-front-1000.jpg 1000w, img/prime-front-2000.jpg 2000w" sizes="(max-aspect-ratio:1/1) 220vh, 100vw" alt="" fetchpriority="high">
     <div class="wrap hero-in">
       <p class="eyebrow">Detroj Road, Kadi <i></i> GujRERA registered</p>
-      <h1 class="hero-logo"><span class="sr-only">Shaligram</span><svg class="logo" viewBox="100 -16 800 312" aria-hidden="true"><use href="#logo"/></svg></h1>
+      <h1 class="hero-logo"><span class="sr-only">Shaligram</span><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></h1>
       <p class="guj" lang="gu">શહેરથી નજીક અને સુવિધાઓથી નજીક વૈભવી જીવનનું નવું સરનામું</p>
       <p class="lede">Premium 3 &amp; 4 BHK bungalows in four designs. 66 in this phase, with 140 planned.</p>
       <div class="cta-row">
         <a class="btn btn-brass" href="#visit">Book a site visit</a>
         <a class="btn btn-ghost" href="#homes">Explore the homes in 3D</a>
+        <a class="btn btn-gal" href="#gallery" data-gallery aria-haspopup="dialog">
+          <span class="gal-stack" aria-hidden="true"><img src="img/prime-front-480.jpg" alt=""><img src="img/glory-cars-480.jpg" alt=""><img src="img/gate-480.jpg" alt=""></span>
+          <span class="gal-lbl"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1"/></svg>Gallery<small id="galCount">20 photos</small></span>
+        </a>
       </div>
       <div class="hero-foot">
         <dl class="hero-stats">
@@ -579,7 +711,7 @@ html.walk-lock main{z-index:70}
           <div><dt>Designs</dt><dd>4</dd></div>
           <div class="status"><dt class="sr-only">Status</dt><dd><span class="pulse" aria-hidden="true"></span>Construction in progress</dd></div>
         </dl>
-        <p class="hero-cap">Prime 4 BHK at dusk · architect's render</p>
+        <p class="hero-cap">Prime 4 BHK · architect's render</p>
       </div>
     </div>
   </section>
@@ -619,20 +751,21 @@ html.walk-lock main{z-index:70}
       <div class="kicker"><span>Stage</span><span>02 / 05</span></div>
       <span class="script">foundation</span>
       <h3>Foundations</h3>
-      <p>Each bungalow starts with an earthquake-resistant RCC plinth. The compound wall goes up and the RCC roads are laid.</p>
+      <p>Excavators and backhoes dig the footings, tippers bring in sand and aggregate, and each bungalow starts with an earthquake-resistant RCC plinth. The compound wall goes up and the RCC roads are laid.</p>
     </article></div></div>
     <div class="panel"><div class="wrap"><article class="card">
       <div class="kicker"><span>Stage</span><span>03 / 05</span></div>
       <span class="script">structure</span>
       <h3>Structure</h3>
-      <p>Brick walls and concrete slabs rise floor by floor. The 4 BHK homes go up three floors, the 3 BHK homes two floors and a terrace.</p>
+      <p>Workers raise the brick walls behind bamboo scaffolding while tower cranes and transit mixers pour each concrete slab. The 4 BHK homes go up three floors, the 3 BHK homes two floors and a terrace.</p>
     </article></div></div>
     <div class="panel"><div class="wrap"><article class="card">
       <div class="kicker"><span>Stage</span><span>04 / 05</span></div>
       <span class="script">finishes</span>
       <h3>Finishes</h3>
-      <p>Double-coat plaster, waterproof paint, gold window frames, verandah canopies and street lights. Every row gets its final look.</p>
+      <p>Double-coat plaster, waterproof paint, gold window frames, glass balconies, verandah canopies and street lights. A low wall divides each pair of plots.</p>
     </article></div></div>
+    <div class="panel spacer" aria-hidden="true"><div class="wrap"><p class="done-chip"><span class="pulse"></span>Shaligram, completed · the whole site</p></div></div>
     <div class="panel"><div class="wrap"><article class="card">
       <div class="kicker"><span>Stage</span><span>05 / 05</span></div>
       <span class="script">gardens</span>
@@ -820,11 +953,81 @@ html.walk-lock main{z-index:70}
     </div>
   </section>
 
+  <section class="nri" id="nri" aria-labelledby="nriTitle">
+    <div class="nri-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="nri-hero">
+        <div>
+          <p class="eyebrow">For NRI families · investment</p>
+          <h2 id="nriTitle">Your bungalow back home, <em>not another city flat</em></h2>
+          <p class="guj" lang="gu">વિદેશમાં રહો, વતનમાં પોતાનો બંગલો</p>
+        </div>
+        <div class="nri-lede">
+          <p>For families living abroad, a home in Gujarat is more than an investment. It is where parents live in comfort, where children reconnect with their roots, and where you come back to every visit. Shaligram gives you a full bungalow on its own plot in a gated community, an easy drive from both Ahmedabad and Mehsana.</p>
+          <div class="nri-cta">
+            <a class="btn btn-brass" id="nriWa" href="https://wa.me/919825038288?text=Hello%2C%20I%20am%20an%20NRI%20interested%20in%20a%20bungalow%20at%20Shaligram%2C%20Kadi.%20Please%20share%20details." target="_blank" rel="noopener">WhatsApp us from abroad</a>
+            <a class="btn btn-ghost" href="#homes">Walk through in 3D</a>
+          </div>
+        </div>
+      </div>
+
+      <dl class="nri-stats">
+        <div><dt>to Ahmedabad</dt><dd>~40<small>min</small></dd></div>
+        <div><dt>to Mehsana</dt><dd>~40<small>min</small></dd></div>
+        <div><dt>bedrooms per bungalow</dt><dd>3–4</dd></div>
+        <div><dt>amenities in a gated campus</dt><dd>15</dd></div>
+      </dl>
+
+      <h3 class="nri-sub">Why a Shaligram bungalow is the smarter buy</h3>
+      <ol class="nri-why">
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span><h4>Own the land, not a share of it</h4><p>A city apartment gives you a flat and an undivided share of the land. At Shaligram your bungalow stands on its own plot, with your own front door, your own terrace and the sky above it.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4h16v16zM4 12h16M12 4v16"/></svg></span><h4>Space a city budget cannot buy</h4><p>Three or four bedrooms over two or three floors, a drawing room, kitchen-dining, a private terrace and parking at your door. In Ahmedabad, that much space usually means a much bigger budget.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></span><h4>The city in about 40 minutes</h4><p>Ahmedabad and Mehsana are each about 40 minutes by road, with Ahmedabad's international airport for flights home. In Kadi itself, a school, hospital, bank and the bus station are within about a kilometre.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.1 7.5 9.5 4.3-1.4 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12 2.2 2.2 4.4-4.4"/></svg></span><h4>Safe while you are away</h4><p>A gated campus with an entry and exit gate, 24×7 security with a security cabin, CCTV cameras and street lights. Your home and your parents are looked after when you are overseas.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.6"/><circle cx="16.5" cy="9" r="2.1"/><path d="M3.5 19c.6-3.4 2.3-5 4.5-5s3.9 1.6 4.5 5M13 19c.5-2.6 1.8-3.9 3.5-3.9S19.5 16.4 20 19"/></svg></span><h4>Made for the whole family</h4><p>Two common plots with a club house, garden, open yoga park, children's play area and senior citizen sit-outs. Parents get a calm, green neighbourhood; children get room to play.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 19V11l4-3v11M10 19V6l4 2.5V19M14 19v-7l4-2v9"/></svg></span><h4>A growing North Gujarat town</h4><p>Kadi has its own GIDC industrial estate and sits between two growing cities. Well-built homes in a planned, gated community are what working families here look for.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 12h6M9.5 15.5h6"/></svg></span><h4>Registered and transparent</h4><p>Shaligram is registered with GujRERA (RAA16998), so you can check the project on the government portal from anywhere in the world.</p></li>
+        <li><span class="nri-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10.2A4.8 4.8 0 0 1 12 7.6a4.8 4.8 0 0 1 7 3.2C19 16.6 12 21 12 21z"/></svg></span><h4>Built by a family Kadi knows</h4><p>Developed by COT Industries, led by Rajanikant N Patel. You deal directly with the builder, on WhatsApp or video call, in your time zone.</p></li>
+      </ol>
+
+      <div class="nri-cmp">
+        <h3 class="nri-sub">Shaligram bungalow vs a typical city home</h3>
+        <div class="cmp-scroll" tabindex="0" role="region" aria-label="Comparison table">
+          <table class="cmp">
+            <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col" class="me">Shaligram bungalow</th><th scope="col">City apartment</th><th scope="col">City row house</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Land</th><td class="me">Your own plot</td><td>Undivided share</td><td>Small plot</td></tr>
+              <tr><th scope="row">Home</th><td class="me">3–4 BHK on 2–3 floors</td><td>One floor</td><td>Usually 2 floors, narrow</td></tr>
+              <tr><th scope="row">Private terrace</th><td class="me">Yes, your own</td><td>Shared roof</td><td>Sometimes</td></tr>
+              <tr><th scope="row">Parking</th><td class="me">At your door</td><td>Basement or shared</td><td>Often on the lane</td></tr>
+              <tr><th scope="row">Neighbours</th><td class="me">No one above or below you</td><td>Families above and below</td><td>No one above, tight lanes</td></tr>
+              <tr><th scope="row">Open space</th><td class="me">2 common plots, 15 amenities</td><td>Depends on the society</td><td>Usually very little</td></tr>
+              <tr><th scope="row">Daily life</th><td class="me">Quiet roads, 6 to 9 m wide</td><td>City traffic and lifts</td><td>Busy city lanes</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="nri-steps">
+        <h3 class="nri-sub">Buying from abroad, step by step</h3>
+        <ol>
+          <li><b>Explore online</b><span>Walk through every floor in 3D, see the furnished interior, the floor plans and the <a class="text-link" href="#gallery" data-gallery>full gallery</a>.</span></li>
+          <li><b>Talk to the builder</b><span>WhatsApp or video call Rajanikant Patel at a time that suits your time zone.</span></li>
+          <li><b>Choose your bungalow</b><span>Pick a design and a unit on the layout plan. Family in India can visit the site for you.</span></li>
+          <li><b>Pay through your bank</b><span>NRIs usually pay through an NRE or NRO account or by remittance through normal banking channels. Indian banks also offer home loans to NRIs.</span></li>
+          <li><b>Register the property</b><span>Sign in person on your next visit, or through a registered power of attorney.</span></li>
+          <li><b>Stay updated</b><span>Ask for construction progress photos on WhatsApp until the keys are handed over.</span></li>
+        </ol>
+        <p class="nri-note">General information, not legal or tax advice. NRIs and OCI cardholders can generally buy residential property in India under FEMA rules. Please confirm payment, loan and tax details with your bank or chartered accountant.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="builder" id="builder">
     <div class="wrap builder-grid">
       <div class="bv" id="bv">
         <div class="bv-inner" id="bvInner">
-          <div class="bv-frame"><svg class="bv-sun" viewBox="300 -20 400 290" aria-hidden="true"><use href="#sunmark"/></svg></div>
+          <div class="bv-frame"><img class="bv-sun" src="img/sun.webp" alt="" width="237" height="99"></div>
           <div class="bv-edge"></div>
           <img class="bv-person" src="img/rajanikant-patel.webp" alt="Rajanikant N Patel" loading="lazy">
           <p class="bv-plate">Rajanikant N Patel<small>COT Industries</small></p>
@@ -898,7 +1101,7 @@ html.walk-lock main{z-index:70}
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand" href="#top" aria-label="Shaligram, back to top"><svg class="logo" viewBox="100 -16 800 312" aria-hidden="true"><use href="#logo"/></svg></a>
+    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></a>
     <div class="foot-mid">
       <b>Shaligram, Opp. Kuber Nagar Society, Nr. Prime Restaurant, Detroj Road, Kadi 382715</b>
       <span>Booking: Rajanikant Patel, +91 98250 38288 · cotgroup17@gmail.com</span>
@@ -911,13 +1114,32 @@ html.walk-lock main{z-index:70}
     <p class="foot-note">Images are architect's renders and the 3D models are drawn from the brochure plans. Actual dimensions may vary as per site conditions. The developer and architect reserve the right to change the scheme, design, drawings and price. This website is not a legal document. Subject to Kadi jurisdiction. © 2026 Shaligram</p>
   </div>
 </footer>
+<div class="pg" id="pg" role="dialog" aria-modal="true" aria-labelledby="pgTitle" hidden>
+  <header class="pg-top">
+    <img class="pg-logo" src="img/logo.webp" alt="" width="1000" height="364">
+    <div class="pg-title"><h2 id="pgTitle">Gallery</h2><p id="pgSub">Architect's renders, floor plans and maps from the Shaligram brochure</p></div>
+    <button class="pg-x" id="pgClose" type="button" aria-label="Close the gallery">&times;</button>
+  </header>
+  <div class="pg-tabs" id="pgTabs" role="tablist" aria-label="Photo types"></div>
+  <div class="pg-body" id="pgBody"></div>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lb-top"><span class="pg-badge" id="lbBadge"></span><span class="lb-n" id="lbN"></span><button class="pg-x" id="lbClose" type="button" aria-label="Back to the gallery">&times;</button></div>
+  <div class="lb-stage" id="lbStage">
+    <img id="lbImg" alt="">
+    <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous photo">&#8249;</button>
+    <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+  <div class="lb-strip" id="lbStrip"></div>
+</div>
 <button class="ask-btn" id="askBtn" type="button" aria-expanded="false" aria-controls="ask">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5Z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg>
   <span>Ask<span class="ask-more"> Shaligram</span></span>
 </button>
 <section class="ask" id="ask" role="dialog" aria-labelledby="askTitle" hidden tabindex="-1">
   <header class="ask-head">
-    <svg class="ask-sun" viewBox="300 -20 400 290" aria-hidden="true"><use href="#sunmark"/></svg>
+    <img class="ask-sun" src="img/sun.webp" alt="" width="237" height="99">
     <div><b id="askTitle">Shaligram assistant</b><small>Homes, prices, location and site visits</small></div>
     <button class="ask-x" id="askClose" type="button" aria-label="Close the assistant">&times;</button>
   </header>
@@ -947,7 +1169,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 
 var MODELS={"prime":[{"key":"gf","tex":"models/prime-gf.webp","bbox":[-28.06,0.0,0.05,39.33],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAGJCAAAAACbHRiIAAADqUlEQVR42u3dzXHbMBAGUJijOliJSkgFW0IqUCUugRWkBFeCSnJIJidbsUSAFBbvu3jGGtuj5138kDT8VsbPrZRSm3/XJQdMhySQKWTupJJRM6eXTLl0HcXUTMKSMc6QIUOGDBkyZMiQISNkyJAhQ4YMGTJkyJARMmTIkCFDhgwZMmTICBkyZMiQIUOGDBkyQoYMGTLdc8nwJup678WkMh97aeqRNbP1B1lbVU09spu2s/ujrUC7EXgrc8TcRIYMGTJkyJAhQ4aMkCFDhgwZMmTIkCFDRsiQIUOGDBkyZMiQISNkyJAhQ4YMGTJkyAgZMmTIkCFDhgwZMmSEDBkyZMiQIUOGDBkyQoYMGTJkyJAhQ4YMGSFDZn8ePx84SpniKNwnaybIzEvz9DgTZGal2TE3BZk5aXatZ4LMjDQ718BBZj6a3fumIDMbTYO9dpCZi6bJ9ZkgMxNNo2t6zWlqTSLT4Rrf2TSXV4Uppa5f66yjyPRJvfvSOrHMg26NqcxNnUfgF2++yWXUDBlrYDVDhgyZ7w00QUbNzJ52O8pI9iRW05oJMsaZmYtGzcwg0/Z+wyXV77mqGd1EhgwZMmTI7MxGxr5pYprW40yQSU/Tfm7Kchehx6ydw6bPeibIJKbptQYOMmlp+u2bgkxSmp577SCTkqbv9Zkgk5Cm9zW9IJOOpv914CCTjOaIewdBJhXNMfebgkwiGvcoybyqTJBRM+mLRs2cLxNk1MyD2cjkgNFNDWUqma9g6hw2T/2tyn2addZuMs48nZpialIzZMiQIUOGDBkyZMgIGTKvLbORSQNzjMymmxLBHCEz6B/+L2DOkhn2qIgFzDkyAx8usoA5Q2bo42gellkngelZM4MfYLSAOVpm+COvFjDNZGIOmPL258Pt219w/f8b/ygZ8ugzV9d/dbN9WVKpZK6lT1eNLPOryCl7bTJkyAgZMmTIkCFDhgwZMmSEDBkyZMiQmUfmPYXMW/+7Kj/VjG4iQ0bIkCFDhgwZMmTIkBEyZMiQIUOGDBkyZMgIGTJkyJAhQ4YMGTJkhAyZfTngqdcBH3u9HSRTdVMmmANkRv1PhAsYcxMZMmTIkCFDhsxkufT+AX/XwKuaSbNJ6C5zHbWbjDNkyJAhQ4YMGTJkyAgZMmTIkCFDhgwZMmSEDBkyZMiQIUOGDBkyQoYMGTLHp//zwKua0U1kyAgZMmTI5JQZdaHXfw3849PPvqsZ3USmUQY44OlS0Hw+Cuom48yj+Q17z1l0kcLBNAAAAABJRU5ErkJggg==","slab":[[[[0.03,0.0],[-8.58,0.0],[-8.63,0.59],[-27.44,0.59],[-27.44,25.94],[-28.06,25.97],[-28.06,39.3],[-18.5,39.3],[-18.48,38.58],[-16.28,38.58],[-16.23,38.94],[-0.52,38.97],[-0.49,39.3],[0.03,39.3]]]],"wext":[[[[-0.49,38.99],[-0.49,39.2],[-0.26,39.22],[-0.26,38.99]]],[[[-9.87,31.96],[-9.87,32.53],[-9.77,32.56],[-9.74,32.71],[-8.01,32.71],[-8.01,31.96]]],[[[0.0,31.91],[-2.48,31.96],[-2.48,32.71],[-0.54,32.71],[0.0,32.64]]],[[[-20.0,25.14],[-20.0,25.61],[-19.84,25.63],[-20.0,25.66],[-20.0,28.45],[-18.5,28.45],[-18.48,28.4],[-18.42,28.53],[-18.5,28.55],[-18.5,32.71],[-13.39,32.71],[-13.39,31.96],[-18.14,31.94],[-18.14,31.86],[-18.22,31.83],[-18.14,31.81],[-18.14,28.48],[-17.62,28.45],[-17.62,28.09],[-19.64,28.06],[-19.64,25.14]]],[[[-23.51,18.09],[-23.51,25.94],[-22.53,25.94],[-22.53,25.58],[-22.76,25.56],[-22.76,24.83],[-23.02,24.83],[-23.05,24.91],[-23.13,24.81],[-23.15,22.61],[-23.1,22.56],[-22.64,22.56],[-22.64,22.2],[-22.76,22.17],[-22.76,18.09]]],[[[-23.51,13.82],[-23.51,16.43],[-22.76,16.43],[-22.76,13.82]]],[[[-16.36,5.32],[-16.36,6.05],[-13.15,6.05],[-13.13,6.2],[-12.76,6.2],[-12.76,5.32]]],[[[-23.51,9.3],[-22.76,9.3],[-22.74,6.05],[-19.41,6.05],[-19.38,5.32],[-20.18,5.32],[-20.21,5.48],[-20.23,5.32],[-23.51,5.32]]],[[[-8.6,3.77],[-8.6,5.68],[-8.27,5.68],[-8.24,3.77]]],[[[-7.75,0.03],[-8.6,0.03],[-8.63,1.76],[-8.24,1.76],[-8.27,0.8],[-8.22,0.75],[-7.75,0.75]]]],"wint":[[[[-8.6,38.99],[-8.6,39.22],[-8.4,39.22],[-8.4,38.99]]],[[[-18.24,38.99],[-18.24,39.22],[-18.01,39.22],[-18.01,38.99]]],[[[-17.6,28.09],[-17.6,28.45],[-13.39,28.45],[-13.39,26.07],[-13.75,26.07],[-13.75,27.67],[-14.11,27.7],[-14.13,28.09],[-15.74,28.09],[-15.76,25.58],[-16.12,25.58],[-16.12,28.06]]],[[[-22.61,22.2],[-22.61,22.56],[-20.03,22.56],[-20.0,25.12],[-19.64,25.12],[-19.64,22.2]]],[[[-12.76,6.23],[-13.13,6.23],[-13.13,15.68],[-13.18,15.81],[-13.2,15.71],[-14.11,15.71],[-14.11,16.93],[-13.39,16.93],[-13.36,16.43],[-12.76,16.43]]],[[[-7.73,0.03],[-7.73,0.75],[-4.21,0.75],[-4.19,0.7],[-4.16,0.75],[-2.2,0.78],[-1.06,0.75],[-1.03,0.7],[-0.72,0.8],[-0.72,5.27],[-0.78,5.32],[-5.74,5.32],[-5.74,5.68],[-0.72,5.71],[-0.72,15.61],[-0.65,15.63],[-0.72,15.66],[-0.72,17.65],[-0.8,17.65],[-0.83,17.57],[-1.96,17.57],[-1.99,17.62],[-2.02,17.57],[-7.6,17.57],[-7.62,15.68],[-9.74,15.68],[-9.74,16.07],[-9.48,16.07],[-9.46,15.99],[-9.35,16.07],[-7.98,16.1],[-7.98,16.82],[-7.91,16.95],[-7.98,16.98],[-7.98,17.93],[-0.78,17.93],[-0.72,17.98],[-0.75,31.71],[-0.72,31.89],[0.0,31.89],[0.0,0.03]]]],"gext":[[[[-0.52,32.71],[-0.49,38.97],[-0.26,38.97],[-0.26,32.74],[-0.21,32.71]]],[[[-7.98,31.96],[-7.98,32.71],[-2.51,32.71],[-2.51,31.96]]],[[[-23.51,16.46],[-23.51,18.06],[-22.76,18.06],[-22.76,16.46]]],[[[-8.24,1.78],[-8.63,1.78],[-8.63,3.8],[-8.6,3.75],[-8.24,3.75]]]],"gint":[[[[-0.23,38.99],[-0.23,39.22],[1.06,39.22],[1.06,38.99]]]],"gdoor":[[[[-13.36,31.96],[-13.36,32.71],[-9.77,32.71],[-9.79,32.56],[-9.9,32.53],[-9.9,31.96]]],[[[-23.51,9.33],[-23.51,13.8],[-22.76,13.8],[-22.76,9.33]]],[[[-19.35,5.32],[-19.38,6.05],[-16.38,6.05],[-16.38,5.32]]]],"para":[],"roof":[[[[-8.55,0.08],[-8.58,3.59],[0.08,3.54],[0.08,0.05]]]]},{"key":"ff","tex":"models/prime-ff.webp","bbox":[-24.99,3.36,0.05,34.78],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAE6CAAAAAAaGBDhAAACTUlEQVR42u3c23GDMBAFUMi4DipRJSrBFbiEVOASVAmVUEk+E2MyiR+AxJ79gwGbM3eFzbPvKqp8N6f8Z6EnV+nrpq9ZH13YQkdHR0dHR0dHR0dHb6ROaXn+KHX0Qzb802umR1eobQz1qZYtGeI2/BR4rE9x6Vvb/bhFjF3qEWOXOjo6Ojo6Ojo6Ojo6Ojo6Ojo6+k70Uero6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Av0JHV09Ah1amdTf3nqc3h8lcbo09tX6e3h0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dEPVv1sOkkdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHf31mr+h5LVLEOXvRQapo6OjH5o+hKUPGh49EH2QOjo6etv0HDj1rOED0ktYeuk0PDo6Ojo6Ojo6Ojo6OnqldCeoQtKdpbGbu6vpuHS7ue/JHKjh82wi19vx87cWXFb+vtG/OfRA9FHq6Ogh6Enq6Oh+16WOjo7uL409vIZHR3+0bp5kvkgdHR0dHR39MPRPqaOjo6Ojo6Ojo6Ojo6Ojo9dDX/8ShJvHQtKT1APSK7q34OZK6+rvPyyRU0evruF/1Hlp5vXVb8slbOql2tTPxjo6Ojo6Ojo6Ojo6Ojo6Ojo6Ojo6Onrz9Cx1dHR0dHR0dPS31qmdTX3yvrMkdfTdGn7h+KXETX23F6kb68b6kWuUOjo6Ojo6Ojo6Ojp6hCO3FZ6IujZC3/KQcv1PNtbR0betvc5GfwHFuiw9FppsJAAAAABJRU5ErkJggg==","slab":[[[[-24.99,4.99],[-24.99,16.51],[-23.49,16.54],[-23.49,25.22],[-23.75,25.25],[-23.75,28.76],[-22.71,28.76],[-22.69,28.55],[-20.62,28.58],[-20.62,34.13],[-12.25,34.16],[-12.22,34.75],[-11.47,34.75],[-11.45,34.29],[-7.96,34.29],[-7.93,32.02],[-2.53,32.02],[-2.48,34.26],[-1.71,34.26],[-1.68,32.76],[0.03,32.76],[0.03,3.36],[-10.98,3.36],[-11.01,5.35],[-14.34,5.35],[-14.37,5.27],[-22.69,5.35],[-22.71,4.99]]]],"wext":[[[[-12.4,31.99],[-12.4,32.74],[-12.25,32.79],[-12.25,34.44],[-11.5,34.44],[-11.5,32.76],[-11.42,32.71],[-8.81,32.71],[-8.73,32.76],[-8.73,34.24],[-8.01,34.24],[-8.01,31.99]]],[[[-13.75,22.87],[-14.11,22.87],[-14.11,28.04],[-14.26,28.19],[-14.29,28.11],[-22.71,28.11],[-22.76,28.06],[-22.76,27.75],[-23.75,27.75],[-23.75,28.71],[-22.76,28.71],[-22.74,28.48],[-20.83,28.48],[-20.8,28.4],[-20.78,28.48],[-20.62,28.5],[-13.54,28.48],[-13.54,27.75],[-13.75,27.73]]],[[[-0.72,17.05],[-0.75,20.93],[-0.72,23.15],[-0.67,23.18],[-0.72,23.2],[-0.72,31.96],[-0.88,31.99],[-0.88,32.71],[0.0,32.71],[0.0,17.05]]],[[[-14.11,19.84],[-13.39,19.84],[-13.39,19.64],[-13.51,19.61],[-13.39,19.59],[-13.39,17.91],[-13.33,17.86],[-5.5,17.86],[-5.5,17.05],[-5.87,17.05],[-5.87,17.42],[-5.94,17.49],[-13.28,17.49],[-13.39,17.44],[-13.39,17.05],[-14.11,17.05]]],[[[-24.99,11.6],[-24.99,16.46],[-23.54,16.46],[-23.49,16.51],[-23.49,25.19],[-23.75,25.25],[-23.75,25.97],[-22.76,25.97],[-22.76,19.3],[-22.61,19.22],[-22.61,18.86],[-22.76,18.81],[-22.76,16.1],[-24.65,16.07],[-24.65,12.02],[-24.6,11.96],[-24.11,11.96],[-24.11,11.6]]],[[[-24.99,8.09],[-24.11,8.09],[-24.11,7.73],[-24.6,7.73],[-24.65,7.62],[-24.65,5.45],[-24.6,5.25],[-24.55,5.32],[-23.54,5.32],[-23.44,5.43],[-23.49,5.45],[-23.49,6.23],[-22.76,6.23],[-22.71,6.07],[-19.38,6.07],[-19.38,5.35],[-20.16,5.35],[-20.18,5.48],[-20.21,5.35],[-22.74,5.35],[-22.76,4.99],[-24.99,4.99]]],[[[-2.09,3.36],[-2.09,3.72],[-0.83,3.72],[-0.75,3.64],[-0.72,4.24],[0.0,4.24],[0.0,3.36]]],[[[-7.24,3.36],[-7.24,3.72],[-6.07,3.72],[-5.94,3.59],[-5.87,3.75],[-5.87,4.24],[-5.5,4.24],[-5.5,3.75],[-5.45,3.7],[-4.13,3.72],[-4.13,3.36]]],[[[-9.25,3.36],[-10.98,3.36],[-11.01,5.35],[-14.37,5.35],[-14.37,6.07],[-11.03,6.1],[-10.98,6.23],[-10.62,6.23],[-10.62,3.75],[-9.25,3.72]]]],"wint":[[[[-12.25,34.47],[-12.25,34.73],[-11.5,34.73],[-11.5,34.47]]],[[[-0.9,31.99],[-2.48,31.99],[-2.48,34.24],[-1.76,34.24],[-1.76,32.76],[-1.71,32.71],[-0.9,32.71]]],[[[-14.13,31.24],[-14.11,31.94],[-14.5,31.99],[-14.5,32.74],[-12.43,32.74],[-12.43,31.99],[-13.72,31.99],[-13.75,31.24]]],[[[-13.51,27.75],[-13.51,28.48],[-13.39,28.48],[-13.39,27.75]]],[[[-22.58,18.86],[-22.58,19.22],[-17.13,19.22],[-17.13,18.86]]],[[[-14.11,15.74],[-14.11,17.03],[-13.39,17.03],[-13.39,15.92],[-13.51,15.89],[-13.51,15.74]]],[[[-24.08,11.6],[-24.08,11.96],[-22.76,11.96],[-22.76,11.6]]],[[[-10.98,6.25],[-10.98,12.09],[-10.62,12.09],[-10.62,6.25]]],[[[-23.49,6.25],[-23.49,7.6],[-23.44,7.62],[-23.54,7.73],[-24.08,7.73],[-24.08,8.09],[-23.36,8.09],[-23.33,8.01],[-23.31,8.09],[-22.76,8.09],[-22.76,6.25]]],[[[-0.72,4.26],[-0.72,4.73],[-0.67,4.75],[-0.72,4.78],[-0.75,5.01],[-0.72,8.99],[-0.67,9.02],[-0.72,9.04],[-0.72,11.71],[-2.97,11.73],[-2.97,12.09],[-0.72,12.12],[-0.72,12.53],[-0.67,12.56],[-0.72,12.58],[-0.72,17.03],[0.0,17.03],[0.0,4.26]]],[[[-5.87,4.26],[-5.87,11.71],[-8.11,11.73],[-8.11,12.09],[-5.87,12.12],[-5.87,17.03],[-5.5,17.03],[-5.5,4.26]]]],"gext":[[[[-23.75,25.99],[-23.75,27.73],[-22.76,27.73],[-22.76,25.99]]],[[[-19.35,5.35],[-19.35,6.07],[-14.39,6.07],[-14.39,5.35]]],[[[-24.6,5.27],[-24.6,7.7],[-23.54,7.7],[-23.46,7.62],[-23.51,7.6],[-23.51,5.45],[-23.46,5.43],[-23.54,5.35],[-24.55,5.35]]]],"gint":[[[[-17.11,18.86],[-17.11,19.22],[-14.13,19.22],[-14.13,18.86]]],[[[-10.98,12.12],[-10.98,17.47],[-10.62,17.47],[-10.62,12.12]]]],"gdoor":[],"para":[[[[-11.09,33.9],[-11.09,34.29],[-9.12,34.29],[-9.12,33.9]]],[[[-7.6,31.63],[-7.6,32.02],[-2.87,32.02],[-2.87,31.63]]],[[[-20.62,28.91],[-20.59,34.16],[-12.64,34.16],[-12.64,33.77],[-20.16,33.77],[-20.21,33.72],[-20.21,28.91]]],[[[-24.94,8.5],[-24.94,11.21],[-24.52,11.21],[-24.52,8.5]]],[[[-3.72,3.41],[-3.72,3.82],[-2.48,3.82],[-2.48,3.41]]],[[[-8.84,3.41],[-8.84,3.82],[-7.62,3.82],[-7.62,3.41]]]],"roof":[[[[-12.22,32.76],[-12.17,34.34],[-7.91,34.34],[-7.91,32.76]]],[[[-18.55,30.49],[-18.55,31.65],[-16.3,31.68],[-16.3,30.49]]],[[[-24.94,5.04],[-24.88,11.55],[-23.31,11.55],[-23.31,5.04]]]]},{"key":"sf","tex":"models/prime-sf.webp","bbox":[-23.75,3.36,0.05,34.44],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAO4AAAE3CAAAAACIwyKtAAAChUlEQVR42u3d0W3CMBAA0IAyRyfxCJ3Ak2QEJmECRsgkTNKffrWojYMDPvvdDwIlkp/vHNsBkdP05kh7Tvr4+cH11yH54YmnPrhb4zwNFbi4jQ1d2cXFxcXFxcXFxcXFrRLzsfuXtTHu6fWbsArh5g0uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi5uAzGPQ713yb0PVcz3Dov57lKFi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi9tcLENxl6GyuwxVzMtQY3eZppA/I0vTVPwonOX79SVPrFl2nbWWd4KJCBcXFxcXFxcXFxcXFxc3cCTZxcXFxY0ZDd9WT7KLW1zMW6vmKru4uLi4uLi4uLi4uLi4uLi4uLi4uLi4uLi4XXOvshst5trJzU2Xwfbs5s1H5R6yW9APueOxmyON3fOzrlDaouzm8NqyYs7RtYVjNwfXll6qcmxt8ZU5h9aWT0Q5snbHvJsDa/csM3Jc7a5VVQ6r3beIzFG1O9fMUbVu3uDi4uLi4uLi4uLi4o4S8yK7uLi4uLi4uLi4uLi4uLi4uM1Gq/81t+2BJqmT7K5VD+ummFdjFxcX932RBstuOqZbmi3mFDa7u1q+HtKUudEsbV1WpbrcNHUVc5va9WEr1qrcyxENv1UcD+lpb4BlRqpYbPMlkPb5/J5Daf97G56b6l48G18zp787oNh+Orrht6a60QYQFxcXFxcXFxcXFxcXFxcXFxcXFxcXFxf3Bdy2viI6+Cuxm2LGxcXFxX3nRNTcnPSy7H6Old3jS+TT2MXFxcXFxcXFxcXF7Zn79C7yC3SDMd12gy6FAAAAAElFTkSuQmCC","slab":[[[[-23.49,5.35],[-23.49,25.22],[-23.75,25.27],[-23.75,28.76],[-22.71,28.76],[-22.69,28.53],[-14.21,28.53],[-14.19,31.99],[-14.47,32.02],[-14.47,32.76],[-13.28,32.76],[-13.26,32.89],[-6.43,32.89],[-6.41,34.39],[-3.54,34.39],[-3.51,32.89],[0.03,32.89],[0.03,3.36],[-10.98,3.36],[-11.09,5.35],[-14.34,5.35],[-14.37,5.27]]]],"wext":[[[[-13.39,22.25],[-14.11,22.25],[-14.11,28.04],[-14.19,28.11],[-18.04,28.11],[-18.06,28.17],[-18.09,28.11],[-22.71,28.11],[-22.76,27.75],[-23.05,27.75],[-23.07,27.8],[-23.1,27.75],[-23.49,27.75],[-23.51,27.8],[-23.54,27.75],[-23.75,27.75],[-23.75,28.68],[-22.76,28.68],[-22.74,28.48],[-13.7,28.48],[-13.67,28.4],[-13.64,28.48],[-13.39,28.48]]],[[[0.0,15.66],[-0.72,15.66],[-0.75,16.1],[-13.36,16.1],[-13.39,15.74],[-14.11,15.74],[-14.11,19.22],[-13.39,19.22],[-13.36,16.46],[-11.11,16.46],[-11.09,16.41],[-11.06,16.46],[-10.49,16.46],[-10.47,16.41],[-10.44,16.46],[-9.15,16.46],[-9.12,16.41],[-9.1,16.46],[-5.81,16.46],[-5.79,16.41],[-5.76,16.46],[-5.14,16.46],[-5.12,16.41],[-5.09,16.46],[-0.78,16.46],[-0.75,16.41],[-0.72,16.46],[0.0,16.46]]],[[[-23.49,11.6],[-23.49,25.19],[-23.75,25.25],[-23.75,25.97],[-23.15,25.97],[-23.13,25.92],[-22.76,25.97],[-22.76,19.43],[-22.82,19.41],[-22.69,19.22],[-22.61,19.22],[-22.61,18.86],[-22.76,18.81],[-22.76,11.6]]],[[[-23.49,8.09],[-22.97,8.09],[-22.95,8.01],[-22.76,7.93],[-22.76,6.12],[-22.71,6.07],[-19.46,6.07],[-19.46,5.97],[-19.38,5.94],[-19.38,5.35],[-23.49,5.35]]],[[[-2.09,3.36],[-2.09,3.72],[-0.78,3.72],[-0.75,3.64],[-0.72,4.24],[0.0,4.24],[0.0,3.36]]],[[[-14.37,6.07],[-10.62,6.1],[-10.59,3.7],[-5.89,3.7],[-5.79,3.8],[-5.87,3.82],[-5.87,4.24],[-5.5,4.24],[-5.5,3.75],[-5.45,3.7],[-4.13,3.72],[-4.13,3.36],[-10.98,3.36],[-11.01,5.35],[-14.37,5.35]]]],"wint":[[[[-14.5,32.02],[-14.5,32.71],[-13.39,32.71],[-13.39,31.99]]],[[[-0.59,27.88],[-0.59,28.35],[-0.13,28.35],[-0.13,27.88]]],[[[-22.58,18.86],[-22.58,19.22],[-19.53,19.22],[-19.51,19.1],[-19.48,19.22],[-17.13,19.22],[-17.16,18.86]]],[[[-0.72,4.26],[-0.72,11.68],[-0.78,11.73],[-2.97,11.73],[-2.97,12.09],[-0.72,12.12],[-0.72,15.63],[0.0,15.63],[0.0,4.26]]],[[[-5.87,4.26],[-5.87,12.09],[-5.5,12.09],[-5.5,4.26]]]],"gext":[[[[-22.76,25.99],[-23.05,25.99],[-23.07,25.94],[-23.15,25.99],[-23.75,25.99],[-23.75,27.73],[-23.54,27.73],[-23.51,27.78],[-23.49,27.73],[-23.1,27.73],[-23.07,27.78],[-23.05,27.73],[-22.76,27.73]]],[[[-22.76,7.96],[-22.84,7.96],[-22.97,8.11],[-23.49,8.11],[-23.49,11.58],[-22.76,11.58]]],[[[-19.43,5.97],[-19.43,6.07],[-14.39,6.07],[-14.39,5.35],[-19.35,5.35],[-19.35,5.94]]]],"gint":[[[[-0.1,27.88],[-0.1,28.35],[1.06,28.35],[1.06,27.88]]],[[[-17.13,18.86],[-17.11,19.22],[-14.13,19.22],[-14.13,18.86]]],[[[-5.87,12.12],[-5.87,16.07],[-5.5,16.07],[-5.5,12.12]]]],"gdoor":[[[[-14.11,19.25],[-14.11,22.22],[-13.39,22.22],[-13.39,19.25]]]],"para":[[[[-14.19,28.89],[-14.19,31.6],[-13.77,31.6],[-13.77,28.89]]],[[[0.03,28.76],[-0.36,28.76],[-0.36,32.48],[-3.93,32.51],[-3.95,34.01],[-5.97,34.01],[-5.99,32.51],[-12.82,32.51],[-12.84,32.38],[-12.97,32.38],[-12.97,32.89],[-6.43,32.89],[-6.41,34.39],[-3.54,34.39],[-3.51,32.89],[0.03,32.89]]],[[[-0.36,16.87],[-0.36,27.49],[0.03,27.49],[0.03,16.87]]],[[[-3.72,3.41],[-3.72,3.82],[-2.48,3.82],[-2.48,3.41]]]],"roof":[[[[-8.86,27.18],[-8.86,29.25],[-4.44,29.25],[-4.34,29.15],[-4.34,27.26],[-4.42,27.18]]],[[[0.08,3.41],[-5.84,3.41],[-5.84,5.89],[-5.94,6.02],[-10.34,6.02],[-10.44,5.89],[-10.44,5.4],[-14.29,5.4],[-14.29,6.87],[-15.61,6.9],[-15.63,7.96],[-17.8,7.96],[-17.83,6.9],[-19.25,6.87],[-19.25,5.4],[-23.44,5.4],[-23.44,25.27],[-23.67,25.3],[-23.67,28.58],[-13.2,28.58],[-13.2,22.38],[-13.59,22.27],[-13.59,19.43],[-13.26,19.41],[-13.2,19.28],[-13.18,16.07],[-8.35,16.07],[-8.32,18.79],[-3.72,18.79],[-3.7,16.72],[-3.54,16.64],[-2.2,16.64],[-2.2,12.33],[0.08,12.3]]]]}],"pride":[{"key":"gf","tex":"models/pride-gf.webp","bbox":[-27.63,0.0,0.05,35.67],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARUAAAFlCAAAAADgpyP/AAADJklEQVR42u3d3U3jQBQG0AlyHVNJKnEJVEAJVOASpgJKcAWUMJXwwGqlVRxishNnfs73guQYEo7uveNgO5xCpXm73LQe9uQvoZkch9KSSqBChUobmW7MfbViCdJBXaisVNQKFSpUqAywBLWisqqVp6OYK1SoUKFChQoVKlSoUKEiVKhQoUKFChUqVKhQ6TzTgc+Vb+8St/eLeehayfvwOlLJ+3bKV2to4LmSa3gRpi0VKlSoUKFChYp3hyGEkLY2zoPXSrqyNaVRayXd9VA/Km39kgd10PEosQGVJyRScbxS/bQ9G7b/qnwoEB1EhQoVKlSoUKFChQoVKkKFSucqkcqTWXQQFSpUSmdq5pXmPlXW/eebnmtycK3c+wFn5zD2PR9XNI++uP8ulVdrkJVZqFChQoUKFSpUqFChQoWKUKFChcqj0sb5oO+/ZkcqWzbxZ7Y4pMqts0K5GEtXcyVTeSTLFLBYmR+oslBRK0KFChUqVKhQoUKFChUqVIQKFSpUqFChQoUKFSpUqAgVKlSoUKFChQoVKlSoUBEqVKhQoUKFChUqVKhQoSJUqFChQoUKFSpUqPSZ05+vH7/8vlcqe5N27BOL/8TxOmieqWy6tK6SQi+xBlGhQoUKFSpUqLR40K9WWlWZqVTBooOaVUlUKkDRQVR6UklU1AqVphqoqMqsVnQQFSmtsmOwxAFrZe4DpXQHzTro9yyNlEr5/9Z2/unBPGit5NK1kjqolVvFEK/uE8N7rx20q0PiYB3Uytg4VKUblJIq/aAUmCtroXnx3mkHeXdIhYpQoUKFChUqVKhQoUKFChWhQoUKFSpUqFChQoUKFSpCpQ2VNyqVs+igrUwILrKolS2UqlSqGCzLUlsHLf3Mlb83efz39bb1XMpesINi7AWlbAe1clOU4xUqxXL6vNiUqagVKlSoUKFChQoVKlSoUBEqVKhQoUKFChUqVKhQoSJUqFChQoUKFSpUqFChQkWoUKFChQoVKlSoUKFChYpQoUKFChUqVKhQoUKFChWhQoUKFSpUqFChQoUKFSpChQoVKlSoUKFCpT8VH8e/oQIlhPAFdzRHh7Hmu+kAAAAASUVORK5CYII=","slab":[[[[0.02,0.0],[-12.44,0.0],[-12.51,0.61],[-26.44,0.61],[-26.44,6.32],[-26.91,6.35],[-26.91,26.67],[-27.63,26.7],[-27.63,35.64],[0.02,35.64]]]],"wext":[[[[-14.0,25.71],[-14.0,26.44],[-11.17,26.44],[-11.17,25.69]]],[[[-12.58,21.45],[-12.58,22.18],[-11.38,22.18],[-11.38,21.45]]],[[[-20.26,20.96],[-20.26,22.2],[-13.14,22.18],[-13.14,21.45],[-16.18,21.45],[-16.25,21.38],[-16.63,21.38],[-16.65,21.83],[-19.48,21.83],[-19.51,21.45],[-19.86,21.45],[-19.91,21.41],[-19.88,20.96]]],[[[-20.42,18.06],[-20.42,18.43],[-16.67,18.43],[-16.63,18.48],[-16.63,18.92],[-16.25,18.92],[-16.23,18.43],[-11.78,18.43],[-11.76,18.36],[-11.78,18.06]]],[[[-7.75,11.36],[-7.73,12.18],[-0.73,12.2],[-0.73,25.67],[-0.89,25.69],[-0.89,26.44],[0.0,26.44],[0.0,11.36],[-0.73,11.36],[-0.73,11.73],[-0.77,11.8],[-1.9,11.8],[-1.94,11.9],[-1.99,11.8],[-7.35,11.8],[-7.38,11.36]]],[[[-17.26,8.1],[-17.24,8.92],[-11.52,8.92],[-11.5,11.78],[-12.11,11.8],[-12.11,12.39],[-10.75,12.39],[-10.75,11.36],[-11.24,11.33],[-11.24,8.55],[-16.86,8.55],[-16.89,8.1]]],[[[-19.77,5.41],[-22.76,5.41],[-22.76,8.78],[-22.01,8.78],[-22.01,6.18],[-19.77,6.16]]],[[[-12.41,3.79],[-12.41,3.91],[-12.48,3.93],[-12.48,4.54],[-11.62,4.54],[-11.62,3.79]]],[[[-17.26,6.28],[-16.89,6.28],[-16.86,4.54],[-14.4,4.54],[-14.38,4.47],[-14.36,4.54],[-14.0,4.54],[-14.0,3.79],[-17.26,3.79]]],[[[-12.48,0.05],[-12.48,0.52],[-12.39,0.54],[-12.44,0.56],[-12.44,0.77],[-11.62,0.77],[-11.62,0.05]]]],"wint":[[[[-2.48,25.71],[-2.48,26.44],[-0.91,26.44],[-0.91,25.69]]],[[[-11.15,25.69],[-11.15,26.44],[-10.0,26.44],[-10.0,25.69]]],[[[-13.11,21.45],[-13.11,22.18],[-12.6,22.18],[-12.6,21.45]]],[[[-16.63,18.95],[-16.63,21.36],[-16.28,21.36],[-16.25,18.95]]],[[[-12.11,12.41],[-12.11,12.55],[-10.75,12.53],[-10.75,12.41]]],[[[-22.76,11.83],[-22.76,18.43],[-20.44,18.43],[-20.44,18.06],[-22.01,18.03],[-22.01,11.9],[-22.18,11.8]]],[[[-7.73,10.82],[-7.73,11.33],[-7.38,11.33],[-7.38,10.8]]],[[[-11.22,8.55],[-11.22,11.33],[-10.75,11.33],[-10.75,8.55]]],[[[-17.26,6.3],[-17.26,8.08],[-16.89,8.08],[-16.89,6.3]]],[[[-11.59,3.79],[-11.59,4.54],[-11.12,4.57],[-11.12,5.95],[-11.05,5.95],[-11.03,6.04],[-10.75,6.04],[-10.75,3.79],[-11.01,3.79],[-11.03,3.86],[-11.05,3.79]]],[[[-11.59,0.05],[-11.59,0.77],[-11.03,0.77],[-11.01,0.66],[-10.98,0.77],[-10.75,0.8],[-2.01,0.77],[-1.99,0.7],[-1.92,0.8],[-0.77,0.77],[-0.73,0.82],[-0.73,11.33],[0.0,11.33],[0.0,0.05]]]],"gext":[],"gint":[[[[-7.35,10.8],[-7.35,11.78],[-1.99,11.78],[-1.94,11.87],[-1.9,11.78],[-0.77,11.78],[-0.75,10.8]]],[[[-22.76,8.81],[-22.76,11.8],[-22.18,11.78],[-22.01,11.87],[-22.01,8.81]]]],"gdoor":[[[[-19.86,20.96],[-19.88,21.41],[-19.51,21.43],[-19.48,21.8],[-16.65,21.8],[-16.65,20.96]]]],"para":[],"roof":[]},{"key":"ff","tex":"models/pride-ff.webp","bbox":[-22.79,0.02,0.05,28.52],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOQAAAEdCAAAAAA51pQ0AAACZklEQVR42u3c0Y2bQBAG4CWiDiqhkqnkKrkSqMSVUEkekjtdcsa2ErCXmW/eLEtYn/5ZWNYLQzuy5tZF/WgFChISEhISEhISEhISEhISEhISEhISEhISEhISEhISErImcohDDrtWSHKaSrRrT8qxHalcsyO/x7mma9eeOth1EvJE/SpJSEhISEhISEhIyKsz9KlEkpN2TYJcJQkJCQkJCQkJCQkJCQkJCQm5P/JSIslLiXa9lBiTT1S+ZufZ8GtJe85s/EA+peytg4SEhISEhISEhISEhISEhISEhISEhISEhOwfuUoS8kTItUSSq3Y9rMbWWovW2vKMX5tel2R8QBOfeH7zEiuHty8flsTt+lmRt13zK/+6hEQFZE7lt8lAVEBmVF6Z1kUFZD7l1Ql6VEBmU27cakUFZC7l5k1zVEBmUt5Y/ogKyDzKmwtZUQGZRXlnSTIqIHMo7y4uZ1Def6N9LA+gl66RfyxJ/lc94pw6bdeHK048JjMo/QkLCQkJCQkJCQlZERmSTIJcJAkJCQkJCQkJaYIuSUhISPeT/3h2fdULXsc9D/a5vWCLe8kwJjt97GvnE0+fD/DtfXaNHic+Y2vtiI51nYSEhISEhISEhISEhISEhISEhISEhISE7KHu/ReyFkhyZ+PUX5Jr/nY9grj2hUyT4o0xmcrYhs1vIk+7mgxAQkJCQkJCbtQiyTPN6oxJSEhISEhISEhIyHMgQ5KQkJCQkJCQO9ckSUjIrpDzi5AHbnGZu0lyTBbafsi5wJg8m/HGmDyk3l1CICEhISEhISEhISEhc9SQGfeuXSHPVz8B5VIx/Rx7XOYAAAAASUVORK5CYII=","slab":[[[[-22.76,3.79],[-22.76,22.22],[-20.26,22.25],[-20.26,26.49],[-11.78,26.49],[-11.76,28.1],[-0.77,28.1],[-0.73,28.5],[0.02,28.5],[0.02,0.02],[-13.44,0.02],[-13.47,3.79]]]],"wext":[[[[-20.26,24.71],[-20.26,26.44],[-11.17,26.46],[-11.17,25.69],[-14.0,25.69],[-14.03,26.07],[-19.88,26.07],[-19.88,24.71]]],[[[-19.39,21.45],[-20.26,21.45],[-20.26,23.19],[-19.88,23.19],[-19.91,22.22],[-19.72,22.18],[-19.7,22.08],[-19.53,22.08],[-19.53,21.83],[-19.39,21.8]]],[[[-12.13,17.19],[-12.13,21.43],[-12.58,21.45],[-12.58,21.8],[-12.13,21.83],[-12.13,23.19],[-11.76,23.19],[-11.76,22.2],[-11.38,22.18],[-11.38,21.45],[-11.76,21.43],[-11.76,17.19]]],[[[-22.76,11.92],[-22.76,22.18],[-22.01,22.18],[-22.01,21.45],[-22.34,21.45],[-22.39,21.41],[-22.39,15.11],[-22.34,15.06],[-22.01,15.06],[-22.01,11.94]]],[[[-12.13,11.8],[-12.13,14.17],[-11.76,14.17],[-11.76,13.11],[-11.85,13.09],[-11.76,13.07],[-11.76,12.58],[-11.57,12.53],[-10.77,12.53],[-10.75,12.18],[-8.55,12.18],[-8.52,12.13],[-8.5,12.18],[-5.46,12.2],[-5.13,12.18],[-5.11,12.11],[-5.08,12.18],[-0.77,12.18],[-0.66,12.25],[-0.73,12.27],[-0.73,25.67],[-0.91,25.69],[-0.91,26.46],[-0.75,26.46],[-0.73,28.24],[-0.59,28.27],[-0.59,28.43],[0.0,28.43],[0.0,11.38],[-0.73,11.38],[-0.73,11.71],[-0.8,11.8]]],[[[-15.69,3.82],[-15.69,4.54],[-14.17,4.54],[-14.15,4.4],[-14.12,4.54],[-12.62,4.54],[-12.62,3.79]]],[[[-22.76,8.92],[-21.9,8.92],[-21.9,8.55],[-22.01,8.52],[-22.01,4.57],[-21.97,4.43],[-21.94,4.54],[-20.87,4.54],[-20.84,4.47],[-20.82,4.54],[-17.21,4.54],[-17.21,3.82],[-22.76,3.79]]],[[[-13.49,0.05],[-13.49,0.77],[-12.62,0.77],[-12.62,0.05]]]],"wint":[[[[-2.48,25.69],[-2.48,26.44],[-0.94,26.46],[-0.94,25.69]]],[[[-11.15,25.69],[-11.15,26.46],[-10.0,26.44],[-10.0,25.88],[-10.12,25.85],[-10.12,25.69]]],[[[-19.37,21.45],[-19.37,21.8],[-12.6,21.8],[-12.6,21.45]]],[[[-21.87,8.55],[-21.87,8.92],[-11.76,8.92],[-11.76,8.55]]],[[[-12.6,3.79],[-12.6,4.54],[-12.13,4.57],[-12.13,5.97],[-12.06,5.97],[-12.04,6.04],[-11.76,6.04],[-11.76,3.79],[-12.3,3.79],[-12.32,3.86],[-12.34,3.79]]],[[[-12.6,0.05],[-12.6,0.77],[-10.07,0.8],[-10.0,0.7],[-9.98,0.77],[-0.8,0.8],[-0.77,0.73],[-0.73,0.82],[-0.73,2.18],[-0.59,2.25],[-0.73,2.27],[-0.73,7.52],[-0.61,7.54],[-0.73,7.56],[-0.73,10.0],[-0.63,10.02],[-0.73,10.05],[-0.73,11.36],[0.0,11.36],[0.0,0.05]]]],"gext":[[[[-22.34,15.08],[-22.37,21.41],[-21.99,21.45],[-21.99,22.18],[-20.28,22.18],[-20.28,21.45],[-22.01,21.43],[-22.01,15.08]]],[[[-17.26,3.79],[-17.19,3.82],[-17.19,4.54],[-15.71,4.54],[-15.71,3.82],[-15.64,3.79]]]],"gint":[],"gdoor":[[[[-12.13,14.19],[-12.13,17.17],[-11.76,17.17],[-11.76,14.19]]]],"para":[[[[-11.76,26.89],[-11.76,28.1],[-1.15,28.1],[-1.15,27.7],[-11.31,27.7],[-11.33,26.89]]],[[[-20.21,23.61],[-20.21,24.31],[-19.79,24.31],[-19.79,23.61]]],[[[-22.79,9.34],[-22.79,11.52],[-22.37,11.52],[-22.34,9.34]]],[[[-13.44,1.19],[-13.44,3.4],[-13.02,3.4],[-13.02,1.19]]]],"roof":[[[[-20.23,22.08],[-20.23,26.51],[-11.87,26.51],[-11.9,22.08],[-14.59,22.08],[-14.59,23.47],[-14.66,23.68],[-16.09,23.65],[-16.09,22.08]]],[[[-13.42,0.05],[-13.42,3.86],[-12.27,3.86],[-12.25,0.05]]]]},{"key":"tf","tex":"models/pride-tf.webp","bbox":[-22.62,0.02,0.21,26.49],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOQAAAEJCAAAAAChkdS5AAABhklEQVR42u3XwQ2CQBAF0MVQFpVMCVZiBZZABZRAYd68mBiNKwzM++cF8vJnYRnaJlnanrm0AoGEhISEhISEhISEhISEhISEhISEhISEhISEhISEhIR8ybBoEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISMn/G1tZf7zF/vPK+U5PruuHTrsYVEhISEhISEhISEhIS8pmogJyNKyQkJCQkJCQkpAN6oibDuEIeBzlr0ovnQE2GcYWEhISEhISEhIRMhIwSTUaJcY0SezIqIBMre75dowIyrbLvdzIqIJMqe594ogIypbL/2TUqIBMq/YVAHmhe/9JkGFdISMg3Gb+9YOq2KC1yOn+TU4E9eVRju9zOb2zDZk9afEIgISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhIU+eB46JEmqb7tyzAAAAAElFTkSuQmCC","slab":[[[[-22.62,3.7],[-22.6,22.22],[-12.08,22.22],[-12.06,26.46],[0.19,26.46],[0.19,0.02],[-12.44,0.02],[-12.46,3.7]]]],"wext":[[[[-14.99,14.31],[-22.6,14.31],[-22.6,22.18],[-21.85,22.18],[-21.85,21.45],[-22.18,21.45],[-22.22,21.41],[-22.22,15.11],[-22.18,15.06],[-14.99,15.04],[-14.99,14.78],[-15.04,14.75],[-14.96,14.73]]],[[[-11.22,14.15],[-11.97,14.15],[-11.94,21.41],[-11.99,21.45],[-20.09,21.45],[-20.09,22.18],[-11.22,22.18]]]],"wint":[[[[-11.94,11.8],[-11.97,14.12],[-11.22,14.12],[-11.22,11.8]]]],"gext":[[[[-21.83,21.45],[-21.83,22.18],[-20.12,22.18],[-20.12,21.45]]]],"gint":[],"gdoor":[[[[-15.08,15.06],[-11.99,15.06],[-11.99,14.31],[-14.96,14.31],[-14.94,14.73],[-15.01,14.75],[-14.96,14.78],[-14.96,15.04]]]],"para":[[[[-22.62,3.7],[-22.62,13.91],[-22.2,13.91],[-22.18,4.12],[-12.01,4.12],[-11.99,0.44],[-0.23,0.44],[-0.21,26.04],[-11.62,26.07],[-11.64,22.6],[-12.06,22.6],[-12.06,26.46],[0.19,26.46],[0.19,0.02],[-12.44,0.02],[-12.46,3.7]]]],"roof":[[[[-22.58,14.31],[-22.58,22.25],[-15.43,22.25],[-15.43,19.46],[-14.52,19.44],[-14.5,18.36],[-12.9,18.36],[-12.81,19.67],[-11.1,19.67],[-11.1,14.47],[-14.85,14.47],[-14.87,14.31]]]]}],"glory4":[{"key":"gf","tex":"models/glory4-gf.webp","bbox":[-28.86,0.0,0.03,38.19],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASEAAAF+CAAAAADorvPlAAADUklEQVR42u3dzW3jMBAGUDlQHaxElaiEVOASXIFLUAUuQRVsCaokh90cggTRyhBpDvm+iwEHtoKXmaFl/eQyxMj1h+fWIlt+G4QQIUKE6s64t2CoIQSECBEiRChXVkJVAOkyQoQIESIUfSkLK7SqoVqAggoVBIopVBLIWkaIECFChAgRIoSAECFChAgRIkRICBEiRIgQoaYzltrQ8vuPpyPvlYatvRraASp7kLCHLksdCq1qyFpGiJAQIkSIECFChAgJIUKECBEiRIiQECJEqFmhhZAaqq2Eyh2WHvttnzI1dB7Q1HeXZUiKIXRij8U49+NYpU/TdO9gLfuc1I+6h4E5RIgQIUJCiBAhQoQIESIkhAgRIkTo5CRCaihIxqi/+KaGKgGKKtTgPRvCApnUhAgRIkSod6E7ISFEiFA/QrWeDFvR90MHiJIu02WECBESQoQIESIUJiGPSu/vdGydC217TlvvNXQ+gzlEiBAhQoQIERJChAgRIkSIECEhRIgQIUKECBESQoQIESJEiBAhIUSIECFChAgREkKECBEiRIgQISFEiBAhQoQIERJChAgRIkSIECEhRIgQIUIdCbX/L01ee7fB+egLloBCvxTR+9k+L8nl3+OjyNa+lkA64T3antRbmc6MvJY9STT3I+TzECFCr//8018NzYTaczaH2hSaGxaa1ZAu667N1FB1Quf89Rc11PMcmgkVyNK00KKG2gLKfjRoCa9sLSNEiFDrkzr+aqiGXiy0hC+heDW0DIT66rKZUPu7dXlX+22Yjr+ksr3bMS/Q8aTh1k+XbUMLeQNUusvWvw/T0EpyzaH1yTNdrfb7uRGKBWSvg1BzQjdC0YB0GSFChAgRIkSIEAJChAgRIkSIECEhRIgQIUKECBESQoQIESL0v7kSikekywgR6k6oukFU37XS15rOZbxnFJqevfAlVXbr/Yz3OH+OKHXUZY1c+mItI0Qo+6T+c9KEVUOEhBAhQoQIESJESAgRIkSIECFChIQQIUKECBEiREgIESJEiBAhQoSEECFChAgRIkRICBEiRIgQIUKEhBAhQoQIESJESAgRIkSIECFChIQQIUKECBEiREgIESJEiBAhQoSEECFCBXL5/tSDihoiRKhkPgDV7kQe6vmZIAAAAABJRU5ErkJggg==","slab":[[[[0.0,0.0],[-12.17,0.0],[-12.2,0.58],[-27.65,0.58],[-27.68,8.16],[-28.13,8.18],[-28.13,29.13],[-28.86,29.16],[-28.86,37.79],[-27.05,37.79],[-27.03,38.17],[0.0,38.17]]]],"wext":[[[[-14.65,28.18],[-14.65,28.63],[-14.6,28.66],[-14.65,28.68],[-14.65,28.91],[-10.87,28.91],[-10.87,28.18]]],[[[-12.25,23.41],[-12.25,24.17],[-11.04,24.17],[-11.04,23.44]]],[[[-13.83,23.41],[-16.11,23.44],[-16.16,23.34],[-16.54,23.34],[-16.44,23.39],[-16.59,23.44],[-19.9,23.44],[-19.9,24.17],[-14.71,24.17],[-14.65,24.22],[-14.65,24.67],[-13.93,24.67],[-13.93,24.22],[-13.83,24.17]]],[[[-20.08,20.78],[-19.95,20.78],[-19.9,20.9],[-19.55,20.9],[-19.52,20.4],[-16.56,20.4],[-16.54,20.88],[-16.16,20.88],[-16.14,20.4],[-11.42,20.4],[-11.42,20.05],[-20.08,20.05]]],[[[-7.4,12.77],[-7.38,13.15],[-0.38,13.17],[-0.38,28.16],[-0.55,28.18],[-0.55,28.91],[0.0,28.91],[0.0,12.32],[-0.38,12.32],[-0.38,12.7],[-0.45,12.8]]],[[[-16.66,7.78],[-16.66,8.03],[-15.46,8.01],[-15.41,8.06],[-15.41,12.02],[-11.19,12.02],[-11.14,12.07],[-11.14,12.75],[-11.19,12.8],[-11.77,12.77],[-11.77,13.32],[-10.41,13.32],[-10.41,12.32],[-10.94,12.3],[-10.94,11.19],[-11.14,11.19],[-11.14,11.62],[-11.19,11.67],[-15.01,11.67],[-15.03,7.2],[-15.41,7.2],[-15.43,7.78]]],[[[-13.53,4.27],[-13.53,5.02],[-11.32,5.02],[-11.32,4.27]]],[[[-18.77,8.01],[-18.42,8.03],[-18.42,5.04],[-15.43,5.02],[-15.41,5.09],[-15.03,5.09],[-15.06,4.27],[-18.77,4.27],[-18.8,7.28],[-18.77,7.43],[-18.62,7.45],[-18.77,7.48]]],[[[-12.15,0.03],[-12.15,0.75],[-11.32,0.75],[-11.32,0.03]]]],"wint":[[[[-2.13,28.18],[-2.13,28.91],[-0.58,28.91],[-0.58,28.18]]],[[[-10.84,28.18],[-10.84,28.91],[-9.66,28.91],[-9.66,28.18]]],[[[-13.8,23.41],[-13.8,24.17],[-12.27,24.17],[-12.27,23.41]]],[[[-16.54,20.9],[-16.54,23.31],[-16.16,23.31],[-16.16,20.9]]],[[[-22.91,16.29],[-22.91,20.78],[-20.1,20.78],[-20.1,20.05],[-22.13,20.05],[-22.18,20.0],[-22.18,16.29]]],[[[-11.77,13.35],[-11.77,13.53],[-10.41,13.53],[-10.41,13.35]]],[[[-11.07,10.29],[-11.14,10.34],[-11.14,11.17],[-10.92,11.19],[-10.92,12.3],[-10.41,12.3],[-10.41,10.29]]],[[[-21.56,7.28],[-22.91,7.28],[-22.91,13.27],[-22.38,13.27],[-22.36,13.2],[-22.18,13.17],[-22.18,11.04],[-22.51,11.04],[-22.56,10.99],[-22.56,8.06],[-21.56,8.01]]],[[[-15.41,5.12],[-15.41,7.18],[-15.03,7.18],[-15.03,5.12]]],[[[-11.29,4.27],[-11.29,5.02],[-10.82,5.02],[-10.77,5.09],[-10.77,7.75],[-10.41,7.75],[-10.41,4.29]]],[[[-11.29,0.03],[-11.29,0.75],[-0.43,0.75],[-0.38,0.8],[-0.38,12.3],[0.0,12.3],[0.0,0.03]]]],"gext":[],"gint":[[[[-22.18,13.2],[-22.36,13.22],[-22.38,13.3],[-22.91,13.3],[-22.91,16.26],[-22.18,16.26]]],[[[-21.53,7.28],[-21.53,8.01],[-21.58,8.03],[-18.67,8.03],[-18.8,8.01],[-18.8,7.48],[-18.64,7.45],[-18.77,7.45],[-18.82,7.28]]]],"gdoor":[[[[-19.52,20.43],[-19.52,20.9],[-16.56,20.9],[-16.56,20.43]]]],"para":[],"roof":[]},{"key":"ff","tex":"models/glory4-ff.webp","bbox":[-23.29,0.0,0.05,30.97],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAE2CAAAAAChQ+pxAAACwElEQVR42u3d23XiMBAAULPr/+1AlVCJKkklW4IroRJ1kA7ytTkk4eFswJJn7vwB5sBlRrIkjDhM28Vx6hm/pixBSkpKShpbepJTUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlLSJ8Rh9ZH1B6/S0uS05KneAajztBm15ZC+57UFr94B6tj5lJSUlJSUlJSUlJSUlJSUNIa05MlpJ+rv1Ue+Puwd/nkdPKcn7ZR0rDh8p/U9auuJJqekpKSkpKSkpKSkpKSkpKSkpCuipJF2WTGbkzi/uQq628rVI5GSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpLuX1rSSJvqjSfNs+dVN2qH6m3aaThpkdNo0kS/EyclJSUlJSUlJR0m5vdt7pc0Oa15qrfmaac1jTQ29WPfW9NII1M/n09rGmlc6tcxUk0jjUq9NO6taaQxqZfnMjWNNCL12vy0ppHGo15fc6hppNGot9aRas0ijZXWO2uDgaj39ug4oy6hcxoov9bwL8Qip6SkpKSkpKSkpOYykXJa81Rv1U7DSZcs0iVLTq05kJKSkpKSkpKan5qfXn/SIJdLHF7++6nL+k/n/NCyP+n9D+BrMpfa7S+sH9/31lvFXnfSTtc2zCE7sKecT+uIPfVz/klnxPORMRIpKSkpKSkpKemWcZTTcNKTnJKSkpKSkpKSkpKS/jjWfS9ztll/+bxx/787ysod/UsbV9qu3ji/o+09p48HdErqvLWzW/LnAd/T9n1vKOh0uP1wDVO8Rg6kpKS7G/c+dIjUqfvtktOSp3pLnnZa0kg7ULv1vSWNNE9OWxZpy5LTlqV6W5Z2mmc0aC5DSkpKSkpKSkpKSkpKSkpKSkpKSkpKejc2v3blmER6zFK9xyzttCf03vW9T4m/+l5SUlJSUlJSUlJSUlLSAeanfWbDqpd0v/EGaFNCCHOV1Z0AAAAASUVORK5CYII=","slab":[[[[-12.52,0.0],[-12.52,4.27],[-19.15,4.27],[-19.17,7.28],[-23.29,7.25],[-23.29,24.19],[-20.28,24.19],[-20.28,28.93],[-11.79,28.93],[-11.77,30.56],[-0.78,30.56],[-0.75,30.94],[0.03,30.94],[0.03,0.0]]]],"wext":[[[[-20.25,26.93],[-20.25,28.91],[-11.72,28.91],[-11.69,28.78],[-11.67,28.93],[-11.22,28.93],[-11.22,28.18],[-15.01,28.18],[-15.03,28.56],[-18.57,28.56],[-18.59,28.61],[-18.67,28.56],[-19.37,28.56],[-19.4,28.61],[-19.42,28.56],[-19.87,28.56],[-19.9,26.93]]],[[[-19.42,23.41],[-20.25,23.44],[-20.25,25.4],[-19.9,25.4],[-19.9,24.19],[-19.52,24.17],[-19.52,23.81],[-19.42,23.79]]],[[[-12.12,18.17],[-12.12,22.01],[-12.07,22.03],[-12.12,22.18],[-12.12,23.39],[-12.17,23.44],[-12.6,23.41],[-12.6,23.79],[-12.12,23.81],[-12.12,25.65],[-11.77,25.67],[-11.77,24.19],[-11.39,24.17],[-11.39,23.44],[-11.72,23.44],[-11.77,23.39],[-11.77,18.17]]],[[[-12.12,12.8],[-12.12,15.13],[-11.77,15.13],[-11.77,13.58],[-11.72,13.53],[-10.77,13.53],[-10.77,13.3],[-10.87,13.27],[-10.77,13.25],[-10.72,13.15],[-0.78,13.15],[-0.65,13.2],[-0.73,13.22],[-0.73,28.13],[-0.93,28.18],[-0.93,28.93],[-0.75,28.96],[-0.73,30.92],[0.0,30.92],[0.0,12.32],[-0.73,12.32],[-0.73,12.7],[-0.65,12.72],[-0.8,12.8],[-1.83,12.77],[-1.98,12.85],[-2.01,12.77]]],[[[-23.26,7.28],[-23.26,24.17],[-22.53,24.17],[-22.53,23.41],[-22.84,23.41],[-22.91,23.34],[-22.89,17.09],[-22.81,16.96],[-22.79,17.04],[-22.53,17.04],[-22.53,7.28]]],[[[-14.33,4.29],[-14.33,5.02],[-12.15,5.02],[-12.12,5.12],[-11.77,5.12],[-11.77,4.29]]],[[[-15.86,4.29],[-19.12,4.29],[-19.12,7.43],[-19.07,7.45],[-19.12,7.48],[-19.12,8.11],[-18.77,8.11],[-18.77,5.04],[-15.86,5.02]]],[[[-12.5,0.03],[-12.5,0.75],[-11.67,0.75],[-11.67,0.03]]]],"wint":[[[[-2.41,28.18],[-2.41,28.36],[-2.48,28.38],[-2.48,28.93],[-0.95,28.93],[-0.95,28.18]]],[[[-11.19,28.18],[-11.19,28.93],[-10.01,28.93],[-10.01,28.18]]],[[[-19.4,23.41],[-19.4,23.79],[-12.62,23.79],[-12.62,23.41],[-18.44,23.44],[-18.47,23.59],[-18.49,23.41]]],[[[-19.12,8.13],[-19.12,9.76],[-11.77,9.76],[-11.77,9.41],[-18.75,9.41],[-18.77,8.13]]],[[[-12.12,5.14],[-12.12,6.88],[-11.77,6.88],[-11.77,5.14]]],[[[-11.64,0.03],[-11.64,0.75],[-0.78,0.75],[-0.73,0.8],[-0.73,10.84],[-0.65,10.87],[-0.73,10.89],[-0.73,12.3],[0.0,12.3],[0.0,0.03]]]],"gext":[[[[-22.81,16.99],[-22.86,17.09],[-22.89,23.34],[-22.51,23.41],[-22.51,24.17],[-20.28,24.17],[-20.28,23.44],[-19.8,23.41],[-22.53,23.39],[-22.53,17.06],[-22.79,17.06]]]],"gint":[],"gdoor":[[[[-12.12,15.16],[-12.12,18.14],[-11.77,18.14],[-11.77,15.16]]]],"para":[[[[-11.77,29.34],[-11.77,30.56],[-1.15,30.56],[-1.15,30.16],[-11.34,30.16],[-11.37,29.34]]],[[[-20.25,25.8],[-20.25,26.52],[-19.85,26.52],[-19.85,25.8]]],[[[-22.13,7.28],[-22.13,7.68],[-19.52,7.68],[-19.52,7.28]]],[[[-15.46,4.29],[-15.46,4.69],[-14.73,4.69],[-14.73,4.29]]],[[[-12.5,1.15],[-12.5,3.89],[-12.1,3.89],[-12.1,1.15]]]],"roof":[]},{"key":"sf","tex":"models/glory4-sf.webp","bbox":[-23.29,0.0,0.05,31.02],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAE2CAAAAAChQ+pxAAACUElEQVR42u3dYW3DMBAG0GQaDiMpEkMYgkIIgkEogkIYEiMZgqndlthuvne/ozpPd2fHqpuuS7e4L0PjbUkJUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlLSvWJ99sK7nJKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpI+E+tdTklJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUnHx/vAsbdO41yXZRn6u7at31DXQdKt/5DXIX26jamflBlpG1C92yCr9ZSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSU9G/R+5zDRxkn/frvR9x+dXUbRX376j1iy+nTFiM1955PWlKkJSWnRZ+SkpKSkpKSRkhrTk5rTvXWGOktRXpLqd7XgFplSElJSQOkJUbacqq36VP7U/tT+9OfYp8THfUF9jQ7zkg1RuoZiZSUlJSUlJSUlJSUlHQKac3Jac2p3prTpzVGOjF197m3xkinpR6wntYY6aTUQ56Raox0SupBz701Rjoh1V7mfPHUN8V/OW9y2fXTOuV051src+a0hVTvIc4Zq/c8CX0gPRV0Wbs/AAS9o4OUlJR0GmnJyWkpOdVbcvq0xEhHUEfNvSVGaj09n7SlSFtKTltK9bakPiUlJSUlJSUlJSUlJSUlJSUlJX0UTU7PJvVPOqQ7xfsE97Dvkb2fXr3V+9zgJSSnl5Q+HQl9VL2HxKe5l5SUlJSUlJSUlJSUlDRWup5e+Kl6SV8+vgHJ/i97msKVnQAAAABJRU5ErkJggg==","slab":[[[[-12.62,0.0],[-12.65,4.17],[-19.25,4.17],[-19.27,7.15],[-23.29,7.15],[-23.29,24.19],[-20.28,24.19],[-20.28,28.93],[-11.79,28.93],[-11.77,30.56],[-0.78,30.56],[-0.75,30.99],[0.03,30.99],[0.03,0.0]]]],"wext":[[[[-20.25,26.93],[-20.25,28.91],[-11.89,28.91],[-11.87,28.86],[-11.74,28.93],[-11.22,28.93],[-11.22,28.18],[-15.01,28.18],[-15.03,28.56],[-19.85,28.56],[-19.9,28.51],[-19.9,26.93]]],[[[-19.42,23.41],[-20.25,23.41],[-20.25,25.4],[-19.9,25.4],[-19.9,24.19],[-19.52,24.17],[-19.52,23.81],[-19.42,23.79]]],[[[-12.12,20.05],[-12.12,23.39],[-12.6,23.41],[-12.6,23.79],[-12.12,23.81],[-12.12,25.67],[-11.77,25.67],[-11.77,24.22],[-11.72,24.17],[-11.39,24.17],[-11.39,23.44],[-11.72,23.44],[-11.77,23.39],[-11.77,20.05]]],[[[-23.26,24.17],[-22.53,24.17],[-22.53,23.44],[-22.81,23.44],[-22.89,23.36],[-22.89,17.09],[-22.84,16.94],[-22.81,17.04],[-15.13,17.04],[-15.18,16.29],[-23.26,16.29]]],[[[-12.12,16.11],[-12.12,16.94],[-11.74,16.99],[-11.74,16.11]]],[[[-0.9,12.8],[-0.9,13.15],[-0.73,13.17],[-0.73,28.16],[-0.93,28.18],[-0.93,28.93],[-0.73,28.96],[-0.73,30.92],[0.0,30.92],[0.0,12.8]]]],"wint":[[[[-2.48,28.18],[-2.48,28.93],[-0.95,28.93],[-0.95,28.18]]],[[[-11.19,28.18],[-11.19,28.93],[-10.01,28.93],[-10.01,28.18]]],[[[-19.4,23.41],[-19.4,23.79],[-12.62,23.79],[-12.62,23.41],[-19.07,23.44],[-19.1,23.59],[-19.12,23.44]]],[[[-12.12,16.09],[-11.74,16.09],[-11.77,13.58],[-11.72,13.53],[-10.77,13.53],[-10.72,13.15],[-0.93,13.15],[-0.93,12.8],[-12.12,12.8]]]],"gext":[[[[-22.81,23.41],[-22.51,23.44],[-22.51,24.17],[-20.28,24.17],[-20.28,23.41]]]],"gint":[],"gdoor":[[[[-15.16,16.29],[-15.11,17.04],[-15.08,16.99],[-11.97,16.99],[-12.15,16.94],[-12.15,16.29]]]],"para":[[[[-11.77,29.34],[-11.77,30.56],[-1.15,30.56],[-1.15,30.16],[-11.34,30.16],[-11.37,29.34]]],[[[-20.25,25.8],[-20.25,26.52],[-19.85,26.52],[-19.85,25.8]]],[[[0.03,0.0],[-12.62,0.0],[-12.65,4.17],[-19.25,4.17],[-19.27,7.15],[-23.29,7.15],[-23.29,15.88],[-22.89,15.88],[-22.89,7.58],[-18.85,7.55],[-18.82,4.57],[-12.22,4.57],[-12.2,0.4],[-0.4,0.4],[-0.38,12.4],[0.03,12.4]]]],"roof":[[[[-23.29,16.24],[-23.29,24.17],[-20.28,24.19],[-20.28,28.93],[0.03,28.96],[0.03,15.13],[-12.22,15.13],[-12.25,16.41],[-15.03,16.41],[-15.06,16.24]]]]}],"glory3":[{"key":"gf","tex":"models/glory3-gf.webp","bbox":[-29.18,0.0,0.05,38.19],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASQAAAF+CAAAAAAOhzihAAADgklEQVR42u3c27GiQBQFUKSIoyMxEkIwAkMwAkIgAkMgggmBSObnWvMetYWmH2v/WHW9vpbnHBsBT10Zuf7lb0uqB+87gQQJEqQN5na6DPk8FZUECZJAqhxpgZSRkXaDBAkSJEiQmlwBFIu0qKS8jApFSmtUJlJiI59ukCBBggQJEiSBBAkSJEiQIAkkSJAgQYIECZI8y5Dqgeb/X31+577CWmclPTF6c39j0G5mEiRIkAQSJEiQIEGCJJAgQYIECRIkgQQJEiRIpWXLPbj/2gE5qqSnRt38fAduG5U0R18ZlbRHA/QJjFqfSYfhJC2lYj/dQjFIdXeZdVI00iuHm/30P+dzI0iPwX2PUbJZIpAgQYIECRIkSAIJEiRIkCBBEkiQIP2eACmrDKU+cXtw8zIqFSntT0z0jAxuSJAgQYL0SyZIsg3SBEkg1Y20toq0LPm+KRl9n/S6UtBu2s3ghgRJIEGCBCk2FpM2S8pclA/FCoR02y2DWjGTskCaIAmkZEgTJIEECRIkSJAgQRJIkCBBggQJkkCCBAkSpKaRLpBkC6QLJIEECRIkSJAgQRJIkCBBggQJkkCCBAkSJEiQBBIkSJAgQYIESSBBggQJEiRIAgkSpANy+rq8x97BJ6cEjO/eYD4G6ePfmZzi/cZmKumDdz5sfYfZVtIHWUNMgx7gVN7gHhtDWgt5Xwr8geD0LdfX1hpmEiRIkCAJJEhNI41VIe30aua6KmnUbmZSiY1RJFIVRnt+VTJrNzMp88yQ8utj7QYJUg1LgHpWFj2jQ5HGWozMJEiQ6kAaa0Ha9yCuNeomc1PtFnNoTQhzU+221tJuPaMDNkuWr8tzPUb7VdISe8ObdVKJRhaTRyAtkFSSkVQI0k0laTdIL+cMSSUJJEiQbLupJEiQBBIk224qyToJkkqCJJAgQbKYVEmQIFlxqyRIkCD9yBWSSqp3MTmppOdG2bVbdkNpmjI8m/t6e+c9fuSyVxF1XbfD+W7LYzbFnVsScmy4HU8KXGsx2rPd8nzB1kmQIGWd07dNBq5KgoQAEiRIkCBBgiSQIEGCBAkSJIEECRIkSJAgQRJIkCBBggQJkkCCBAkSJEiQBBIkSJAgQYIESSBBggQJEiRIAgkSJEiQIEESSJAgQYIECRIkgQQJEiRIkCAJJEiQIEGCBAmSQIKUJKc//3SnopIgQToq3wGGoFU3vz59mgAAAABJRU5ErkJggg==","slab":[[[[0.03,0.0],[-12.5,0.0],[-12.55,0.58],[-28.01,0.58],[-28.01,8.16],[-28.48,8.18],[-28.48,29.13],[-29.18,29.16],[-29.18,37.79],[-27.38,37.79],[-27.35,38.17],[0.03,38.17]]]],"wext":[[[[-15.01,28.18],[-15.01,28.68],[-14.93,28.76],[-14.93,28.91],[-11.22,28.91],[-11.22,28.18]]],[[[-12.6,23.41],[-12.6,24.17],[-11.39,24.17],[-11.39,23.44]]],[[[-14.18,23.41],[-15.88,23.44],[-15.91,23.59],[-15.93,23.41],[-16.49,23.41],[-16.51,23.34],[-16.86,23.34],[-16.94,23.44],[-20.25,23.44],[-20.25,24.17],[-15.03,24.17],[-15.01,24.67],[-14.25,24.67],[-14.25,24.19],[-14.18,24.17]]],[[[-20.43,20.78],[-20.28,20.78],[-20.18,20.9],[-19.9,20.9],[-19.9,20.45],[-19.85,20.4],[-16.91,20.4],[-16.86,20.45],[-16.86,20.88],[-16.51,20.88],[-16.51,20.45],[-16.46,20.4],[-15.16,20.4],[-15.13,20.35],[-15.11,20.4],[-11.77,20.4],[-11.77,20.05],[-20.43,20.05]]],[[[-7.73,12.77],[-7.73,13.15],[-0.73,13.17],[-0.73,28.16],[-0.9,28.18],[-0.9,28.91],[0.0,28.91],[0.0,12.32],[-0.73,12.32],[-0.73,12.7],[-0.8,12.8],[-1.88,12.77],[-1.91,12.85],[-1.98,12.77]]],[[[-16.99,7.78],[-16.99,8.01],[-15.78,8.01],[-15.73,8.06],[-15.73,12.02],[-14.4,12.02],[-14.38,11.97],[-14.35,12.02],[-11.52,12.02],[-11.49,12.87],[-11.54,12.87],[-11.54,12.77],[-12.12,12.8],[-12.12,13.32],[-10.74,13.32],[-10.74,12.32],[-11.29,12.3],[-11.29,11.19],[-11.49,11.19],[-11.52,11.67],[-15.36,11.67],[-15.38,7.2],[-15.73,7.2],[-15.73,7.73],[-15.78,7.78]]],[[[-13.85,4.27],[-13.85,5.02],[-11.64,5.02],[-11.64,4.27]]],[[[-19.12,8.01],[-18.77,8.01],[-18.77,5.04],[-15.76,5.02],[-15.76,5.09],[-15.38,5.07],[-15.38,4.27],[-19.12,4.27]]],[[[-12.47,0.03],[-12.47,0.75],[-11.64,0.75],[-11.64,0.03]]]],"wint":[[[[-2.48,28.18],[-2.48,28.91],[-0.93,28.91],[-0.93,28.18]]],[[[-11.19,28.18],[-11.19,28.91],[-10.01,28.91],[-10.01,28.18]]],[[[-14.15,23.41],[-14.15,24.17],[-12.62,24.17],[-12.62,23.41],[-12.9,23.44],[-12.92,23.59],[-12.95,23.41]]],[[[-16.86,20.9],[-16.86,23.31],[-16.51,23.31],[-16.51,20.9]]],[[[-23.26,16.29],[-23.26,20.78],[-20.45,20.78],[-20.45,20.05],[-22.51,20.03],[-22.51,16.36],[-22.71,16.36],[-22.74,16.29]]],[[[-12.12,13.35],[-12.12,13.53],[-10.74,13.53],[-10.74,13.35]]],[[[-11.49,10.29],[-11.49,11.17],[-11.27,11.19],[-11.27,12.3],[-10.74,12.3],[-10.74,10.29]]],[[[-23.26,7.28],[-23.26,13.27],[-22.51,13.27],[-22.51,11.04],[-22.89,11.02],[-22.89,8.06],[-21.88,8.03],[-21.88,7.75],[-21.96,7.73],[-21.88,7.7],[-21.88,7.28]]],[[[-15.76,5.12],[-15.73,7.18],[-15.38,7.18],[-15.38,5.75],[-15.51,5.72],[-15.38,5.7],[-15.38,5.12]]],[[[-11.62,4.27],[-11.62,5.02],[-11.12,5.04],[-11.12,7.75],[-10.74,7.75],[-10.74,4.29]]],[[[-11.62,0.03],[-11.62,0.75],[-0.73,0.78],[-0.73,12.3],[0.0,12.3],[0.0,0.03]]]],"gext":[],"gint":[[[[-23.26,13.3],[-23.26,16.26],[-22.74,16.26],[-22.71,16.34],[-22.51,16.34],[-22.51,13.3]]]],"gdoor":[[[[-19.87,20.45],[-19.87,20.9],[-16.89,20.9],[-16.91,20.43]]]],"para":[],"roof":[]},{"key":"ff","tex":"models/glory3-ff.webp","bbox":[-23.26,0.0,0.05,30.97],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOkAAAE2CAAAAAChQ+pxAAACjElEQVR42u3d0XmbMBQGUGh47waaxJPcSTpJR/AknkQbZIO8pU3q2Dg1SOie+5Yv5IsP/xVIYON52rFOU8P6MWUpUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJS0kdrXr1l/Md/qWkyLXm6twPqMu1GrTmk77nWwbu3gz52PiUlJSUlJSUlJSUlJSUlJR1DWvJk2oj6snrL16e9wp+vnWd6MU5J+6qlyJSUlJSUlJSUlJSUlJSUlJSUtE9plWk30suRI53mva+Cen8vKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKen3Ks9Tg5pRdS8paf8DVaYbVpHpaNJEnxMnJSUlJSUlJe2+lveHv5/TZBp5ujfyjNNIIx2b+vHYG2mkI1M/n08jjXRc6r9zpEgjHZV6bd4baaRjUq+vZSKNdETqV+vTSCMdj/r1NYdIIx2Neus6UqSRjkW9fW0w0khHot77Dr4/1PPYmQ4Ur7sVpKSkpKSkpKSkpKSDSyNPppFGes4iPefpXlJSUlJSUlJSUlLrU+vTXnbQ/Otbf3Z+BPpx43Is6bqdcDXOywG699FujcOO07XU6PIItslZJno8VC/TZlQzB1JSUlJSUlJSUlJSUlJSUlJSUlJSUlJS0r9q3X2Zaw/rL/X2z0fMtNY1+rXQ0mumz0+qUfjL3s5m31uxdPia9h+n20Bb7b759q9jHKmZAykpKSkpKemz16dPXco0miY1ybTk6d6SZ5yWNNI8mdYs0pol05qoe0lJSUlJSUlJSUlJSUlJSUlJSUlJSUlJ79Tu98RPSaSnJJmesozTptB77+/dpH479pKSkpKSkpKSkpKSkpJ2sD5tsxrWvaTHrTd1Yze/G2jDgQAAAABJRU5ErkJggg==","slab":[[[[-12.5,0.0],[-12.5,4.27],[-19.15,4.27],[-19.17,7.28],[-23.26,7.28],[-23.26,24.19],[-20.28,24.19],[-20.25,28.93],[-11.79,28.93],[-11.74,30.56],[-0.78,30.56],[-0.75,30.94],[0.03,30.94],[0.03,0.0]]]],"wext":[[[[-20.25,26.93],[-20.25,28.91],[-11.19,28.93],[-11.19,28.18],[-14.98,28.18],[-14.98,28.51],[-15.03,28.56],[-17.57,28.56],[-17.59,28.61],[-17.62,28.56],[-19.85,28.56],[-19.87,26.93]]],[[[-19.42,23.41],[-20.25,23.44],[-20.25,25.4],[-19.87,25.4],[-19.87,24.19],[-19.5,24.17]]],[[[-12.12,18.17],[-12.12,21.98],[-12.05,22.01],[-12.12,22.03],[-12.12,23.39],[-12.57,23.41],[-12.57,23.79],[-12.12,23.81],[-12.12,25.65],[-11.84,25.67],[-11.74,25.65],[-11.74,24.19],[-11.37,24.17],[-11.37,23.46],[-11.74,23.41],[-11.74,18.17]]],[[[-12.12,12.8],[-12.12,15.13],[-12.05,15.16],[-11.74,15.13],[-11.74,13.55],[-10.74,13.53],[-10.72,13.15],[-0.73,13.17],[-0.73,28.16],[-0.9,28.18],[-0.9,28.93],[-0.73,28.96],[-0.73,30.92],[0.0,30.92],[0.0,12.32],[-0.73,12.32],[-0.78,12.8]]],[[[-23.24,7.28],[-23.24,24.17],[-22.51,24.17],[-22.51,23.41],[-22.84,23.41],[-22.89,23.36],[-22.89,17.09],[-22.84,17.01],[-22.51,17.04],[-22.51,7.28]]],[[[-15.83,4.29],[-19.12,4.29],[-19.12,8.11],[-18.77,8.11],[-18.77,5.07],[-18.72,5.02],[-15.83,5.02]]],[[[-11.74,4.27],[-14.3,4.29],[-14.33,5.02],[-12.15,5.02],[-12.12,5.12],[-11.74,5.12]]],[[[-12.47,0.03],[-12.47,0.75],[-11.64,0.75],[-11.64,0.03]]]],"wint":[[[[-2.46,28.18],[-2.46,28.93],[-0.93,28.93],[-0.93,28.18]]],[[[-11.17,28.18],[-11.17,28.93],[-10.01,28.93],[-10.01,28.18]]],[[[-19.4,23.41],[-19.4,23.79],[-12.6,23.79],[-12.6,23.41]]],[[[-19.12,8.13],[-19.12,9.76],[-11.74,9.76],[-11.74,9.41],[-18.72,9.41],[-18.77,9.36],[-18.77,8.13]]],[[[-12.12,5.14],[-12.12,6.88],[-11.74,6.88],[-11.74,5.14]]],[[[-11.62,0.03],[-11.62,0.75],[-0.73,0.78],[-0.73,3.14],[-0.58,3.16],[-0.73,3.19],[-0.73,10.74],[-0.58,10.77],[-0.73,10.79],[-0.73,12.3],[0.0,12.3],[0.0,0.03]]]],"gext":[[[[-22.84,17.04],[-22.86,23.36],[-22.48,23.41],[-22.48,24.17],[-20.28,24.17],[-20.28,23.44],[-19.95,23.41],[-22.51,23.39],[-22.51,17.06]]]],"gint":[],"gdoor":[[[[-12.12,15.16],[-12.12,18.14],[-11.74,18.14],[-11.74,15.16]]]],"para":[[[[-11.77,29.34],[-11.74,30.56],[-1.13,30.56],[-1.13,30.16],[-11.32,30.16],[-11.37,29.34]]],[[[-20.25,25.8],[-20.25,26.52],[-19.85,26.52],[-19.85,25.8]]],[[[-22.11,7.28],[-22.11,7.68],[-19.52,7.68],[-19.52,7.28]]],[[[-15.43,4.29],[-15.43,4.69],[-14.73,4.69],[-14.73,4.29]]],[[[-12.47,1.15],[-12.47,3.89],[-12.07,3.86],[-12.07,1.15]]]],"roof":[[[[-20.28,24.04],[-20.25,28.93],[-11.54,28.93],[-11.54,25.6],[-12.2,25.6],[-12.22,25.32],[-14.96,25.32],[-14.98,25.6],[-16.34,25.6],[-16.44,25.37],[-16.44,24.04]]]]},{"key":"tf","tex":"models/glory3-tf.webp","bbox":[-22.74,0.0,0.23,28.96],"zone":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOYAAAEiCAAAAADID/FxAAABtklEQVR42u3a3Y2DMAwAYFMxxw2WETrBjdAJMkImYIRO0kn6XKmnCkEhF39+DQp8sp0fiSmOjSVOiUukCExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEzM78VJfz/F1PsHKlpMTExMTExMTExMTExMTExMTExMTExMTEzMTTEtsomJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJifkSc8R96xxt5fP1BOZd0WLmY65tzbjKJiYmJiYmJiYmJibmt5glSTaLoh2I2VIwWyhaTExMTExMTExM9033zX6Ktn/nHPs52+DZ7D+pu660JQezX+fO+2bJwezVufspqORgOtOOxGwpmC1FNluKom0perPfs7uVFhMTExMTExMTExMTE3MUZpVNTMyPMY/elYcza4qirRmKtnbSm7f3479rJnv8/Dly8hI0Hfy+xYaCiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJ+T/iCVIQGN8uPF+yAAAAAElFTkSuQmCC","slab":[[[[-22.74,7.15],[-22.74,24.19],[-11.72,24.19],[-11.69,28.93],[0.2,28.93],[0.2,0.0],[-11.69,0.0],[-11.72,4.17],[-18.7,4.17],[-18.75,7.15]]]],"wext":[[[[-22.71,24.17],[-21.98,24.17],[-21.98,23.41],[-22.26,23.44],[-22.36,23.36],[-22.36,17.09],[-22.31,17.04],[-14.6,17.04],[-14.6,16.29],[-22.71,16.29]]],[[[-10.84,16.11],[-11.59,16.11],[-11.62,23.41],[-19.72,23.41],[-19.72,24.17],[-10.84,24.17]]]],"wint":[[[[-11.57,12.77],[-11.59,16.09],[-10.84,16.09],[-10.84,12.8]]]],"gext":[[[[-21.96,23.41],[-21.96,24.17],[-19.75,24.17],[-19.75,23.41]]]],"gint":[],"gdoor":[[[[-14.58,16.29],[-14.58,17.04],[-11.62,17.04],[-11.62,16.29]]]],"para":[[[[-22.74,7.15],[-22.74,15.88],[-22.33,15.88],[-22.33,7.58],[-18.32,7.55],[-18.32,4.67],[-18.27,4.57],[-11.29,4.57],[-11.27,0.4],[-0.23,0.4],[-0.2,28.51],[-11.27,28.53],[-11.29,24.57],[-11.69,24.57],[-11.69,28.93],[0.2,28.93],[0.2,0.0],[-11.69,0.0],[-11.72,4.17],[-18.7,4.17],[-18.75,7.15]]]],"roof":[[[[-22.74,16.24],[-22.74,24.17],[-10.79,24.19],[-10.79,21.88],[-15.11,21.86],[-15.08,20.28],[-10.79,20.28],[-10.79,16.41],[-14.53,16.41],[-14.63,16.24]]]]}]};
 var SITE={"size":[2383,1705],"units":[{"no":1,"type":"glory4","x":1272,"y":766,"w":74,"h":58,"face":"R"},{"no":2,"type":"glory4","x":1272,"y":705,"w":74,"h":58,"face":"R"},{"no":3,"type":"glory4","x":1272,"y":616,"w":74,"h":58,"face":"R"},{"no":4,"type":"glory4","x":1272,"y":554,"w":74,"h":58,"face":"R"},{"no":5,"type":"glory4","x":1272,"y":466,"w":74,"h":58,"face":"R"},{"no":6,"type":"glory4","x":1272,"y":404,"w":74,"h":58,"face":"R"},{"no":7,"type":"glory4","x":1272,"y":314,"w":74,"h":58,"face":"R"},{"no":8,"type":"glory4","x":1272,"y":253,"w":74,"h":58,"face":"R"},{"no":9,"type":"glory4","x":1193,"y":253,"w":74,"h":57,"face":"L"},{"no":10,"type":"glory4","x":1193,"y":315,"w":74,"h":57,"face":"L"},{"no":11,"type":"glory4","x":1193,"y":404,"w":74,"h":57,"face":"L"},{"no":12,"type":"glory4","x":1193,"y":466,"w":74,"h":57,"face":"L"},{"no":13,"type":"glory4","x":1193,"y":555,"w":74,"h":57,"face":"L"},{"no":14,"type":"glory4","x":1193,"y":617,"w":74,"h":57,"face":"L"},{"no":15,"type":"glory4","x":1193,"y":705,"w":74,"h":57,"face":"L"},{"no":16,"type":"glory4","x":1193,"y":767,"w":74,"h":57,"face":"L"},{"no":17,"type":"glory3","x":1028,"y":766,"w":75,"h":59,"face":"R"},{"no":18,"type":"glory3","x":1028,"y":704,"w":75,"h":59,"face":"R"},{"no":19,"type":"glory3","x":1028,"y":616,"w":75,"h":59,"face":"R"},{"no":20,"type":"glory3","x":1028,"y":554,"w":75,"h":59,"face":"R"},{"no":21,"type":"glory3","x":1028,"y":465,"w":75,"h":59,"face":"R"},{"no":22,"type":"glory3","x":1028,"y":403,"w":75,"h":59,"face":"R"},{"no":23,"type":"glory3","x":1028,"y":314,"w":75,"h":59,"face":"R"},{"no":24,"type":"glory3","x":1028,"y":259,"w":75,"h":59,"face":"R"},{"no":25,"type":"glory3","x":950,"y":252,"w":73,"h":60,"face":"L"},{"no":26,"type":"glory3","x":950,"y":315,"w":73,"h":60,"face":"L"},{"no":27,"type":"glory3","x":950,"y":403,"w":73,"h":60,"face":"L"},{"no":28,"type":"glory3","x":950,"y":465,"w":73,"h":60,"face":"L"},{"no":29,"type":"glory3","x":950,"y":554,"w":73,"h":60,"face":"L"},{"no":30,"type":"glory3","x":950,"y":615,"w":73,"h":60,"face":"L"},{"no":31,"type":"glory3","x":950,"y":704,"w":73,"h":60,"face":"L"},{"no":32,"type":"glory3","x":950,"y":766,"w":73,"h":60,"face":"L"},{"no":33,"type":"prime","x":797,"y":385,"w":59,"h":87,"face":"U"},{"no":34,"type":"prime","x":746,"y":385,"w":59,"h":87,"face":"U"},{"no":35,"type":"prime","x":654,"y":385,"w":59,"h":87,"face":"U"},{"no":36,"type":"prime","x":597,"y":385,"w":59,"h":87,"face":"U"},{"no":37,"type":"prime","x":509,"y":385,"w":59,"h":87,"face":"U"},{"no":38,"type":"prime","x":451,"y":385,"w":59,"h":87,"face":"U"},{"no":39,"type":"prime","x":446,"y":195,"w":59,"h":87,"face":"D"},{"no":40,"type":"prime","x":499,"y":195,"w":59,"h":87,"face":"D"},{"no":41,"type":"prime","x":593,"y":195,"w":59,"h":87,"face":"D"},{"no":42,"type":"prime","x":647,"y":195,"w":59,"h":87,"face":"D"},{"no":43,"type":"prime","x":739,"y":195,"w":59,"h":87,"face":"D"},{"no":44,"type":"prime","x":793,"y":195,"w":59,"h":87,"face":"D"},{"no":45,"type":"pride","x":281,"y":253,"w":67,"h":57,"face":"R"},{"no":46,"type":"pride","x":281,"y":313,"w":67,"h":57,"face":"R"},{"no":47,"type":"pride","x":281,"y":394,"w":67,"h":57,"face":"R"},{"no":48,"type":"pride","x":281,"y":456,"w":67,"h":57,"face":"R"},{"no":49,"type":"pride","x":281,"y":537,"w":67,"h":57,"face":"R"},{"no":50,"type":"pride","x":281,"y":598,"w":67,"h":57,"face":"R"},{"no":51,"type":"pride","x":281,"y":679,"w":67,"h":57,"face":"R"},{"no":52,"type":"pride","x":281,"y":739,"w":67,"h":57,"face":"R"},{"no":53,"type":"pride","x":210,"y":740,"w":66,"h":56,"face":"L"},{"no":54,"type":"pride","x":210,"y":680,"w":66,"h":56,"face":"L"},{"no":55,"type":"pride","x":210,"y":598,"w":66,"h":56,"face":"L"},{"no":56,"type":"pride","x":210,"y":537,"w":66,"h":56,"face":"L"},{"no":57,"type":"pride","x":210,"y":455,"w":66,"h":56,"face":"L"},{"no":58,"type":"pride","x":210,"y":395,"w":66,"h":56,"face":"L"},{"no":59,"type":"pride","x":210,"y":313,"w":66,"h":56,"face":"L"},{"no":60,"type":"pride","x":210,"y":253,"w":66,"h":56,"face":"L"},{"no":61,"type":"pride","x":51,"y":212,"w":67,"h":57,"face":"R"},{"no":62,"type":"pride","x":51,"y":273,"w":67,"h":57,"face":"R"},{"no":63,"type":"pride","x":51,"y":355,"w":67,"h":57,"face":"R"},{"no":64,"type":"pride","x":51,"y":417,"w":67,"h":57,"face":"R"},{"no":65,"type":"pride","x":51,"y":498,"w":67,"h":57,"face":"R"},{"no":66,"type":"pride","x":51,"y":558,"w":67,"h":57,"face":"R"}],"boundary":[[48,194],[34,624],[56,636],[55,912],[313,926],[293,1653],[309,1653],[339,1634],[384,1636],[394,1621],[419,1618],[419,1601],[429,1592],[478,1590],[479,1597],[499,1597],[500,1588],[546,1591],[585,1605],[594,1627],[609,1627],[610,1619],[718,1624],[719,1634],[739,1634],[748,1616],[772,1612],[787,1564],[801,1554],[839,1554],[874,1529],[928,1528],[942,1540],[1029,1544],[1049,1538],[1051,1523],[1106,1516],[1159,1520],[1170,1539],[1228,1532],[1228,1521],[1288,1514],[1358,1513],[1368,1531],[1468,1527],[1469,1510],[1606,1508],[1611,1525],[1758,1526],[1765,1506],[1895,1511],[1887,1451],[1851,1439],[1849,1377],[1767,927],[1962,926],[1950,849],[1746,843],[1705,654],[1424,636],[1451,378],[1452,232],[921,195]],"trees":[[98,879],[1811,1447],[61,796],[1340,1362],[1553,1343],[334,1640],[1420,1365],[988,1429],[334,967],[1685,1327],[1203,1516],[1722,1518],[1210,1319],[361,1166],[366,1046],[1265,1388],[1657,1524],[378,1123],[383,979],[1626,1367],[372,1450],[373,1497],[59,901],[1488,1320],[1650,1414],[1375,1387],[1065,1323],[1333,1417],[986,1365],[1520,1380],[839,1548],[1755,1378],[1685,1376],[393,1308],[78,673],[337,1243],[369,1552],[93,744],[1180,1446],[1409,1427],[320,1574],[1566,1403],[1793,1344],[296,1531],[1835,1346],[1737,1338],[1587,1450],[1838,1407],[1277,1448],[1699,1447],[1731,1422],[1023,1447],[941,1427],[1651,1452],[1096,1444],[326,1451],[456,1575],[915,1373],[1795,1384],[1080,1378],[365,1211],[357,1368],[300,1607],[1459,1399],[1508,1434],[335,1411],[329,1056],[361,1284],[392,1592],[1866,1514],[1459,1456],[1288,1355],[1239,1416],[1045,1410],[1024,1356],[330,1189],[335,1138],[1546,1444],[303,1336],[1400,1329],[1159,1405],[1193,1375],[914,1317],[746,1590],[312,1279],[714,1612],[384,930],[1455,1529],[99,804],[1135,1357],[981,1540],[1165,1519],[394,1417],[1230,1360],[950,1341],[295,1487],[391,1080],[396,1371],[318,1095],[395,1240],[1164,1317],[1322,1318],[1374,1456],[1609,1326],[64,714],[1043,1540],[915,1462],[1330,1459],[59,837],[876,1516],[501,1576],[1773,1434],[138,901],[1612,1406],[1404,1531],[934,1522],[314,1010],[1447,1327],[352,1325],[1221,1452],[1133,1453],[352,1007],[1019,1315],[1112,1320],[330,1504],[596,1594],[1764,1503],[1264,1318],[1608,1511],[1362,1517],[339,927],[313,1380],[1882,1475],[380,1632],[1473,1363],[951,1388]]};
-var INTERIOR={"furn":{"glory4":[[["bed",-3.5,5.86,5.29,6.29,-1.5708,{"ns":1,"rug":1}],["desk",-9.52,2.11,2.79,1.89,1.5708,{}],["wardrobe",-3.89,11.73,7.07,1.89,3.1416,{}],["tv",-5.14,13.48,4.57,0.89,0,{"wall":1}],["sofa",-1.75,19.0,3.57,2.07,-1.5708,{}],["sofa",-1.75,24.73,5.89,2.07,-1.5708,{}],["sofa",-5.61,26.7,5.64,1.96,3.1416,{}],["ctable",-5.57,22.54,1.71,2.79,0,{}],["rug",-5.91,22.54,5.89,5.79,0,{}],["dining",-14.0,18.12,3.75,2.21,1.5708,{}],["counter",-21.04,15.54,8.93,2.21,1.5708,{}],["hob",-20.96,14.46,1.93,1.79,1.5708,{}],["sink",-20.96,18.57,1.79,1.79,1.5708,{}],["fridge",-15.23,12.96,1.68,1.79,0,{}],["vanity",-12.91,12.79,2.25,1.43,0,{}],["wc",-13.98,10.27,1.61,2.04,1.5708,{}],["basin",-14.34,8.27,1.89,1.54,1.5708,{}],["washer",-26.39,1.61,2.07,1.93,0,{}],["car",-14.75,33.57,5.9,13.6,1.992,{}],["bike",-5.82,33.57,1.43,6.79,3.1416,{}],["scooter",-1.89,33.3,1.43,6.25,3.1416,{}],["lawn",-27.82,33.39,1.5,8.57,0,{}],["plant",-19.04,28.0,1.36,1.36,0,{}],["plant",-19.04,25.04,1.36,1.36,0,{}]],[["bed",-3.84,5.86,5.29,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,2.11,2.79,1.79,1.5708,{}],["wardrobe",-4.18,11.73,6.93,1.89,3.1416,{}],["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["sofa",-21.27,13.27,6.32,2.25,1.5708,{}],["ctable",-18.32,13.34,2.25,1.5,1.5708,{}],["rug",-17.54,13.3,4.82,4.36,1.5708,{}],["wc",-15.04,5.89,1.5,1.93,0,{}],["basin",-13.16,5.95,2.04,1.54,0,{}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["plant",-10.89,29.71,1.07,1.14,0,{}],["plant",-1.61,29.71,1.07,1.14,0,{}]],[["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["patio",-5.88,6.07,5.18,4.29,0,{}],["plant",-21.43,9.07,1.29,1.29,0,{}],["plant",-1.5,1.71,1.29,1.29,0,{}],["plant",-21.43,14.93,1.29,1.29,0,{}],["plant",-1.5,11.79,1.29,1.29,0,{}],["tank",-19.71,19.29,3.57,3.57,0,{"roof":1}]]],"glory3":[[["bed",-3.5,5.86,5.29,6.29,-1.5708,{"ns":1,"rug":1}],["desk",-9.52,2.11,2.79,1.89,1.5708,{}],["wardrobe",-3.89,11.73,7.07,1.89,3.1416,{}],["tv",-5.14,13.48,4.57,0.89,0,{"wall":1}],["sofa",-1.75,19.0,3.57,2.07,-1.5708,{}],["sofa",-1.75,24.73,5.89,2.07,-1.5708,{}],["sofa",-5.61,26.7,5.64,1.96,3.1416,{}],["ctable",-5.57,22.54,1.71,2.79,0,{}],["rug",-5.91,22.54,5.89,5.79,0,{}],["dining",-14.0,18.12,3.75,2.21,1.5708,{}],["counter",-21.04,15.54,8.93,2.21,1.5708,{}],["hob",-20.96,14.46,1.93,1.79,1.5708,{}],["sink",-20.96,18.57,1.79,1.79,1.5708,{}],["fridge",-15.23,12.96,1.68,1.79,0,{}],["vanity",-12.91,12.79,2.25,1.43,0,{}],["wc",-13.98,10.27,1.61,2.04,1.5708,{}],["basin",-14.34,8.27,1.89,1.54,1.5708,{}],["washer",-26.39,1.61,2.07,1.93,0,{}],["car",-14.75,33.57,5.9,13.6,1.992,{}],["bike",-5.82,33.57,1.43,6.79,3.1416,{}],["scooter",-1.89,33.3,1.43,6.25,3.1416,{}],["lawn",-27.82,33.39,1.5,8.57,0,{}],["plant",-19.04,28.0,1.36,1.36,0,{}],["plant",-19.04,25.04,1.36,1.36,0,{}]],[["bed",-3.84,5.86,5.29,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,2.11,2.79,1.79,1.5708,{}],["wardrobe",-4.18,11.73,6.93,1.89,3.1416,{}],["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["sofa",-21.27,13.27,6.32,2.25,1.5708,{}],["ctable",-18.32,13.34,2.25,1.5,1.5708,{}],["rug",-17.54,13.3,4.82,4.36,1.5708,{}],["wc",-15.04,5.89,1.5,1.93,0,{}],["basin",-13.16,5.95,2.04,1.54,0,{}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["plant",-10.89,29.71,1.07,1.14,0,{}],["plant",-1.61,29.71,1.07,1.14,0,{}]],[["patio",-5.39,11.43,5.36,4.29,0,{}],["plant",-10.0,1.71,1.29,1.29,0,{}],["plant",-0.79,1.71,1.29,1.29,0,{}],["plant",-10.0,27.29,1.29,1.29,0,{}],["plant",-0.79,27.29,1.29,1.29,0,{}],["plant",-21.14,9.0,1.29,1.29,0,{}],["plant",-21.14,15.36,1.29,1.29,0,{}],["tank",-19.5,19.29,3.57,3.57,0,{"roof":1}]]],"pride":[[["bed",-4.11,4.88,5.25,5.71,-1.5708,{"ns":1,"rug":1}],["desk",-9.93,1.91,2.25,1.43,1.5708,{}],["wardrobe",-4.04,10.77,6.57,1.89,3.1416,{}],["tv",-5.46,12.54,4.43,0.79,0,{"wall":1}],["sofa",-2.04,16.55,2.96,2.07,-1.5708,{}],["sofa",-2.04,20.84,2.96,2.07,-1.5708,{}],["sofa",-5.36,24.38,3.93,1.96,3.1416,{}],["armchair",-1.98,24.5,1.75,1.86,3.1416,{}],["ctable",-5.89,20.14,1.64,2.57,0,{}],["rug",-5.82,19.14,4.43,7.57,0,{}],["dining",-14.25,16.16,3.75,2.21,1.5708,{}],["counter",-20.79,13.36,9.36,2.21,1.5708,{}],["hob",-20.75,11.52,2.68,1.79,1.5708,{}],["sink",-20.75,16.61,1.64,1.79,1.5708,{}],["fridge",-15.29,9.73,1.79,1.61,0,{}],["vanity",-12.34,9.68,1.61,1.5,0,{}],["wc",-13.29,5.09,1.5,2.32,0,{}],["washer",-25.21,1.61,2.07,1.93,0,{}],["car",-16.89,30.71,5.9,13.6,1.933,{}],["bike",-6.18,31.07,1.43,6.79,3.1416,{}],["scooter",-2.25,30.89,1.43,6.43,3.1416,{}],["lawn",-26.62,31.02,1.61,8.68,0,{}],["plant",-19.36,23.11,1.36,1.36,0,{}],["plant",-19.36,25.5,1.36,1.36,0,{}]],[["bed",-3.84,4.91,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,1.95,2.25,1.79,1.5708,{}],["wardrobe",-4.21,10.8,7.0,1.89,3.1416,{}],["wardrobe",-6.25,13.2,11.07,2.04,0,{}],["bed",-3.84,20.09,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.25,20.48,5.54,1.07,1.5708,{"wall":1}],["sofa",-20.41,11.93,3.93,2.25,1.5708,{}],["ctable",-17.61,11.95,2.04,1.43,1.5708,{}],["wc",-16.43,5.41,1.43,1.96,0,{}],["basin",-13.0,5.27,2.21,1.54,0,{}],["wc",-15.36,23.11,1.43,1.86,0,{}],["basin",-13.0,22.57,2.21,1.36,0,{}],["plant",-10.79,27.25,1.14,1.14,0,{}],["plant",-1.5,27.25,1.14,1.14,0,{}]],[["patio",-5.64,7.89,5.36,4.29,0,{}],["plant",-10.36,1.75,1.29,1.29,0,{}],["plant",-1.18,1.75,1.29,1.29,0,{}],["plant",-10.36,24.89,1.29,1.29,0,{}],["plant",-1.18,24.89,1.29,1.29,0,{}],["plant",-20.89,5.54,1.29,1.29,0,{}],["tank",-19.75,17.18,3.57,3.57,0,{"roof":1}]]],"prime":[[["bed",-4.2,10.45,5.54,6.61,-1.5708,{"ns":1,"rug":1}],["tv",-12.32,10.45,4.46,0.71,1.5708,{"wall":1}],["wardrobe",-4.23,16.54,7.04,1.79,3.1416,{}],["crockery",-8.66,16.96,1.61,1.79,0,{}],["tv",-4.86,18.25,5.79,0.79,0,{"wall":1}],["sofa",-2.5,25.75,6.36,2.36,-1.5708,{}],["sofa",-4.68,30.14,6.71,2.43,3.1416,{}],["ctable",-7.43,24.79,1.79,2.86,0,{}],["rug",-5.77,25.18,7.04,6.93,0,{}],["dining",-17.32,21.93,4.43,2.43,0,{}],["counter",-21.61,11.07,10.0,2.14,1.5708,{}],["sink",-21.57,8.04,1.93,1.71,1.5708,{}],["hob",-21.57,11.79,2.86,1.71,1.5708,{}],["counter",-13.8,9.38,6.61,1.68,-1.5708,{}],["fridge",-14.23,14.25,2.57,2.04,-1.5708,{}],["basin",-7.32,1.32,1.71,1.5,0,{}],["wc",-4.75,1.68,1.57,1.93,0,{}],["pooja",-17.09,30.09,3.04,2.04,1.5708,{}],["basin",-14.7,26.82,2.04,1.36,0,{}],["car",-22.93,32.68,5.9,13.6,3.142,{}],["patio",-6.96,36.96,5.0,3.21,0,{}],["plant",-17.39,33.57,1.29,1.29,0,{}],["plant",-1.39,33.57,1.29,1.29,0,{}],["plant",-1.39,38.36,1.29,1.29,0,{}]],[["bed",-16.84,9.46,5.32,6.79,0,{"ns":1,"rug":1}],["wardrobe",-23.68,14.02,4.11,1.71,1.5708,{}],["wardrobe",-9.61,16.61,7.5,1.79,3.1416,{}],["wardrobe",-9.43,18.79,7.86,1.71,0,{}],["dresser",-6.34,13.93,3.21,0.96,-1.5708,{}],["dresser",-1.25,13.93,3.21,1.0,-1.5708,{}],["wc",-7.2,8.48,1.61,1.61,-1.5708,{}],["basin",-6.52,10.66,2.04,1.32,-1.5708,{}],["wc",-1.75,8.48,1.61,1.57,-1.5708,{}],["basin",-1.39,10.66,2.04,1.29,-1.5708,{}],["bed",-4.21,25.79,5.36,6.5,-1.5708,{"ns":1,"rug":1}],["tv",-13.3,25.71,4.86,0.82,1.5708,{"wall":1}],["patio",-16.57,31.61,5.0,3.57,0,{}],["plant",-19.75,33.18,1.14,1.14,0,{}]],[["bed",-16.91,9.46,5.25,6.79,0,{"ns":1,"rug":1}],["armchair",-10.45,10.21,2.21,1.96,1.5708,{}],["armchair",-7.32,10.18,2.5,2.29,-1.5708,{}],["desk",-11.39,15.18,4.0,1.79,3.1416,{}],["wardrobe",-8.3,4.73,4.82,2.32,0,{}],["wardrobe",-1.59,14.11,3.93,1.61,-1.5708,{}],["wc",-1.59,8.48,1.61,1.61,-1.5708,{}],["basin",-1.41,10.59,1.89,1.25,-1.5708,{}],["swing",-6.77,28.12,4.46,1.96,0,{}],["msstair",-6.11,17.59,2.32,4.71,1.5708,{}],["plant",-12.46,30.75,1.14,1.14,0,{}],["plant",-1.39,30.75,1.14,1.14,0,{}],["plant",-1.39,19.68,1.14,1.14,0,{}],["tank",-18.04,8.75,3.57,3.57,0,{"roof":1}]]]},"tour":{"glory4":[["Drawing room",0,-9.5,16.3,-3,24.5],["Kitchen and dining",0,-11,18.6,-21.7,12.1],["Bedroom 1",0,-8.8,10.0,-2,4.6],["Parking",0,-24.5,30.5,-8,34],["Bedroom 2",1,-9.8,16.4,-2.5,22.8],["Bedroom 3",1,-10.4,9.6,-2,5],["Lounge",1,-13,16.4,-21.5,12.9],["Bedroom 4",2,-9.8,16.4,-2.5,22.8],["Open terrace",2,-1.9,12.1,-19.4,7.5]],"glory3":[["Drawing room",0,-9.5,16.3,-3,24.5],["Kitchen and dining",0,-11,18.6,-21.7,12.1],["Bedroom 1",0,-8.8,10.0,-2,4.6],["Parking",0,-24.5,30.5,-8,34],["Bedroom 2",1,-9.8,16.4,-2.5,22.8],["Bedroom 3",1,-10.4,9.6,-2,5],["Lounge",1,-13,16.4,-21.5,12.9],["Open terrace",2,-1.3,27.1,-7,2.1]],"pride":[["Drawing room",0,-9.8,14.6,-2.5,22.5],["Kitchen and dining",0,-10.5,17.1,-21.2,10.4],["Bedroom",0,-9.2,8.8,-1.5,4.2],["Parking",0,-23.5,28.0,-8,31],["Bedroom 2",1,-10.6,15,-2.1,20.4],["Bedroom 3",1,-10.6,9.3,-2.1,4.7],["Lounge",1,-12.8,14.5,-21,11.5],["Open terrace",2,-1.5,25,-13.3,5.75]],"prime":[["Drawing room",0,-11.5,19.5,-3,28.5],["Kitchen",0,-17.3,15.6,-18.5,7.5],["Bedroom",0,-10.9,14.6,-1.6,10.4],["Pooja room",0,-11.0,30.2,-17.3,30.3],["Verandah",0,-2.2,37.6,-15,34.5],["Bedroom 1",1,-15.2,16.8,-17.5,8],["Bedroom 2",1,-12.2,30.8,-2.1,24.8],["Bedroom",2,-20.5,15.2,-8,9],["Terrace and swing",2,-11.0,20.5,-5.5,28.5]]},"win":{"glory4":[[[-9.75,28.2,-2.05,28.9],[-22.95,13.2,-22.15,16.3]],[[-10.05,28.2,-2.45,28.9]],[[-10.05,28.2,-2.45,28.9]]],"glory3":[[[-9.75,28.2,-2.05,28.9],[-22.95,13.2,-22.15,16.3]],[[-10.05,28.2,-2.45,28.9]],[]],"pride":[[[-22.85,8.8,-21.95,11.9],[-10.05,25.7,-2.45,26.4]],[[-10.05,25.7,-2.45,26.5]],[]],"prime":[[[-23.55,9.3,-22.75,13.8],[-19.45,5.3,-16.35,6.05]],[],[]]},"stairs":{"glory4":[{"rect":[-16.2,20.9,-11.6,23.4],"arrive":[-9.6,22.2,0,22.2]},{"rect":[-22.5,18.0,-13.0,23.2],"arrive":[-14.8,15.6,-2,21]},{"rect":[-22.5,17.0,-16.0,23.0],"arrive":[-13.9,18.6,-13.9,10]}],"glory3":[{"rect":[-16.2,20.9,-11.6,23.4],"arrive":[-9.6,22.2,0,22.2]},{"rect":[-22.5,18.0,-13.0,23.2],"arrive":[-14.8,15.6,-2,21]},{"rect":[-22.3,17.0,-15.4,23.0],"arrive":[-13.2,18.6,-13.2,10]}],"pride":[{"rect":[-16.2,19.0,-12.2,21.2],"arrive":[-10.0,20.1,0,20.1]},{"rect":[-21.8,15.2,-15.2,21.2],"arrive":[-15.0,13.4,-2,19]},{"rect":[-21.8,15.2,-15.4,21.2],"arrive":[-13.5,17.0,-13.5,8]}],"prime":[{"rect":[-22.4,16.0,-20.0,22.0],"arrive":[-17.6,18.0,-8,18.0]},{"rect":[-22.4,19.5,-17.5,28.5],"arrive":[-15.6,21.2,-15.6,12]},{"rect":[-22.6,22.4,-17.5,28.4],"arrive":[-16.3,20.7,-16.3,12]}]}};
+var INTERIOR={"furn":{"glory4":[[["bed",-3.5,5.86,5.29,6.29,-1.5708,{"ns":1,"rug":1}],["desk",-9.52,2.11,2.79,1.89,1.5708,{}],["wardrobe",-3.89,11.73,7.07,1.89,3.1416,{}],["tv",-5.14,13.48,4.57,0.89,0,{"wall":1}],["sofa",-1.75,19.0,3.57,2.07,-1.5708,{}],["sofa",-1.75,24.73,5.89,2.07,-1.5708,{}],["sofa",-5.61,26.7,5.64,1.96,3.1416,{}],["ctable",-5.57,22.54,1.71,2.79,0,{}],["rug",-5.91,22.54,5.89,5.79,0,{}],["dining",-14.0,18.12,3.75,2.21,1.5708,{}],["counter",-21.04,15.54,8.93,2.21,1.5708,{}],["hob",-20.96,14.46,1.93,1.79,1.5708,{}],["sink",-20.96,18.57,1.79,1.79,1.5708,{}],["fridge",-15.23,12.96,1.68,1.79,0,{}],["vanity",-12.91,12.79,2.25,1.43,0,{}],["wc",-13.98,10.27,1.61,2.04,1.5708,{}],["basin",-14.34,8.27,1.89,1.54,1.5708,{}],["washer",-26.39,1.61,2.07,1.93,0,{}],["car",-14.75,33.57,5.9,13.6,1.992,{}],["bike",-5.82,33.57,1.43,6.79,3.1416,{}],["scooter",-1.89,33.3,1.43,6.25,3.1416,{}],["lawn",-27.82,33.39,1.5,8.57,0,{}],["plant",-19.04,28.0,1.36,1.36,0,{}],["plant",-19.04,25.04,1.36,1.36,0,{}]],[["bed",-3.84,5.86,5.29,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,2.11,2.79,1.79,1.5708,{}],["wardrobe",-4.18,11.73,6.93,1.89,3.1416,{}],["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["sofa",-21.27,13.27,6.32,2.25,1.5708,{}],["ctable",-18.32,13.34,2.25,1.5,1.5708,{}],["rug",-17.54,13.3,4.82,4.36,1.5708,{}],["wc",-15.04,5.89,1.5,1.93,0,{}],["basin",-13.16,5.95,2.04,1.54,0,{}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["plant",-10.89,29.71,1.07,1.14,0,{}],["plant",-1.61,29.71,1.07,1.14,0,{}]],[["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["patio",-5.88,6.07,5.18,4.29,0,{}],["plant",-21.43,9.07,1.29,1.29,0,{}],["plant",-1.5,1.71,1.29,1.29,0,{}],["plant",-21.43,14.93,1.29,1.29,0,{}],["plant",-1.5,11.79,1.29,1.29,0,{}],["tank",-19.71,19.29,3.57,3.57,0,{"roof":1}]]],"glory3":[[["bed",-3.5,5.86,5.29,6.29,-1.5708,{"ns":1,"rug":1}],["desk",-9.52,2.11,2.79,1.89,1.5708,{}],["wardrobe",-3.89,11.73,7.07,1.89,3.1416,{}],["tv",-5.14,13.48,4.57,0.89,0,{"wall":1}],["sofa",-1.75,19.0,3.57,2.07,-1.5708,{}],["sofa",-1.75,24.73,5.89,2.07,-1.5708,{}],["sofa",-5.61,26.7,5.64,1.96,3.1416,{}],["ctable",-5.57,22.54,1.71,2.79,0,{}],["rug",-5.91,22.54,5.89,5.79,0,{}],["dining",-14.0,18.12,3.75,2.21,1.5708,{}],["counter",-21.04,15.54,8.93,2.21,1.5708,{}],["hob",-20.96,14.46,1.93,1.79,1.5708,{}],["sink",-20.96,18.57,1.79,1.79,1.5708,{}],["fridge",-15.23,12.96,1.68,1.79,0,{}],["vanity",-12.91,12.79,2.25,1.43,0,{}],["wc",-13.98,10.27,1.61,2.04,1.5708,{}],["basin",-14.34,8.27,1.89,1.54,1.5708,{}],["washer",-26.39,1.61,2.07,1.93,0,{}],["car",-14.75,33.57,5.9,13.6,1.992,{}],["bike",-5.82,33.57,1.43,6.79,3.1416,{}],["scooter",-1.89,33.3,1.43,6.25,3.1416,{}],["lawn",-27.82,33.39,1.5,8.57,0,{}],["plant",-19.04,28.0,1.36,1.36,0,{}],["plant",-19.04,25.04,1.36,1.36,0,{}]],[["bed",-3.84,5.86,5.29,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,2.11,2.79,1.79,1.5708,{}],["wardrobe",-4.18,11.73,6.93,1.89,3.1416,{}],["wardrobe",-6.25,14.14,11.07,1.86,0,{}],["bed",-3.84,22.55,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.29,22.68,6.07,1.0,1.5708,{"wall":1}],["sofa",-21.27,13.27,6.32,2.25,1.5708,{}],["ctable",-18.32,13.34,2.25,1.5,1.5708,{}],["rug",-17.54,13.3,4.82,4.36,1.5708,{}],["wc",-15.04,5.89,1.5,1.93,0,{}],["basin",-13.16,5.95,2.04,1.54,0,{}],["wc",-15.66,25.05,1.32,1.89,0,{}],["basin",-13.11,24.46,1.93,1.43,0,{}],["plant",-10.89,29.71,1.07,1.14,0,{}],["plant",-1.61,29.71,1.07,1.14,0,{}]],[["patio",-5.39,11.43,5.36,4.29,0,{}],["plant",-10.0,1.71,1.29,1.29,0,{}],["plant",-0.79,1.71,1.29,1.29,0,{}],["plant",-10.0,27.29,1.29,1.29,0,{}],["plant",-0.79,27.29,1.29,1.29,0,{}],["plant",-21.14,9.0,1.29,1.29,0,{}],["plant",-21.14,15.36,1.29,1.29,0,{}],["tank",-19.5,19.29,3.57,3.57,0,{"roof":1}]]],"pride":[[["bed",-4.11,4.88,5.25,5.71,-1.5708,{"ns":1,"rug":1}],["desk",-9.93,1.91,2.25,1.43,1.5708,{}],["wardrobe",-4.04,10.77,6.57,1.89,3.1416,{}],["tv",-5.46,12.54,4.43,0.79,0,{"wall":1}],["sofa",-2.04,16.55,2.96,2.07,-1.5708,{}],["sofa",-2.04,20.84,2.96,2.07,-1.5708,{}],["sofa",-5.36,24.38,3.93,1.96,3.1416,{}],["armchair",-1.98,24.5,1.75,1.86,3.1416,{}],["ctable",-5.89,20.14,1.64,2.57,0,{}],["rug",-5.82,19.14,4.43,7.57,0,{}],["dining",-14.25,16.16,3.75,2.21,1.5708,{}],["counter",-20.79,13.36,9.36,2.21,1.5708,{}],["hob",-20.75,11.52,2.68,1.79,1.5708,{}],["sink",-20.75,16.61,1.64,1.79,1.5708,{}],["fridge",-15.29,9.73,1.79,1.61,0,{}],["vanity",-12.34,9.68,1.61,1.5,0,{}],["wc",-13.29,5.09,1.5,2.32,0,{}],["washer",-25.21,1.61,2.07,1.93,0,{}],["car",-16.89,30.71,5.9,13.6,1.933,{}],["bike",-6.18,31.07,1.43,6.79,3.1416,{}],["scooter",-2.25,30.89,1.43,6.43,3.1416,{}],["lawn",-26.62,31.02,1.61,8.68,0,{}],["plant",-19.36,23.11,1.36,1.36,0,{}],["plant",-19.36,25.5,1.36,1.36,0,{}]],[["bed",-3.84,4.91,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["desk",-10.89,1.95,2.25,1.79,1.5708,{}],["wardrobe",-4.21,10.8,7.0,1.89,3.1416,{}],["wardrobe",-6.25,13.2,11.07,2.04,0,{}],["bed",-3.84,20.09,5.25,6.25,-1.5708,{"ns":1,"rug":1}],["tv",-11.25,20.48,5.54,1.07,1.5708,{"wall":1}],["sofa",-20.41,11.93,3.93,2.25,1.5708,{}],["ctable",-17.61,11.95,2.04,1.43,1.5708,{}],["wc",-16.43,5.41,1.43,1.96,0,{}],["basin",-13.0,5.27,2.21,1.54,0,{}],["wc",-15.36,23.11,1.43,1.86,0,{}],["basin",-13.0,22.57,2.21,1.36,0,{}],["plant",-10.79,27.25,1.14,1.14,0,{}],["plant",-1.5,27.25,1.14,1.14,0,{}]],[["patio",-5.64,7.89,5.36,4.29,0,{}],["plant",-10.36,1.75,1.29,1.29,0,{}],["plant",-1.18,1.75,1.29,1.29,0,{}],["plant",-10.36,24.89,1.29,1.29,0,{}],["plant",-1.18,24.89,1.29,1.29,0,{}],["plant",-20.89,5.54,1.29,1.29,0,{}],["tank",-19.75,17.18,3.57,3.57,0,{"roof":1}]]],"prime":[[["bed",-4.2,10.45,5.54,6.61,-1.5708,{"ns":1,"rug":1}],["tv",-12.32,10.45,4.46,0.71,1.5708,{"wall":1}],["wardrobe",-4.23,16.54,7.04,1.79,3.1416,{}],["crockery",-8.66,16.96,1.61,1.79,0,{}],["tv",-4.86,18.25,5.79,0.79,0,{"wall":1}],["sofa",-2.5,25.75,6.36,2.36,-1.5708,{}],["sofa",-4.68,30.14,6.71,2.43,3.1416,{}],["ctable",-7.43,24.79,1.79,2.86,0,{}],["rug",-5.77,25.18,7.04,6.93,0,{}],["dining",-17.32,21.93,4.43,2.43,0,{}],["counter",-21.61,11.07,10.0,2.14,1.5708,{}],["sink",-21.57,8.04,1.93,1.71,1.5708,{}],["hob",-21.57,11.79,2.86,1.71,1.5708,{}],["counter",-13.8,9.38,6.61,1.68,-1.5708,{}],["fridge",-14.23,14.25,2.57,2.04,-1.5708,{}],["basin",-7.32,1.32,1.71,1.5,0,{}],["wc",-4.75,1.68,1.57,1.93,0,{}],["pooja",-17.09,30.09,3.04,2.04,1.5708,{}],["basin",-14.7,26.82,2.04,1.36,0,{}],["car",-22.93,32.68,5.9,13.6,3.142,{}],["patio",-6.96,36.96,5.0,3.21,0,{}],["plant",-17.39,33.57,1.29,1.29,0,{}],["plant",-1.39,33.57,1.29,1.29,0,{}],["plant",-1.39,38.36,1.29,1.29,0,{}]],[["bed",-16.84,9.46,5.32,6.79,0,{"ns":1,"rug":1}],["wardrobe",-23.68,14.02,4.11,1.71,1.5708,{}],["wardrobe",-9.61,16.61,7.5,1.79,3.1416,{}],["wardrobe",-9.43,18.79,7.86,1.71,0,{}],["dresser",-6.34,13.93,3.21,0.96,-1.5708,{}],["dresser",-1.25,13.93,3.21,1.0,-1.5708,{}],["wc",-7.2,8.48,1.61,1.61,-1.5708,{}],["basin",-6.52,10.66,2.04,1.32,-1.5708,{}],["wc",-1.75,8.48,1.61,1.57,-1.5708,{}],["basin",-1.39,10.66,2.04,1.29,-1.5708,{}],["bed",-4.21,25.79,5.36,6.5,-1.5708,{"ns":1,"rug":1}],["tv",-13.3,25.71,4.86,0.82,1.5708,{"wall":1}],["patio",-16.57,31.61,5.0,3.57,0,{}],["plant",-19.75,33.18,1.14,1.14,0,{}]],[["bed",-16.91,9.46,5.25,6.79,0,{"ns":1,"rug":1}],["armchair",-10.45,10.21,2.21,1.96,1.5708,{}],["armchair",-7.32,10.18,2.5,2.29,-1.5708,{}],["desk",-11.39,15.18,4.0,1.79,3.1416,{}],["wardrobe",-8.3,4.73,4.82,2.32,0,{}],["wardrobe",-1.59,14.11,3.93,1.61,-1.5708,{}],["wc",-1.59,8.48,1.61,1.61,-1.5708,{}],["basin",-1.41,10.59,1.89,1.25,-1.5708,{}],["swing",-6.77,28.12,4.46,1.96,0,{}],["msstair",-6.11,17.59,2.32,4.71,1.5708,{}],["plant",-12.46,30.75,1.14,1.14,0,{}],["plant",-1.39,30.75,1.14,1.14,0,{}],["plant",-1.39,19.68,1.14,1.14,0,{}],["tank",-18.04,8.75,3.57,3.57,0,{"roof":1}]]]},"tour":{"glory4":[["Drawing room",0,-9.5,16.3,-3,24.5],["Kitchen and dining",0,-11,18.6,-21.7,12.1],["Bedroom 1",0,-8.8,10.0,-2,4.6],["Parking",0,-24.5,30.5,-8,34],["Bedroom 2",1,-9.8,16.4,-2.5,22.8],["Bedroom 3",1,-10.4,9.6,-2,5],["Lounge",1,-13,16.4,-21.5,12.9],["Bedroom 4",2,-9.8,16.4,-2.5,22.8],["Open terrace",2,-3.5,12.4,-19.4,7.5]],"glory3":[["Drawing room",0,-9.5,16.3,-3,24.5],["Kitchen and dining",0,-11,18.6,-21.7,12.1],["Bedroom 1",0,-8.8,10.0,-2,4.6],["Parking",0,-24.5,30.5,-8,34],["Bedroom 2",1,-9.8,16.4,-2.5,22.8],["Bedroom 3",1,-10.4,9.6,-2,5],["Lounge",1,-13,16.4,-21.5,12.9],["Open terrace",2,-1.3,27.1,-7,2.1]],"pride":[["Drawing room",0,-9.8,14.6,-2.5,22.5],["Kitchen and dining",0,-10.5,17.1,-21.2,10.4],["Bedroom",0,-9.2,8.8,-1.5,4.2],["Parking",0,-23.5,28.0,-8,31],["Bedroom 2",1,-10.6,15,-2.1,20.4],["Bedroom 3",1,-10.6,9.3,-2.1,4.7],["Lounge",1,-12.8,14.5,-21,11.5],["Open terrace",2,-1.5,25,-13.3,5.75]],"prime":[["Drawing room",0,-11.5,19.5,-3,28.5],["Kitchen",0,-17.3,15.6,-18.5,7.5],["Bedroom",0,-10.9,14.6,-1.6,10.4],["Pooja room",0,-11.0,30.2,-17.3,30.3],["Verandah",0,-2.2,37.6,-15,34.5],["Bedroom 1",1,-15.2,16.8,-17.5,8],["Bedroom 2",1,-12.2,30.8,-2.1,24.8],["Bedroom",2,-20.5,15.2,-8,9],["Terrace and swing",2,-11.0,20.5,-5.5,28.5]]},"win":{"glory4":[[[-9.75,28.2,-2.05,28.9],[-22.95,13.2,-22.15,16.3]],[[-10.05,28.2,-2.45,28.9]],[[-10.05,28.2,-2.45,28.9]]],"glory3":[[[-9.75,28.2,-2.05,28.9],[-22.95,13.2,-22.15,16.3]],[[-10.05,28.2,-2.45,28.9]],[]],"pride":[[[-22.85,8.8,-21.95,11.9],[-10.05,25.7,-2.45,26.4]],[[-10.05,25.7,-2.45,26.5]],[]],"prime":[[[-23.55,9.3,-22.75,13.8],[-19.45,5.3,-16.35,6.05]],[],[]]},"stairs":{"glory4":[{"rect":[-16.2,20.9,-11.6,23.4],"arrive":[-9.6,22.2,0,22.2]},{"rect":[-22.5,18.0,-13.0,23.2],"arrive":[-14.8,15.6,-2,21]},{"rect":[-22.5,17.0,-16.0,23.0],"arrive":[-13.9,18.6,-13.9,10]}],"glory3":[{"rect":[-16.2,20.9,-11.6,23.4],"arrive":[-9.6,22.2,0,22.2]},{"rect":[-22.5,18.0,-13.0,23.2],"arrive":[-14.8,15.6,-2,21]},{"rect":[-22.3,17.0,-15.4,23.0],"arrive":[-13.2,18.6,-13.2,10]}],"pride":[{"rect":[-16.2,19.0,-12.2,21.2],"arrive":[-10.0,20.1,0,20.1]},{"rect":[-21.8,15.2,-15.2,21.2],"arrive":[-15.0,13.4,-2,19]},{"rect":[-21.8,15.2,-15.4,21.2],"arrive":[-13.5,17.0,-13.5,8]}],"prime":[{"rect":[-22.4,16.0,-20.0,22.0],"arrive":[-17.6,18.0,-8,18.0]},{"rect":[-22.4,19.5,-17.5,28.5],"arrive":[-15.6,21.2,-15.6,12]},{"rect":[-22.6,22.4,-17.5,28.4],"arrive":[-16.3,20.7,-16.3,12]}]}};
 
 /* ---------- the four designs, from the brochure ---------- */
 var TYPES=[
@@ -1078,6 +1300,44 @@ $('#tLayout').addEventListener('click',function(){highlightType(cur.id)});
 selectType('glory4');
 
 /* ---------- 3D bungalow viewer, built from the floor plans ---------- */
+/* ---------- a modern hatchback, modelled once in unit space (x width, y height, z length, front +z) ---------- */
+var CARPARTS=null;
+function makeCarParts(T){
+  if(CARPARTS)return CARPARTS;
+  function prof(pts){var s=new T.Shape();s.moveTo(pts[0][0],pts[0][1]);for(var i=1;i<pts.length;i++)s.lineTo(pts[i][0],pts[i][1]);s.closePath();return s}
+  function side(shape,width,bev,bs){var g=new T.ExtrudeGeometry(shape,{depth:width-2*bev,bevelEnabled:true,bevelThickness:bev,bevelSize:bs,bevelSegments:3,curveSegments:10});
+    g.rotateY(-Math.PI/2);g.translate((width-2*bev)/2,0,0);g.computeVertexNormals();return g}
+  function arch(pts,c,dir){for(var i=0;i<=10;i++){var a=dir>0?i/10*Math.PI:Math.PI-i/10*Math.PI;pts.push([c+.088*Math.cos(a),.2+.275*Math.sin(a)])}}
+  /* lower body: tail, roof line under the glass, bonnet, nose, sills with both wheel arches */
+  var b=[[-.495,.14],[-.5,.3],[-.494,.5],[-.47,.6],[-.41,.635],[.2,.625],[.3,.585],[.42,.53],[.48,.48],[.5,.41],[.502,.27],[.49,.14],[.398,.14]];
+  arch(b,.31,1);b.push([.222,.14],[-.222,.14]);arch(b,-.31,1);b.push([-.398,.14]);
+  var body=side(prof(b),.96,.05,.016);
+  /* greenhouse */
+  var glass=side(prof([[-.44,.6],[-.37,.84],[-.29,.955],[.03,.97],[.11,.94],[.285,.61]]),.84,.06,.018);
+  var roof=side(prof([[-.3,.935],[.05,.952],[.08,1],[-.27,1]]),.82,.04,.012);
+  function bx(x1,y1,z1,x2,y2,z2){var g=new T.BoxGeometry(x2-x1,y2-y1,z2-z1);g.translate((x1+x2)/2,(y1+y2)/2,(z1+z2)/2);return g}
+  function cat(list){var n=0;list.forEach(function(g){g=g.index?g.toNonIndexed():g;n+=g.attributes.position.count});
+    var P=new Float32Array(n*3),N=new Float32Array(n*3),U=new Float32Array(n*2),o=0;
+    list.forEach(function(g){g=g.index?g.toNonIndexed():g;var c=g.attributes.position.count;P.set(g.attributes.position.array,o*3);N.set(g.attributes.normal.array,o*3);if(g.attributes.uv)U.set(g.attributes.uv.array,o*2);o+=c});
+    var r=new T.BufferGeometry();r.setAttribute('position',new T.BufferAttribute(P,3));r.setAttribute('normal',new T.BufferAttribute(N,3));r.setAttribute('uv',new T.BufferAttribute(U,2));r.computeBoundingSphere();return r}
+  var mirrors=[-1,1].map(function(s){return bx(s*.5-(s>0?0:.06),.6,.17,s*.5+(s>0?.06:0),.66,.23)});
+  var bodyAll=cat([body,roof].concat(mirrors));
+  var trim=cat([bx(-.42,.62,-.02,.42,.94,.02),                 /* B-pillars seen through the glass */
+    bx(-.25,.27,.497,.25,.37,.51),                            /* grille */
+    bx(-.46,.13,.49,.46,.2,.508),bx(-.46,.13,-.508,.46,.2,-.49),/* bumpers */
+    bx(-.49,.13,-.22,-.47,.18,.22),bx(.47,.13,-.22,.49,.18,.22) /* sills */]);
+  var head=cat([bx(-.44,.43,.47,-.2,.47,.5),bx(.2,.43,.47,.44,.47,.5)]);
+  var tail=cat([bx(-.45,.5,-.5,-.18,.56,-.475),bx(.18,.5,-.5,.45,.56,-.475)]);
+  var plate=cat([bx(-.12,.29,.5,.12,.34,.512),bx(-.12,.38,-.505,.12,.43,-.495)]);
+  var tyres=[],rims=[];
+  [-1,1].forEach(function(sx){[-1,1].forEach(function(sz){
+    var t=new T.CylinderGeometry(1,1,.13,22);t.rotateZ(Math.PI/2);t.scale(1,.227,.0756);t.translate(sx*.43,.227,sz*.31);tyres.push(t);
+    var r=new T.CylinderGeometry(.68,.68,.02,10);r.rotateZ(Math.PI/2);r.scale(1,.227,.0756);r.translate(sx*.497,.227,sz*.31);rims.push(r);
+    var h=new T.CylinderGeometry(.22,.22,.03,8);h.rotateZ(Math.PI/2);h.scale(1,.227,.0756);h.translate(sx*.505,.227,sz*.31);rims.push(h)})});
+  CARPARTS={body:bodyAll,glass:glass,trim:trim,head:head,tail:tail,plate:plate,tyre:cat(tyres),rim:cat(rims.concat([plate]))};
+  return CARPARTS;
+}
+
 function initViewer(){
   if(!window.THREE||!THREE.OrbitControls)return null;
   var T=THREE,canvas=$('#vcanvas'),box=$('#viewer'),renderer;
@@ -1233,12 +1493,9 @@ function initViewer(){
     msstair:function(k,w,d){var n=12,rise=10/n,run=d/n,a=Math.atan2(10,d),len=Math.sqrt(d*d+100);
       for(var i=0;i<n;i++)k.bx('metal',0,(i+1)*rise-.08,-d/2+(i+.5)*run,w-.2,.08,run*.92);
       [-1,1].forEach(function(s){k.add('box','metal',s*w/2,5,0,.12,.45,len,-a,0,0);k.add('box','metal',s*w/2,8,0,.06,.06,len,-a,0,0)});},
-    car:function(k,w,d){var L=d,W=w;
-      k.bx('carBody',0,.75,0,W,1.55,L-.4);k.bx('glassDark',0,2.3,-L*.06,W-.5,1.4,L*.44);k.bx('carBody',0,3.66,-L*.07,W-.6,.14,L*.37);
-      k.add('box','carBody',0,2.38,L*.2,W-.3,.25,L*.24,-.05,0,0);
-      [-1,1].forEach(function(sx){[-1,1].forEach(function(sz){k.add('cyl','tyre',sx*(W/2-.35),1.05,sz*(L/2-2.5),2.1,.75,2.1,0,0,Math.PI/2);k.add('cyl','chrome',sx*(W/2-.33),1.05,sz*(L/2-2.5),1.15,.8,1.15,0,0,Math.PI/2)});
-        k.bx('lamp',sx*(W/2-.85),1.65,L/2-.2,1.05,.32,.06);k.bx('tail',sx*(W/2-.75),1.75,-L/2+.2,.9,.32,.06)});
-      k.bx('black',0,.7,L/2-.2,W-.2,.45,.12);k.bx('black',0,.7,-L/2+.2,W-.2,.45,.12);},
+    car:function(k,w,d){var P=makeCarParts(T),L=d-.3,W=Math.min(w,6.3),H=Math.min(5.1,L*.34);
+      if(!GEO.carB){GEO.carB=P.body;GEO.carG=P.glass;GEO.carT=P.trim;GEO.carH=P.head;GEO.carL=P.tail;GEO.carY=P.tyre;GEO.carR=P.rim}
+      [['carB','carBody'],['carG','glassDark'],['carT','black'],['carH','lamp'],['carL','tail'],['carY','tyre'],['carR','chrome']].forEach(function(q){k.add(q[0],q[1],0,0,0,W,H,L)})},
     bike:function(k,w,d,o,r,sc){var L=Math.min(d,6.8),body=sc?'scooter':'bikeBody';
       [-1,1].forEach(function(s){k.add('cyl','tyre',0,.95,s*(L/2-1),1.9,.38,1.9,0,0,Math.PI/2);k.add('cyl','chrome',0,.95,s*(L/2-1),.7,.42,.7,0,0,Math.PI/2)});
       k.bx(body,0,1.3,-.25,.75,1.0,2.8);k.bx('black',0,2.3,-.75,.72,.25,2.0);
@@ -1311,6 +1568,12 @@ function initViewer(){
 
   function shapes(polys){return polys.map(function(p){var s=new T.Shape(p[0].map(function(v){return new T.Vector2(v[0],-v[1])}));for(var i=1;i<p.length;i++)s.holes.push(new T.Path(p[i].map(function(v){return new T.Vector2(v[0],-v[1])})));return s})}
   function ext(polys,depth,base,mat,parent,cast){if(!polys||!polys.length)return;var g=new T.ExtrudeGeometry(shapes(polys),{depth:depth,bevelEnabled:false,curveSegments:1});g.rotateX(-Math.PI/2);var m=new T.Mesh(g,mat);m.position.y=base;m.castShadow=cast!==false;m.receiveShadow=true;parent.add(m);return m}
+  function railPosts(polys,L,mat,parent){var list=[];
+    polys.forEach(function(p){var b=[1e9,1e9,-1e9,-1e9];p[0].forEach(function(v){b[0]=Math.min(b[0],v[0]);b[2]=Math.max(b[2],v[0]);b[1]=Math.min(b[1],v[1]);b[3]=Math.max(b[3],v[1])});
+      var w=b[2]-b[0],d=b[3]-b[1],along=w>=d,len=along?w:d,n=Math.max(1,Math.round(len/4));
+      for(var i=0;i<=n;i++){var t=i/n,x=along?b[0]+.12+t*(w-.24):(b[0]+b[2])/2,z=along?(b[1]+b[3])/2:b[1]+.12+t*(d-.24);list.push([x,z])}});
+    if(!list.length)return;var m=new T.InstancedMesh(GEO.box,mat,list.length);var M=new T.Matrix4();
+    list.forEach(function(q,i){M.makeScale(.14,2.6,.14).setPosition(q[0],L+.45+1.3,q[1]);m.setMatrixAt(i,M)});m.castShadow=true;parent.add(m)}
   function build(id){
     var data=MODELS[id],root=new T.Group(),floors=[],bb=[1e9,1e9,-1e9,-1e9],model;
     var fc=FACADE[id];
@@ -1320,7 +1583,8 @@ function initViewer(){
       var mats={ext:new T.MeshStandardMaterial({color:C(fc[0]),roughness:.85}),int:new T.MeshStandardMaterial({color:C('#EEE8DE'),roughness:.9}),
         trim:new T.MeshStandardMaterial({color:C(fc[1]),roughness:.85}),slabSide:new T.MeshStandardMaterial({color:C('#D9D3C7'),roughness:.9}),
         glass:new T.MeshStandardMaterial({color:C('#6F8796'),roughness:.15,metalness:.2,transparent:true,opacity:.45}),
-        para:new T.MeshStandardMaterial({color:C('#ECE7DE'),roughness:.9}),roof:new T.MeshStandardMaterial({color:C('#E6E1D7'),roughness:.95})};
+        para:new T.MeshStandardMaterial({color:C('#ECE7DE'),roughness:.9}),
+        rglass:new T.MeshStandardMaterial({color:C('#B9D3D6'),roughness:.05,metalness:.1,transparent:true,opacity:.32,depthWrite:false,side:T.DoubleSide}),rail:new T.MeshStandardMaterial({color:C('#1F2326'),roughness:.4,metalness:.6}),roof:new T.MeshStandardMaterial({color:C('#E6E1D7'),roughness:.95})};
       mats.base={ext:fc[0],int:'#EEE8DE',trim:fc[1]};
       var W=f.bbox[2]-f.bbox[0],H=f.bbox[3]-f.bbox[1];
       pending++;
@@ -1340,7 +1604,7 @@ function initViewer(){
           gintP=(f.gint||[]).filter(function(p){return!hitW(p)}),gdoorP=(f.gdoor||[]).filter(function(p){return!hitW(p)});
       wl(ext(gextP,3,L,mats.trim,g),0,3,'trim');wl(ext(gextP,4,L+3,mats.glass,g,false),3,4);wl(ext(gextP,2.5,L+7,mats.trim,g),7,2.5,'trim');
       wl(ext(gintP,2.5,L+7,mats.int,g),7,2.5);wl(ext(gdoorP,2.5,L+7,mats.trim,g),7,2.5,'trim');
-      if(i>0)ext(f.para,3.2,L,mats.para,g);
+      if(i>0&&f.para&&f.para.length){ext(f.para,.45,L,mats.para,g);var gm=ext(f.para,2.6,L+.45,mats.rglass,g,false);if(gm)gm.renderOrder=2;ext(f.para,.16,L+3.05,mats.rail,g);railPosts(f.para,L,mats.rail,g)}
       ext(f.roof,.5,L+9.5,mats.roof,roof);
       root.add(g);root.add(roof);
       var fl={g:g,roof:roof,level:L,mats:mats,a:1,ra:1,ta:1,tra:1,walls:walls,ptex:tex,data:f};
@@ -1422,8 +1686,8 @@ function initViewer(){
   function setOpacity(f,key,v){
     var group=key==='a'?f.g:f.roof;
     group.visible=v>.02;group.position.y=(1-v)*14;
-    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass]:[f.mats.roof];
-    ms.forEach(function(m){var g=m===f.mats.glass;m.opacity=(g?GLASS:1)*v;m.transparent=v<.999||g||m===f.mats.cap})
+    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass,f.mats.rglass,f.mats.rail]:[f.mats.roof];
+    ms.forEach(function(m){var g=m===f.mats.glass,rg=m===f.mats.rglass;m.opacity=(g?GLASS:rg?.32:1)*v;m.transparent=v<.999||g||rg||m===f.mats.cap})
   }
   /* ---------- eye-level room tour ---------- */
   function lockTour(){if(!tourOn||!tourEye)return;controls.minDistance=.55;controls.maxDistance=.65;locked=true}
@@ -2138,6 +2402,7 @@ function initStory(){
   function rectP(r){return[[[r[0],r[1]],[r[2],r[1]],[r[2],r[3]],[r[0],r[3]]]]}
   function bboxP(p){var b=[1e9,1e9,-1e9,-1e9];p[0].forEach(function(v){b[0]=Math.min(b[0],v[0]);b[2]=Math.max(b[2],v[0]);b[1]=Math.min(b[1],v[1]);b[3]=Math.max(b[3],v[1])});return b}
   var FAM={glory4:'g',glory3:'g',pride:'g',prime:'p'};
+  var mChrome=new T.MeshStandardMaterial({color:C('#D3D7DB'),roughness:.18,metalness:.9}),mCarLight=new T.MeshStandardMaterial({color:C('#F4EEE2'),emissive:C('#FFE9C8'),emissiveIntensity:.25,roughness:.2});
   /* timeline: plinth, then each floor's walls and the slab above, then plaster and cladding wash over, glass, details, cars */
   var TL={plinth:.17,wall0:.29,dF:.085,fin:.6,finD:.09,glass:.67,extra:.69,car:.86};
   Object.keys(MODELS).forEach(function(tid){
@@ -2166,8 +2431,9 @@ function initStory(){
       var parts=splitG(shell(),isM);FW.push(parts[0]);FM.push(parts[1]);
       GLl.push(exG(gextP(),4,L+3));GLd.push(exG(gextP(),4,L+3));DR.push(exG(gdoorP(),7,L));
       if(i>0&&f.para&&f.para.length){
-        var front=f.para.filter(function(p){var b=bboxP(p);return i<nF-1&&b[3]>f.bbox[3]-2.6&&(b[2]-b[0])>3}),solid=f.para.filter(function(p){return front.indexOf(p)<0});
-        FW.push(exG(solid,3.2,L));RG.push(exG(front,3,L));BK.push(exG(front,.16,L+3));
+        FW.push(exG(f.para,.45,L));RG.push(exG(f.para,2.6,L+.45));BK.push(exG(f.para,.16,L+3.05));
+        f.para.forEach(function(pp){var b=bboxP(pp),w=b[2]-b[0],d=b[3]-b[1],al=w>=d,len=al?w:d,n=Math.max(1,Math.round(len/4));
+          for(var k=0;k<=n;k++){var t=k/n,x=al?b[0]+.12+t*(w-.24):(b[0]+b[2])/2,z=al?(b[1]+b[3])/2:b[1]+.12+t*(d-.24);BK.push(bxG(x-.07,L+.45,z-.07,x+.07,L+3.05,z+.07))}});
       }
       if(f.roof&&f.roof.length)addPart(tid,exG(f.roof,.5,L+9.5),L+9.5,mRoof,aW+.06,.03);
     });
@@ -2201,13 +2467,11 @@ function initStory(){
     if(POTS.length){addPart(tid,mergeG(POTS),1.5,mPot,TL.car-.02,.05,{cast:false});addPart(tid,mergeG(BUSH),1.5,mBush,TL.car-.02,.05)}
     var car=(fu[0]||[]).filter(function(it){return it[0]==='car'})[0];
     if(car){var Mx=new T.Matrix4().makeRotationY(car[5]).setPosition(car[1],1.5,car[2]),Wc=car[3],Lc=car[4];
-      var tr=function(g){g.applyMatrix4(Mx);return nonIdx(g)};
-      var body=tr(new T.BoxGeometry(Wc,1.55,Lc-.4).translate(0,1.75,0)),hood=tr(new T.BoxGeometry(Wc-.3,.35,Lc*.3).translate(0,2.62,Lc*.3));
-      var cab=tr(new T.BoxGeometry(Wc-.5,1.35,Lc*.45).translate(0,3.18,-Lc*.06));
-      var wh=[];[-1,1].forEach(function(sx){[-1,1].forEach(function(sz){var c=new T.CylinderGeometry(1.05,1.05,.7,14);c.rotateZ(Math.PI/2);c.translate(sx*(Wc/2-.35),1.05,sz*(Lc/2-2.6));wh.push(tr(c))})});
-      var pb=addPart(tid,mergeG([body,hood]),1.5,mCarBody,TL.car,.05);addPart(tid,cab,1.5,mCarGlass,TL.car,.05,{cast:false});addPart(tid,mergeG(wh),1.5,mTyre,TL.car,.05,{cast:false});
+      var CP=makeCarParts(T),Hc=Math.min(5.1,Lc*.34),Wc2=Math.min(Wc,6.3),tr=function(g){g=g.clone();g.scale(Wc2,Hc,Lc-.3);g.applyMatrix4(Mx);return nonIdx(g)};
+      var pb=addPart(tid,tr(CP.body),1.5,mCarBody,TL.car,.05);addPart(tid,tr(CP.glass),1.5,mCarGlass,TL.car,.05,{cast:false});addPart(tid,tr(CP.tyre),1.5,mTyre,TL.car,.05,{cast:false});
+      addPart(tid,mergeG([tr(CP.trim)]),1.5,mBlackM,TL.car,.05,{cast:false});addPart(tid,tr(CP.rim),1.5,mChrome,TL.car,.05,{cast:false});addPart(tid,mergeG([tr(CP.head),tr(CP.tail)]),1.5,mCarLight,TL.car,.05,{cast:false});
       var CARS=['#ECECEA','#1C1D20','#9DA3A8','#7A1E22','#2A3A55','#D8D4CB','#474B50'].map(C);
-      if(pb)pb.meshes.forEach(function(m,k){pb.lists[k].forEach(function(h,j){m.setColorAt(j,CARS[(h.no*7)%CARS.length])});if(m.instanceColor)m.instanceColor.needsUpdate=true});
+      if(pb)pb.meshes.forEach(function(m,k){pb.lists[k].forEach(function(h,j){m.setColorAt(j,CARS[(h.no*5+2)%CARS.length])});if(m.instanceColor)m.instanceColor.needsUpdate=true});
     }
   });
   function updateHouses(p){
@@ -2276,7 +2540,7 @@ function initStory(){
   for(var pi=0;pi<40;pi++){var h0=houses[(rnd()*houses.length)|0],w0=localToWorld(h0,(rnd()-.5)*6,ND/2+3.2);piles.push({x:w0[0],z:w0[1],r:rnd()*Math.PI,brick:rnd()<.62})}
   var coneG=new T.ConeGeometry(2.2,1.7,7);coneG.translate(0,.85,0);
   var nb=piles.filter(function(p){return p.brick}).length;
-  var mBrick=inst(box,new T.MeshStandardMaterial({color:C('#A55F43'),roughness:1}),nb),mSand=inst(coneG,new T.MeshStandardMaterial({color:C('#CDB48A'),roughness:1,flatShading:true}),piles.length-nb);
+  var brT=texBrick.clone();brT.needsUpdate=true;brT.repeat.set(2,1.2);var mBrick=inst(box,new T.MeshStandardMaterial({color:0xffffff,map:brT,roughness:1}),nb),mSand=inst(coneG,new T.MeshStandardMaterial({color:C('#CDB48A'),roughness:1,flatShading:true}),piles.length-nb);
 
   /* compound wall along the site boundary, open at the gate */
   var matWall=new T.MeshStandardMaterial({color:C('#DCD8CF'),roughness:.95}),walls=[],WH=2.4;
@@ -2319,13 +2583,224 @@ function initStory(){
 
   /* tower cranes during the structure stage */
   var matYellow=new T.MeshStandardMaterial({color:C('#E0A82E'),roughness:.6});
-  function crane(x,z,rot){var g=new T.Group();g.position.set(x,0,z);scene.add(g);part(g,matYellow,1.6,44,1.6,0,22,0);part(g,matMetal,3.2,1.2,3.2,0,.6,0);
-    var top=new T.Group();top.position.y=44;top.rotation.y=rot;g.add(top);part(top,matYellow,48,1.4,1.4,14,.7,0);part(top,matYellow,1,6,1,0,3.6,0);part(top,matMetal,3,3,2.6,-8,-.8,0);part(top,matYellow,2.4,2.2,2.2,1.8,-1.6,1.6);
+  function latticeTex(rx,ry){var t=canTex(128,function(g,s){g.clearRect(0,0,s,s);g.strokeStyle='#E0A82E';g.lineWidth=10;g.strokeRect(5,5,s-10,s-10);g.lineWidth=7;g.beginPath();g.moveTo(0,0);g.lineTo(s,s);g.moveTo(s,0);g.lineTo(0,s);g.stroke()},[rx,ry]);return t}
+  var latM=latticeTex(1,27),latJ=latticeTex(34,1);
+  var matMast=new T.MeshStandardMaterial({color:C('#E8B23A'),map:latM,alphaTest:.5,side:T.DoubleSide,roughness:.5,metalness:.2}),matJib=new T.MeshStandardMaterial({color:C('#E8B23A'),map:latJ,alphaTest:.5,side:T.DoubleSide,roughness:.5,metalness:.2});
+  var depM=new T.MeshDepthMaterial({depthPacking:T.RGBADepthPacking,map:latM,alphaTest:.5}),depJ=new T.MeshDepthMaterial({depthPacking:T.RGBADepthPacking,map:latJ,alphaTest:.5});
+  function crane(x,z,rot){var g=new T.Group();g.position.set(x,0,z);scene.add(g);part(g,matMast,1.6,44,1.6,0,22,0).customDepthMaterial=depM;part(g,matMetal,3.2,1.2,3.2,0,.6,0);part(g,matMetal,6,.8,6,0,.4,0);
+    var top=new T.Group();top.position.y=44;top.rotation.y=rot;g.add(top);part(top,matJib,48,1.4,1.4,14,.7,0).customDepthMaterial=depJ;part(top,matYellow,1.6,1.8,1.4,0,.9,0);part(top,matYellow,1,6,1,0,3.6,0);part(top,matMetal,3,3,2.6,-8,-.8,0);part(top,matYellow,2.4,2.2,2.2,1.8,-1.6,1.6);
     var trolley=new T.Group();trolley.position.x=24;top.add(trolley);part(trolley,matMetal,.12,22,.12,0,-11,0);part(trolley,new T.MeshStandardMaterial({color:C('#A55F43'),roughness:1}),3,1.2,2,0,-22.6,0);
     g.userData={top:top,trolley:trolley,base:rot};return g}
-  function frontOf(no,off){var h=houses.filter(function(x){return x.no===no})[0];return localToWorld(h,0,ND/2+off)}
   var c1=frontOf(28,4.4),c2=frontOf(41,5.6),c3=frontOf(57,4.4);
   var cranes=[crane(c1[0],c1[1],.6),crane(c2[0],c2[1],2.4),crane(c3[0],c3[1],4.1)];
+  /* ================= construction site: machines, workers, scaffolding, plot walls ================= */
+  function frontOf(no,off,lx){var h=houses.filter(function(x){return x.no===no})[0];return localToWorld(h,lx||0,ND/2+off)}
+  function houseOf(no){return houses.filter(function(x){return x.no===no})[0]}
+  /* tiny merge kit: parts collected per material, merged into one mesh each */
+  function Rig(){this.p=[]}
+  Rig.prototype.add=function(g,mat,x,y,z,rx,ry,rz,sx,sy,sz){g=g.index?g.toNonIndexed():g.clone();
+    var M=new T.Matrix4().compose(new T.Vector3(x||0,y||0,z||0),new T.Quaternion().setFromEuler(new T.Euler(rx||0,ry||0,rz||0)),new T.Vector3(sx||1,sy||1,sz||1));g.applyMatrix4(M);this.p.push([g,mat]);return this};
+  Rig.prototype.box=function(mat,x,y,z,w,h,d,rx,ry,rz){return this.add(new T.BoxGeometry(w,h,d),mat,x,y,z,rx,ry,rz)};
+  Rig.prototype.cyl=function(mat,x,y,z,r,len,axis,seg,r2){var g=new T.CylinderGeometry(r2!=null?r2:r,r,len,seg||14);if(axis==='x')g.rotateZ(Math.PI/2);else if(axis==='z')g.rotateX(Math.PI/2);return this.add(g,mat,x,y,z)};
+  Rig.prototype.build=function(parent,cast){var by=new Map();this.p.forEach(function(q){if(!by.has(q[1]))by.set(q[1],[]);by.get(q[1]).push(q[0])});
+    by.forEach(function(list,mat){var g=mergeG(list);g.computeBoundingSphere();var m=new T.Mesh(g,mat);m.castShadow=cast!==false;m.receiveShadow=true;parent.add(m)});return parent};
+  function wheelSet(r,list,mat,hub,rad,wid,x,z){list.forEach(function(p){r.cyl(mat,p[0],rad,p[1],rad,wid,'x',18);r.cyl(hub,p[0]+(p[0]>0?wid/2:-wid/2),rad,p[1],rad*.55,.04,'x',10)})}
+
+  var mY=new T.MeshStandardMaterial({color:C('#E5A019'),roughness:.45,metalness:.15}),
+      mYd=new T.MeshStandardMaterial({color:C('#B57A10'),roughness:.6,metalness:.2}),
+      mTrack=new T.MeshStandardMaterial({color:C('#2A2A2B'),roughness:.85,metalness:.2}),
+      mCab=new T.MeshStandardMaterial({color:C('#1E272D'),roughness:.08,metalness:.6,envMapIntensity:1.2}),
+      mSteel=new T.MeshStandardMaterial({color:C('#8C9298'),roughness:.35,metalness:.75}),
+      mRub=new T.MeshStandardMaterial({color:C('#1B1B1D'),roughness:.9}),
+      mWhiteP=new T.MeshStandardMaterial({color:C('#EEEDEA'),roughness:.4,metalness:.1}),
+      mOrange=new T.MeshStandardMaterial({color:C('#D8632A'),roughness:.45,metalness:.1}),
+      mRedCab=new T.MeshStandardMaterial({color:C('#B83A2E'),roughness:.4,metalness:.15}),
+      mBlueCab=new T.MeshStandardMaterial({color:C('#2F5E8C'),roughness:.4,metalness:.15}),
+      mSandL=new T.MeshStandardMaterial({color:C('#C8AE84'),roughness:1,flatShading:true}),
+      mSoil=new T.MeshStandardMaterial({color:C('#8C6E50'),roughness:1,flatShading:true}),
+      mLampS=new T.MeshStandardMaterial({color:C('#FFF6DD'),emissive:C('#FFE7B0'),emissiveIntensity:.5}),
+      mBeacon=new T.MeshStandardMaterial({color:C('#FF9A1F'),emissive:C('#FF8A00'),emissiveIntensity:.8});
+  var drumTex=canTex(256,function(g,s){g.fillStyle='#F1F0EC';g.fillRect(0,0,s,s);g.fillStyle='#D9632B';
+    for(var i=-2;i<4;i++){g.beginPath();g.moveTo(i*s/2,0);g.lineTo(i*s/2+s*.18,0);g.lineTo(i*s/2+s*.68,s);g.lineTo(i*s/2+s*.5,s);g.closePath();g.fill()}
+    speck(g,1500,s,['#C9C6BE','#9E9A92'],.25)},[2,1]);
+  var mDrum=new T.MeshStandardMaterial({map:drumTex,roughness:.35,metalness:.25});
+
+  /* excavator: tracks, slewing upper body, two-part boom, bucket */
+  function excavator(x,z,rot){
+    var g=new T.Group();g.position.set(x,.2,z);g.rotation.y=rot;scene.add(g);
+    var r=new Rig();[-1,1].forEach(function(s){r.box(mTrack,s*1.1,.45,0,.62,.8,4.2);r.cyl(mTrack,s*1.1,.45,2.1,.4,.62,'x',12);r.cyl(mTrack,s*1.1,.45,-2.1,.4,.62,'x',12);
+      for(var k=-2;k<=2;k++)r.cyl(mSteel,s*(1.1+.32),.45,k*.95,.22,.05,'x',10)});r.box(mYd,0,.85,0,1.6,.35,2.6);r.cyl(mTrack,0,1.05,0,.9,.25,'y',16);r.build(g);
+    var up=new T.Group();up.position.y=1.18;g.add(up);var u=new Rig();
+    u.box(mY,.15,.55,-.25,2.5,1.1,3.0);u.cyl(mY,.15,.55,-1.55,1.25,1.1,'y',20);u.box(mYd,.15,1.12,-.6,2.3,.06,2.0);
+    u.box(mY,-.72,1.55,.65,.98,1.6,1.15);u.box(mCab,-.72,1.62,1.23,.86,1.25,.04);u.box(mCab,-1.22,1.62,.65,.04,1.15,.95);u.box(mCab,-.22,1.62,.65,.04,1.15,.95);
+    u.box(mTrack,-.72,2.37,.65,1.02,.06,1.2);u.cyl(mBeacon,-.4,2.48,.4,.08,.14,'y',8);u.box(mLampS,-.4,2.3,1.24,.18,.1,.04);u.box(mSteel,.9,1.2,-1.1,.3,.5,.3);u.build(up);
+    var boom=new T.Group();boom.position.set(.45,.9,1.1);up.add(boom);var b=new Rig();b.box(mY,0,0,2.6,.42,.62,5.4,0,0,0);b.box(mYd,0,.36,1.6,.12,.12,2.6);b.cyl(mSteel,-.18,-.3,1.4,.09,2.2,'z',8);b.build(boom);
+    var arm=new T.Group();arm.position.set(0,0,5.25);boom.add(arm);var a=new Rig();a.box(mY,0,0,1.35,.34,.48,2.9);a.cyl(mSteel,0,.32,1.0,.07,1.8,'z',8);a.build(arm);
+    var bk=new T.Group();bk.position.set(0,0,2.8);arm.add(bk);var k2=new Rig();k2.box(mTrack,0,-.3,.25,.9,.75,.55);for(var t=-3;t<=3;t++)k2.box(mSteel,t*.13,-.7,.42,.06,.14,.12);k2.build(bk);
+    g.userData={up:up,boom:boom,arm:arm,bk:bk,ph:rnd()*6};return g}
+  function animExcavator(g,t){var u=g.userData,c=t*.0006+u.ph,s=Math.sin(c),s2=Math.sin(c*2);
+    u.up.rotation.y=Math.sin(c*.5)*.7;u.boom.rotation.x=-.42+s*.22;u.arm.rotation.x=1.25+s2*.35;u.bk.rotation.x=.6+Math.sin(c*2+1)*.5}
+
+  /* transit mixer: cab, chassis, rotating striped drum, ten wheels */
+  function mixer(x,z,rot,cabMat){
+    var g=new T.Group();g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);var r=new Rig();
+    r.box(mTrack,0,.95,-.6,1.1,.3,7.2);r.box(cabMat,0,1.95,2.85,2.35,1.85,1.75);r.box(cabMat,0,1.15,2.95,2.4,.5,1.9);r.box(mCab,0,2.3,3.73,2.1,.8,.04);
+    r.box(mCab,-1.18,2.3,2.95,.04,.75,1.1);r.box(mCab,1.18,2.3,2.95,.04,.75,1.1);r.box(mTrack,0,1.05,3.85,2.36,.35,.12);r.box(mLampS,-.85,1.25,3.92,.35,.16,.04);r.box(mLampS,.85,1.25,3.92,.35,.16,.04);
+    r.box(mWhiteP,0,2.92,2.85,2.3,.1,1.7);r.box(mSteel,0,1.55,-.2,1.6,.5,.6);r.box(mSteel,0,1.8,-4.1,.9,1.0,.7);r.add(new T.ConeGeometry(.45,.8,10),mSteel,0,2.6,-4.25,-.5,0,0);
+    r.box(mY,0,1.25,-4.3,2.3,.2,.1);[-1,1].forEach(function(s){r.box(mSteel,s*1.05,1.35,-1.2,.1,.4,4.6)});
+    wheelSet(r,[[-1.05,2.75],[1.05,2.75],[-1.05,-1.9],[1.05,-1.9],[-1.05,-3.15],[1.05,-3.15]],mRub,mSteel,.52,.42);r.build(g);
+    var drum=new T.Group();drum.position.set(0,2.45,-1.3);drum.rotation.x=-.22;g.add(drum);
+    var pts=[[.25,-2.6],[.95,-2.2],[1.28,-1.0],[1.3,.4],[1.05,1.7],[.5,2.4],[.32,2.55]].map(function(p){return new T.Vector2(p[0],p[1])});
+    var lg=new T.LatheGeometry(pts,24);lg.rotateX(Math.PI/2);var dm=new T.Mesh(lg,mDrum);dm.castShadow=dm.receiveShadow=true;drum.add(dm);
+    g.userData={drum:drum,wheels:[]};return g}
+
+  /* tipper truck with a load of sand */
+  function tipper(x,z,rot,cabMat){
+    var g=new T.Group();g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);var r=new Rig();
+    r.box(mTrack,0,.95,-.3,1.1,.3,6.4);r.box(cabMat,0,1.95,2.45,2.3,1.85,1.6);r.box(mCab,0,2.3,3.26,2.05,.8,.04);r.box(mCab,-1.16,2.3,2.5,.04,.75,1.0);r.box(mCab,1.16,2.3,2.5,.04,.75,1.0);
+    r.box(mTrack,0,1.05,3.3,2.32,.35,.12);r.box(mLampS,-.82,1.25,3.37,.32,.14,.04);r.box(mLampS,.82,1.25,3.37,.32,.14,.04);r.box(mWhiteP,0,2.92,2.45,2.25,.1,1.5);
+    r.box(mYd,0,1.55,-1.2,2.4,.14,4.5);[-1,1].forEach(function(s){r.box(mY,s*1.17,2.15,-1.2,.08,1.1,4.5)});r.box(mY,0,2.15,1.0,2.4,1.1,.1);r.box(mY,0,2.15,-3.42,2.4,1.1,.1);
+    r.add(new T.SphereGeometry(1,10,6,0,Math.PI*2,0,Math.PI/2),mSandL,0,2.55,-1.2,0,0,0,1.05,.6,2.0);
+    wheelSet(r,[[-1.02,2.3],[1.02,2.3],[-1.02,-1.6],[1.02,-1.6],[-1.02,-2.75],[1.02,-2.75]],mRub,mSteel,.5,.4);r.build(g);g.userData={};return g}
+
+  /* backhoe loader */
+  function backhoe(x,z,rot){
+    var g=new T.Group();g.position.set(x,0,z);g.rotation.y=rot;scene.add(g);var r=new Rig();
+    r.box(mY,0,1.25,.9,1.6,.9,2.2);r.box(mY,0,1.05,-.6,2.1,.5,2.6);r.box(mY,0,2.1,-.55,1.5,1.7,1.5);r.box(mCab,0,2.3,.21,1.35,1.1,.04);r.box(mCab,-.76,2.3,-.55,.04,1.1,1.3);r.box(mCab,.76,2.3,-.55,.04,1.1,1.3);r.box(mCab,0,2.3,-1.31,1.35,1.1,.04);
+    r.box(mTrack,0,3.0,-.55,1.62,.08,1.62);r.cyl(mBeacon,.5,3.1,-.9,.08,.14,'y',8);r.box(mSteel,.55,2.05,1.3,.12,1.4,.12);r.box(mLampS,-.55,1.55,2.02,.25,.12,.04);r.box(mLampS,.55,1.55,2.02,.25,.12,.04);
+    r.cyl(mRub,-1.0,.78,-.95,.78,.5,'x',20);r.cyl(mRub,1.0,.78,-.95,.78,.5,'x',20);r.cyl(mY,-1.26,.78,-.95,.4,.04,'x',12);r.cyl(mY,1.26,.78,-.95,.4,.04,'x',12);
+    r.cyl(mRub,-.95,.52,1.35,.52,.4,'x',18);r.cyl(mRub,.95,.52,1.35,.52,.4,'x',18);r.cyl(mY,-1.16,.52,1.35,.27,.04,'x',10);r.cyl(mY,1.16,.52,1.35,.27,.04,'x',10);
+    [-1,1].forEach(function(s){r.box(mY,s*.95,1.35,2.25,.16,.22,2.2,.28,0,0)});r.box(mTrack,0,.6,3.25,2.3,.65,.7);r.box(mSteel,0,.32,3.6,2.3,.05,.3);
+    r.box(mY,0,1.6,-2.4,.3,.5,1.6,-.9,0,0);r.box(mY,0,2.75,-2.95,.28,.42,1.7,.5,0,0);r.box(mTrack,0,2.2,-3.55,.6,.55,.45);
+    [-1,1].forEach(function(s){r.box(mSteel,s*1.0,.4,-2.2,.25,.8,.25)});r.build(g);g.userData={};return g}
+
+  /* where the machines work: the Prime rows and the Glory columns near the gate */
+  var MACH=[];
+  function at(no,off,lx){var h=houseOf(no),w=localToWorld(h,lx||0,ND/2+off);return{x:w[0],z:w[1],rot:h.rot}}
+  function M(kind,obj,a,b,o){o=o||{};obj.userData.kind=kind;obj.userData.a=a;obj.userData.b=b;obj.userData.home=obj.position.clone();obj.userData.path=o.path;obj.userData.speed=o.speed||1;obj.visible=false;MACH.push(obj);return obj}
+  (function(){
+    var p;
+    p=at(36,4.6,-2);M('exc',excavator(p.x,p.z,p.rot+1.3),.1,.34);
+    p=at(13,4.2,2);M('exc',excavator(p.x,p.z,p.rot-1.5),.11,.33);
+    p=at(52,4.4,0);M('exc',excavator(p.x,p.z,p.rot+1.6),.12,.33);
+    p=at(24,4.4,-1);M('exc',excavator(p.x,p.z,p.rot-1.4),.13,.31);
+    p=at(44,4.6,1);M('bh',backhoe(p.x,p.z,p.rot+1.57),.12,.4);
+    p=at(5,4.2,0);M('bh',backhoe(p.x,p.z,p.rot-1.57),.12,.38);
+    p=at(38,5.2,3);M('tip',tipper(p.x,p.z,p.rot+1.57,mOrange),.14,.36);
+    p=at(18,4.6,0);M('tip',tipper(p.x,p.z,p.rot-1.57,mBlueCab),.15,.4);
+    p=at(40,5.0,-3);M('mix',mixer(p.x,p.z,p.rot-1.57,mRedCab),.3,.6);
+    p=at(28,5.0,2);M('mix',mixer(p.x,p.z,p.rot+1.57,mWhiteP),.32,.6);
+    p=at(57,4.8,-1);M('mix',mixer(p.x,p.z,p.rot-1.57,mBlueCab),.33,.58);
+    /* trucks driving in and out along the 9 m road */
+    var lane1={x0:gateX-6,x1:wx(260),z:gateZ-1.7},lane2={x0:wx(260),x1:gateX-6,z:gateZ+1.7};
+    M('drive',mixer(lane1.x0,lane1.z,-Math.PI/2,mOrange),.3,.62,{path:[lane1,lane2],speed:.8});
+    M('drive',tipper(lane2.x0,lane2.z,Math.PI/2,mRedCab),.12,.42,{path:[lane2,lane1],speed:1});
+  })();
+
+  /* workers: hi-vis vests and hard hats, four poses in vertex colours */
+  function workerGeo(pose,helmet,vest,pants){
+    var parts=[];function put(g,col,x,y,z,rx,ry,rz){g=g.index?g.toNonIndexed():g;g.applyMatrix4(new T.Matrix4().compose(new T.Vector3(x,y,z),new T.Quaternion().setFromEuler(new T.Euler(rx||0,ry||0,rz||0)),new T.Vector3(1,1,1)));
+      var c=new T.Color(col).convertSRGBToLinear(),n=g.attributes.position.count,a=new Float32Array(n*3);for(var i=0;i<n;i++){a[i*3]=c.r;a[i*3+1]=c.g;a[i*3+2]=c.b}g.setAttribute('color',new T.BufferAttribute(a,3));parts.push(g)}
+    function limb(r,len){var g=new T.CylinderGeometry(r,r*.9,len,7);g.translate(0,-len/2,0);return g}
+    var skin='#7B4F35',lean=pose==='bend'?.55:0,hipY=.88;
+    var la=pose==='walkA'?.38:pose==='walkB'?-.38:0;
+    put(limb(.075,.86),pants,-.1,hipY,0,la,0,0);put(limb(.075,.86),pants,.1,hipY,0,-la,0,0);
+    put(new T.BoxGeometry(.13,.08,.24),'#3A2E25',-.1+0,.04,.05+Math.sin(la)*.0,0,0,0);put(new T.BoxGeometry(.13,.08,.24),'#3A2E25',.1,.04,.05,0,0,0);
+    var tor=new T.BoxGeometry(.4,.6,.24);tor.translate(0,.3,0);put(tor,vest,0,hipY,0,lean,0,0);
+    var cy=Math.cos(lean),sy=Math.sin(lean),sh=hipY+.55*cy,shz=.55*sy;
+    var band=new T.BoxGeometry(.41,.05,.25);put(band,'#E9EDEF',0,hipY+.18*cy,.18*sy,lean,0,0);put(band.clone(),'#E9EDEF',0,hipY+.36*cy,.36*sy,lean,0,0);
+    var arx=pose==='carry'?Math.PI-.25:pose==='bend'?1.25:pose==='walkA'?-.4:pose==='walkB'?.4:.12;
+    put(limb(.055,.62),vest==='#E8E2D0'?skin:vest,-.27,sh,shz,arx,0,pose==='carry'?.25:.05);put(limb(.055,.62),vest==='#E8E2D0'?skin:vest,.27,sh,shz,pose==='walkA'?.4:pose==='walkB'?-.4:arx,0,pose==='carry'?-.25:-.05);
+    put(new T.SphereGeometry(.105,10,8),skin,0,sh+.17*cy,shz+.17*sy);
+    var hat=new T.SphereGeometry(.125,12,6,0,Math.PI*2,0,Math.PI/2);put(hat,helmet,0,sh+.2*cy,shz+.2*sy,lean,0,0);put(new T.CylinderGeometry(.155,.155,.02,12),helmet,0,sh+.2*cy,shz+.2*sy+.02,lean,0,0);
+    if(pose==='carry'){put(new T.CylinderGeometry(.26,.2,.1,14),'#5D6266',0,sh+.4,0);put(new T.SphereGeometry(.22,8,4,0,Math.PI*2,0,Math.PI/2),'#B9AE9A',0,sh+.44,0)}
+    if(pose==='bend'){var sv=new T.CylinderGeometry(.02,.02,1.2,5);put(sv,'#7A5A3A',0,hipY+.2,.6,1.0,0,0);put(new T.BoxGeometry(.24,.02,.28),'#5D6266',0,.12,1.0,.3,0,0)}
+    var n=0;parts.forEach(function(g){n+=g.attributes.position.count});var P=new Float32Array(n*3),N=new Float32Array(n*3),Cc=new Float32Array(n*3),o=0;
+    parts.forEach(function(g){g.computeVertexNormals();var c=g.attributes.position.count;P.set(g.attributes.position.array,o*3);N.set(g.attributes.normal.array,o*3);Cc.set(g.attributes.color.array,o*3);o+=c});
+    var r=new T.BufferGeometry();r.setAttribute('position',new T.BufferAttribute(P,3));r.setAttribute('normal',new T.BufferAttribute(N,3));r.setAttribute('color',new T.BufferAttribute(Cc,3));r.computeBoundingSphere();return r}
+  var mWorker=new T.MeshStandardMaterial({vertexColors:true,roughness:.8});
+  var WK=[],WPOSE=['stand','carry','bend','walkA','walkB'];
+  houses.forEach(function(h,i){
+    var nF=MODELS[h.t].length,n=(h.t==='prime'||i%3===0)?4:2;
+    for(var k=0;k<n;k++){var role=k===0?'bend':k===1?'carry':rnd()<.5?'walk':'stand',onSlab=(k===3&&nF>1);
+      var lx=(rnd()-.5)*5,lz=onSlab?(rnd()-.5)*4:ND/2+.8+rnd()*2.6;var w=localToWorld(h,lx,lz);
+      var hv=rnd()<.6?0:1;WK.push({h:h,role:role,x:w[0],z:w[1],lx:lx,lz:lz,floor:onSlab?1+((rnd()*(nF-1))|0):0,rot:h.rot+(rnd()-.5)*2.4,ph:rnd()*6,hel:hv,vest:hv})}
+  });
+  var HEL=['#F2C31B','#F4F4F1'],VEST=['#F07A1A','#B8E02E'];
+  var WM={};
+  WPOSE.forEach(function(pz){HEL.forEach(function(hc,hi){VEST.forEach(function(vc,vi){
+    if(hi!==vi)return;var list=WK.filter(function(w){var p=w.role==='walk'?'walk':w.role;return w.hel===hi&&w.vest===vi&&(pz.indexOf('walk')===0?p==='walk':p===pz)});if(!list.length)return;
+    var m=inst(workerGeo(pz,hc,vc,rnd()<.5?'#2E3A4E':'#5C5040'),mWorker,list.length,true,false);m.userData={pose:pz,list:list};WM[pz+hi+vi]=m})})});
+  var WMS=Object.keys(WM).map(function(k){return WM[k]});
+
+  /* bamboo scaffolding with green safety net on the front of every house while it is being built */
+  var SCF=[];houses.forEach(function(h){var d=MODELS[h.t],b=(d[1]||d[0]).bbox,mc=MC[h.t];
+    var x1=(b[0]-mc[0])*FT,x2=(b[2]-mc[0])*FT,zf=(b[3]-mc[1])*FT+.7;if(h.mx<0){var t0=-x2;x2=-x1;x1=t0}
+    SCF.push({h:h,x1:x1-.3,x2:x2+.3,z:zf,H:d.length*3.05+1.2})});
+  var nPole=0;SCF.forEach(function(s){s.np=Math.max(3,Math.round((s.x2-s.x1)/1.8)+1);nPole+=s.np*2+Math.ceil(s.H/2)});
+  var mBamboo=new T.MeshStandardMaterial({color:C('#9C7B4C'),roughness:.8});
+  var mNet=new T.MeshStandardMaterial({color:C('#2F7D4A'),roughness:.9,transparent:true,opacity:.36,side:T.DoubleSide,depthWrite:false});
+  var mScaf=inst(box,mBamboo,nPole,true,false),mNets=inst(new T.PlaneGeometry(1,1),mNet,SCF.length,false,false);mNets.renderOrder=3;
+
+  /* plots: paving and a low dividing wall in the side gap between neighbouring bungalows (no road there) */
+  var GAP=[];
+  SITE.units.forEach(function(a){SITE.units.forEach(function(b){if(a===b||a.face!==b.face)return;
+    var vert=a.face==='R'||a.face==='L';
+    if(vert){if(Math.abs(a.x-b.x)>4)return;var gap=b.y-(a.y+a.h);if(gap<.5||gap>34)return;GAP.push({x1:wx(Math.max(a.x,b.x)),x2:wx(Math.min(a.x+a.w,b.x+b.w)),z1:wz(a.y+a.h),z2:wz(b.y),v:1,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}
+    else{if(Math.abs(a.y-b.y)>4)return;var gp=b.x-(a.x+a.w);if(gp<.5||gp>34)return;GAP.push({x1:wx(a.x+a.w),x2:wx(b.x),z1:wz(Math.max(a.y,b.y)),z2:wz(Math.min(a.y+a.h,b.y+b.h)),v:0,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}})});
+  var mGapPave=new T.MeshStandardMaterial({color:0xffffff,map:texPave,roughness:.95});
+  var mDiv=new T.MeshStandardMaterial({color:C('#EFECE5'),map:texPlaster,roughness:.9}),mCope=new T.MeshStandardMaterial({color:C('#9C8A86'),roughness:.7});
+  var mGapP=inst(box,mGapPave,GAP.length,false,true),mGapW=inst(box,mDiv,GAP.length,true,true),mGapC=inst(box,mCope,GAP.length,true,false);
+  var gapUV=new T.Vector2();
+
+  /* timeline helpers (build progress p) */
+  function winS(p,a,b,f){return grow(p,a,f||.03)*(1-grow(p,b,f||.03))}
+  function updateSite(p){
+    var i;
+    MACH.forEach(function(m){var u=m.userData,s=winS(p,u.a,u.b);m.visible=s>.01;if(!m.visible)return;m.scale.setScalar(.001+s*.999);if(!u.path)m.position.y=u.home.y-(1-s)*3});
+    /* workers */
+    WMS.forEach(function(m){var L=m.userData.list,walkA=m.userData.pose==='walkA',walkB=m.userData.pose==='walkB';
+      for(i=0;i<L.length;i++){var w=L[i],h=w.h,y=0,s;
+        if(w.floor){var aS=TL.wall0+TL.dF*(w.floor-1)+.08+h.d;s=winS(p,aS,TL.fin+h.d,.02);y=(1.5+10*w.floor)*FT}
+        else s=winS(p,TL.plinth-.04+h.d*.5,TL.fin+.08+h.d,.02);
+        if(s<=.01){m.setMatrixAt(i,ZERO);continue}
+        var x=w.x,z=w.z,rot=w.rot;
+        if(w.role==='walk'){var t=siteT*.00025+w.ph,ph=(t%2+2)%2,tt=ph<1?ph:2-ph,step=Math.floor(t*14)%2;
+          if((step===0)!==walkA){m.setMatrixAt(i,ZERO);continue}
+          var a2=localToWorld(h,-3,w.lz),b2=localToWorld(h,3,w.lz);x=lerp(a2[0],b2[0],tt);z=lerp(a2[1],b2[1],tt);rot=h.rot+(ph<1?Math.PI/2:-Math.PI/2)}
+        else if(w.role==='bend'){rot=w.rot+Math.sin(siteT*.002+w.ph)*.15}
+        if(w.floor){var ww=localToWorld(h,w.lx,w.lz);x=ww[0];z=ww[1]}
+        q.setFromAxisAngle(UP,rot);v3.set(x,y+.15,z);s3.setScalar(s);m4.compose(v3,q,s3);m.setMatrixAt(i,m4)}
+      m.instanceMatrix.needsUpdate=true});
+  }
+  function updateScaffold(p){
+    var k=0;
+    SCF.forEach(function(s,j){var h=s.h,up=grow(p,TL.wall0+h.d,.2),off=grow(p,TL.fin-.02+h.d,.03),hh=s.H*up*(1-off);
+      var vis=hh>.3;
+      for(var i=0;i<s.np;i++){var lx=lerp(s.x1,s.x2,i/(s.np-1));for(var r=0;r<2;r++){var w=localToWorld(h,lx,s.z+r*.9);
+        if(!vis)mScaf.setMatrixAt(k,ZERO);else{q.setFromAxisAngle(UP,h.rot);v3.set(w[0],hh/2,w[1]);s3.set(.09,hh,.09);m4.compose(v3,q,s3);mScaf.setMatrixAt(k,m4)}k++}}
+      var nl=Math.ceil(s.H/2);for(var l=0;l<nl;l++){var y=1+l*2,c=localToWorld(h,(s.x1+s.x2)/2,s.z+.45);
+        if(!vis||y>hh)mScaf.setMatrixAt(k,ZERO);else{q.setFromAxisAngle(UP,h.rot);v3.set(c[0],y,c[1]);s3.set(s.x2-s.x1+.4,.08,.55);m4.compose(v3,q,s3);mScaf.setMatrixAt(k,m4)}k++}
+      if(!vis)mNets.setMatrixAt(j,ZERO);else{var cn=localToWorld(h,(s.x1+s.x2)/2,s.z+1.05);q.setFromAxisAngle(UP,h.rot);v3.set(cn[0],hh*.55,cn[1]);s3.set(s.x2-s.x1,hh*.86,1);m4.compose(v3,q,s3);mNets.setMatrixAt(j,m4)}
+    });
+    mScaf.instanceMatrix.needsUpdate=true;mNets.instanceMatrix.needsUpdate=true;
+    GAP.forEach(function(g,j){var sp=grow(p,TL.plinth+g.d,.05),sw=grow(p,TL.wall0+.04+g.d,.06),fin=grow(p,TL.fin+g.d,.06);
+      var cx=(g.x1+g.x2)/2,cz=(g.z1+g.z2)/2,w=Math.abs(g.x2-g.x1),d=Math.abs(g.z2-g.z1);q.identity();
+      if(sp<=.01)mGapP.setMatrixAt(j,ZERO);else{v3.set(cx,.16*sp,cz);s3.set(w,.32*sp,d);m4.compose(v3,q,s3);mGapP.setMatrixAt(j,m4)}
+      var wh=1.25*sw;if(sw<=.01){mGapW.setMatrixAt(j,ZERO);mGapC.setMatrixAt(j,ZERO)}else{
+        if(g.v){v3.set(cx,.32+wh/2,cz);s3.set(w,wh,.23)}else{v3.set(cx,.32+wh/2,cz);s3.set(.23,wh,d)}m4.compose(v3,q,s3);mGapW.setMatrixAt(j,m4);
+        if(fin<=.01)mGapC.setMatrixAt(j,ZERO);else{if(g.v){v3.set(cx,.32+wh+.05,cz);s3.set(w,.1,.32)}else{v3.set(cx,.32+wh+.05,cz);s3.set(.32,.1,d)}m4.compose(v3,q,s3);mGapC.setMatrixAt(j,m4)}}});
+    mGapP.instanceMatrix.needsUpdate=true;mGapW.instanceMatrix.needsUpdate=true;mGapC.instanceMatrix.needsUpdate=true;
+    mDiv.color.copy(fin0).lerp(fin1,grow(p,TL.fin+.04,.06));
+  }
+  var fin0=C('#A65E44'),fin1=C('#F1EEE8'),siteT=0;
+  function animSite(t,p){siteT=t;
+    MACH.forEach(function(m){if(!m.visible)return;var u=m.userData;
+      if(u.kind==='exc')animExcavator(m,t);
+      if(u.drum)u.drum.rotation.z=t*.0012;
+      if(u.path){var L=u.path,per=34000/u.speed,ph=((t/per)%1+1)%1,seg=ph<.5?L[0]:L[1],tt=smooth((ph<.5?ph:ph-.5)*2);
+        var x=lerp(seg.x0,seg.x1,tt);m.position.set(x,0,seg.z);m.rotation.y=seg.x1<seg.x0?-Math.PI/2:Math.PI/2}});
+    updateSite(p)}
 
   /* survey lines around every plot */
   var lp=[];
@@ -2351,7 +2826,7 @@ function initStory(){
   function grow(p,a,d){return smooth((p-a)/d)}
   function updateBuild(p){
     var i;
-    updateHouses(p);
+    updateHouses(p);updateScaffold(p);
     for(i=0;i<trees.length;i++){var t=trees[i],ts=t.a<0?1:grow(p,t.a,.08),tm=TV[t.v];if(ts<=.001){tm.setMatrixAt(t.k,ZERO);continue}
       q.setFromAxisAngle(UP,t.rot);v3.set(t.x,t.y,t.z);s3.setScalar(t.s*ts);m4.compose(v3,q,s3);tm.setMatrixAt(t.k,m4)}
     TV.forEach(function(m){m.instanceMatrix.needsUpdate=true});
@@ -2363,7 +2838,7 @@ function initStory(){
       if(pl.brick){if(pin<=.001)mBrick.setMatrixAt(bix,ZERO);else{v3.set(pl.x,.16+.55*pin,pl.z);s3.set(2.4,1.1*pin,1.4);m4.compose(v3,q,s3);mBrick.setMatrixAt(bix,m4)}bix++}
       else{if(pin<=.001)mSand.setMatrixAt(six,ZERO);else{v3.set(pl.x,.16,pl.z);s3.set(1,pin,1);m4.compose(v3,q,s3);mSand.setMatrixAt(six,m4)}six++}}
     mBrick.instanceMatrix.needsUpdate=true;mSand.instanceMatrix.needsUpdate=true;
-    planMat.opacity=1-grow(p,.12,.2);siteP.visible=planMat.opacity>.01;
+    planMat.opacity=1-grow(p,.09,.12);siteP.visible=planMat.opacity>.01;
     var ws2=grow(p,.2,.1);walls.forEach(function(m){var u=m.userData;if(ws2<=.001){m.visible=false;return}m.visible=true;m.scale.set(u.len,WH*ws2,.4);m.position.set(u.x,WH*ws2/2,u.z)});
     var gs2=grow(p,.7,.08);gate.visible=gs2>.001;gate.position.y=-9*(1-gs2);
     var gd=grow(p,.82,.08);gardens.visible=gd>.001;gardens.position.y=-6*(1-gd);
@@ -2372,7 +2847,15 @@ function initStory(){
   }
 
   /* camera path */
-  var KEYS=[{p:0,r:20,h:365,th:0,tx:0,tz:3,ty:0},{p:.25,r:150,h:250,th:70,tx:-25,tz:-30,ty:0},{p:.5,r:165,h:125,th:74,tx:-25,tz:-45,ty:0},{p:.75,r:118,h:58,th:70,tx:8,tz:-48,ty:3},{p:1,r:46,h:12,th:40,tx:46,tz:-38,ty:5}];
+  /* scroll position (new p) -> build progress: everything is finished early in the overview, before the last card */
+  var PN=[0,.07,.243,.417,.59,.70,1],PO=[0,.09,.32,.55,.78,1,1];
+  function buildP(p){for(var i=1;i<PN.length;i++)if(p<=PN[i])return lerp(PO[i-1],PO[i],(p-PN[i-1])/(PN[i]-PN[i-1]));return 1}
+  var E1=at(36,4.6,-2),E2=at(40,5,-3),HC=[0,0];houses.forEach(function(h){HC[0]+=h.x/houses.length;HC[1]+=h.z/houses.length});
+  var KEYS=[{p:0,r:20,h:365,th:0,tx:0,tz:3,ty:0},{p:.12,r:150,h:250,th:70,tx:-25,tz:-30,ty:0},
+    {p:.2,r:34,h:13,th:62,tx:E1.x,tz:E1.z,ty:2},{p:.26,r:40,h:17,th:20,tx:E1.x,tz:E1.z,ty:3},
+    {p:.33,r:46,h:20,th:300,tx:E2.x,tz:E2.z,ty:5},{p:.417,r:150,h:120,th:74,tx:-25,tz:-45,ty:0},
+    {p:.59,r:118,h:58,th:70,tx:8,tz:-48,ty:3},{p:.70,r:215,h:170,th:52,tx:HC[0],tz:HC[1],ty:0},{p:.86,r:200,h:150,th:104,tx:HC[0],tz:HC[1],ty:0},
+    {p:1,r:46,h:12,th:40,tx:46,tz:-38,ty:5}];
   var cs={},target=new T.Vector3(),portrait=1;
   function placeCam(p){var i=0;while(i<KEYS.length-2&&p>KEYS[i+1].p)i++;var A=KEYS[i],B=KEYS[i+1],t=smooth((p-A.p)/(B.p-A.p));
     ['r','h','th','tx','tz','ty'].forEach(function(k){cs[k]=lerp(A[k],B[k],t)});var th=cs.th*Math.PI/180;
@@ -2380,6 +2863,8 @@ function initStory(){
   function resize(){var w=innerWidth,h=innerHeight,aspect=w/h;renderer.setSize(w,h,false);camera.aspect=aspect;camera.fov=aspect<1?48:aspect<1.3?40:35;portrait=aspect<.7?1.45:aspect<1?1.22:1;camera.updateProjectionMatrix()}
   resize();addEventListener('resize',resize);
 
+  var camOverride=null;
+  if(location.hash.indexOf('storytest')>=0)window.__story={gaps:GAP.length,workers:WK.length,mach:MACH.length,cam:function(x,y,z,tx,ty,tz){camOverride=x==null?null:function(){camera.position.set(x,y,z);camera.lookAt(tx,ty,tz);sky.position.copy(camera.position)}},house:function(no){var h=houseOf(no);return[h.x,h.z,h.rot]}};
   var railItems=$$('#rail li'),pCur=0,pBuilt=-1,railIdx=-1,fresh=true;
   addEventListener('scroll',function(){var vh=innerHeight,sr=story.getBoundingClientRect();stage.classList.toggle('is-off',!(sr.top<vh&&sr.bottom>0))},{passive:true});
   function frame(time){
@@ -2388,16 +2873,17 @@ function initStory(){
     stage.classList.toggle('is-off',!visible);if(!visible){fresh=true;return}
     var tgt=clamp01(-sr.top/Math.max(1,sr.height-vh));
     pCur=(fresh||reduce)?tgt:pCur+(tgt-pCur)*.14;fresh=false;if(Math.abs(tgt-pCur)<.0004)pCur=tgt;
-    var dusk=smooth((pCur-.84)/.16),dust=smooth((pCur-.12)/.14)*(1-smooth((pCur-.58)/.16));
-    var idx=Math.max(0,Math.min(4,Math.round(tgt*4)));
+    var pb=buildP(pCur),dusk=smooth((pb-.84)/.16),dust=smooth((pb-.12)/.14)*(1-smooth((pb-.58)/.16));
+    var idx=tgt<.155?0:tgt<.33?1:tgt<.5?2:tgt<.66?3:4;
     if(idx!==railIdx){railIdx=idx;railItems.forEach(function(li,i){li.classList.toggle('on',i===idx);li.classList.toggle('done',i<idx)})}
-    if(Math.abs(pCur-pBuilt)>.0002){updateBuild(pCur);pBuilt=pCur}
+    if(Math.abs(pCur-pBuilt)>.0002){updateBuild(pb);pBuilt=pCur}
+    animSite(reduce?0:time,pb);
     applyEnv(dusk,dust);
     if(!reduce)cranes.forEach(function(c,i){if(c.visible){c.userData.top.rotation.y=c.userData.base+Math.sin(time*.00018+i*2)*.9;c.userData.trolley.position.x=18+Math.sin(time*.00025+i)*8}});
-    placeCam(pCur);renderer.render(scene,camera);
+    placeCam(pCur);if(camOverride)camOverride();renderer.render(scene,camera);
   }
   scene.traverse(function(o){if(o.material&&o.material.isMeshStandardMaterial&&o.material.envMapIntensity===1)o.material.envMapIntensity=.6});
-  updateBuild(0);applyEnv(0,0);placeCam(0);renderer.compile(scene,camera);requestAnimationFrame(frame);
+  updateBuild(0);animSite(0,0);applyEnv(0,0);placeCam(0);renderer.compile(scene,camera);requestAnimationFrame(frame);
   return true;
 }
 /* ---------- Shaligram assistant: answers from this page's own facts; Claude answers the rest when the viewer allows it ---------- */
@@ -2442,6 +2928,7 @@ function initStory(){
     L.push('Amenities: '+AMEN.join(', ')+'.');
     L.push('Specifications: '+SPECS.map(function(s){return s[0]+': '+s[1]}).join(' '));
     L.push('Distances from the site: '+NEAR.map(function(n){return n[0]+' '+n[1]+' km'}).join(', ')+'. Landmarks nearby: Prime Restaurant, petrol pump, Nagar Palika Garden, Bahuchar Ma Temple, Aadarsh High School, Foram Hospital, KNSB Bank, CN College, Kadi bus stand and railway station.');
+    L.push('For NRIs: a bungalow on its own plot (not an undivided share like an apartment), 3 to 4 bedrooms over 2 to 3 floors, private terrace, parking at the door, gated with 24x7 security and CCTV. Ahmedabad and Mehsana are each about 40 minutes by road; Ahmedabad has the nearest international airport. NRIs usually pay through NRE/NRO accounts or bank remittance and can register in person or by power of attorney; this is general information, not legal or tax advice.');
     L.push('The website also has an interactive 3D model and a furnished interior walk-through of each design, a clickable layout plan of all 66 units, and an enquiry form that sends a WhatsApp message.');
     return L.join('\n');
   }
@@ -2461,6 +2948,7 @@ function initStory(){
   function unitIn(q){var m=q.match(/ (?:unit|plot|house|bungalow|bunglow|banglow|villa|no|number|નં|નંબર|यूनिट|प्लॉट) ?(\d{1,3}) (?!bhk|bed)/);return m?+m[1]:0}
   var INTENTS=[
     ['greet',['hi$','hello','hey$','hii$','namaste','namaskar','kem cho','jay shree krishna','jai shree krishna','good morning','good evening','નમસ્તે','કેમ છો','જય શ્રી','नमस्ते','नमस्कार']],
+    ['nri',['nri','n r i','abroad','overseas','foreign','videsh','usa','america','canada','uk$','london','australia','dubai','invest','investment','oci','fema','nre','nro','remit','settled outside','વિદેશ','એનઆરઆઈ','विदेश','एनआरआई','निवेश','રોકાણ']],
     ['price',['price','cost','rate','kimat','keemat','kimmat','bhav','bhaav','kitna','kitne','ketla','budget','lakh','lac','crore','amount','expensive','cheap','afford','costly','કિંમત','ભાવ','કેટલા','રૂપિયા','कीमत','दाम','कितना','कितने','रेट']],
     ['types',['bhk','type','design','model','option','variant','configuration','floor plan','કેટલા પ્રકાર','प्रकार','डिज़ाइन']],
     ['sizes',['size','area','sq','sqft','square','feet','carpet','built up','builtup','dimension','big$','how big','how large','room','bedroom','kitchen size','વાર','ચોરસ','ફૂટ','સાઇઝ','साइज','एरिया','क्षेत्रफल']],
@@ -2508,6 +2996,8 @@ function initStory(){
       return A('Here is how they compare:',{list:ts.map(function(t){return oneLine(t)+'. '+t.desc}),acts:ts.map(function(t){return see3d(t)})});
     }
     switch(id){
+      case'nri':
+        return A(['Shaligram is a great fit for NRI families: a full bungalow on its own plot in a gated campus, with Ahmedabad and Mehsana each about 40 minutes away.','You can explore every design in 3D from abroad and deal directly with Rajanikant Patel on WhatsApp or video call. NRIs usually pay through an NRE or NRO account or by bank remittance; please confirm details with your bank or CA.'],{acts:[go('Why NRIs choose Shaligram','#nri'),wa('I am an NRI and would like details about buying a bungalow.','Ask on WhatsApp')]});
       case'greet':return A('Namaste! I can answer questions about Shaligram: the four bungalow designs, room sizes, location, amenities, construction and site visits. What would you like to know?');
       case'price':
         var who=ts.length?ts.map(fullName).join(' and '):'';
@@ -2634,6 +3124,124 @@ function initStory(){
   $('#askClose').addEventListener('click',function(){close()});
   panel.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();close()}});
 })();
+})();
+
+/* ---------- photo gallery ---------- */
+(function(){
+  var pg=document.getElementById('pg');if(!pg)return;
+  var CAT=[
+    {id:'prime',l:'Prime 4 BHK',c:'#A9CDE3',d:'Units 33 to 44 · three floors'},
+    {id:'glory4',l:'Glory 4 BHK',c:'#E9DFA8',d:'Units 1 to 16 · three floors'},
+    {id:'g3',l:'Glory & Pride 3 BHK',c:'#E3B9AC',d:'Glory 17 to 32 · Pride 45 to 66'},
+    {id:'site',l:'Entrance & site',c:'#E6BE72',d:'The gate, the aerial view and the layout'},
+    {id:'plans',l:'Floor plans',c:'#C3D0D6',d:'Every floor of each design'},
+    {id:'loc',l:'Location',c:'#AFCDA9',d:'Kadi–Detroj Road'}
+  ];
+  function R(id,t,cap,big){return{t:t,cap:cap,big:big,th:'img/'+id+'-480.jpg',src:'img/'+id+'-1000.jpg',set:'img/'+id+'-1000.jpg 1000w, img/'+id+'-2000.jpg 2000w'}}
+  var ITEMS=[
+    R('prime-front','prime','Prime 4 BHK, front elevation',1),
+    R('prime-corner','prime','Prime 4 BHK, corner of a row'),
+    R('prime-canopy','prime','Verandah canopies along the Prime row'),
+    R('prime-street','prime','The street between Prime rows'),
+    R('prime-front-dusk','prime','Prime 4 BHK lit up in the evening'),
+    R('prime-dusk','prime','Prime 4 BHK at dusk'),
+    R('glory-cars','glory4','Glory 4 BHK with parking in front',1),
+    R('glory-corner','glory4','Glory 4 BHK, corner of a row'),
+    R('glory-street','glory4','The street between Glory rows'),
+    R('glory-row','g3','Glory and Pride 3 BHK homes',1),
+    R('glory-lawn','g3','3 BHK homes behind the lawn'),
+    R('glory-garden','g3','3 BHK homes beside the garden'),
+    {t:'site',cap:'Aerial view of the whole site',big:1,th:'img/aerial-480.jpg',src:'img/aerial-1200.jpg',set:'img/aerial-1200.jpg 1200w, img/aerial-2400.jpg 2400w'},
+    R('gate','site','The elegant entrance gate'),
+    {t:'site',cap:'Layout plan with all 66 bungalows',flat:1,th:'img/layout-plan-480.jpg',src:'img/layout-plan.webp',set:''},
+    {t:'plans',cap:'Prime 4 BHK · ground, first and second floor',flat:1,big:1,th:'img/plan-prime-480.jpg',src:'img/plan-prime-1600.jpg',set:''},
+    {t:'plans',cap:'Glory 4 BHK · ground, first and second floor',flat:1,th:'img/plan-glory4-480.jpg',src:'img/plan-glory4-1600.jpg',set:''},
+    {t:'plans',cap:'Glory 3 BHK · ground, first and terrace floor',flat:1,th:'img/plan-glory3-480.jpg',src:'img/plan-glory3-1600.jpg',set:''},
+    {t:'plans',cap:'Pride 3 BHK · ground, first and terrace floor',flat:1,th:'img/plan-pride-480.jpg',src:'img/plan-pride-1600.jpg',set:''},
+    {t:'loc',cap:'Location map: Kadi–Detroj Road and nearby landmarks',big:1,th:'img/location-map-480.jpg',src:'img/location-map-1600.jpg',set:''}
+  ];
+  var byId={};CAT.forEach(function(c){byId[c.id]=c});
+  var tabs=document.getElementById('pgTabs'),body=document.getElementById('pgBody'),lb=document.getElementById('lb'),
+      lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),lbN=document.getElementById('lbN'),lbBadge=document.getElementById('lbBadge'),lbStrip=document.getElementById('lbStrip');
+  var cur='all',list=ITEMS,idx=0,opener=null,built=false,pushed=false;
+  var gc=document.getElementById('galCount');if(gc)gc.textContent=ITEMS.length+' photos';
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+  function badge(c){var b=el('span','pg-badge',c.l);b.style.setProperty('--c',c.c);return b}
+  function buildTabs(){
+    [{id:'all',l:'All photos',c:'#F2F0EA'}].concat(CAT).forEach(function(c){
+      var n=c.id==='all'?ITEMS.length:ITEMS.filter(function(it){return it.t===c.id}).length;
+      var b=el('button','pg-tab');b.type='button';b.setAttribute('role','tab');b.dataset.cat=c.id;b.style.setProperty('--c',c.c);
+      b.appendChild(el('i'));b.appendChild(document.createTextNode(c.l+' '));b.appendChild(el('b',null,String(n)));
+      b.addEventListener('click',function(){show(c.id)});tabs.appendChild(b);
+    });
+  }
+  function show(cat){
+    cur=cat;list=cat==='all'?ITEMS:ITEMS.filter(function(it){return it.t===cat});
+    [].forEach.call(tabs.children,function(b){b.setAttribute('aria-selected',b.dataset.cat===cat?'true':'false')});
+    body.innerHTML='';
+    CAT.forEach(function(c){
+      if(cat!=='all'&&cat!==c.id)return;
+      var its=ITEMS.filter(function(it){return it.t===c.id});if(!its.length)return;
+      var blk=el('section','pg-block'),hd=el('div','pg-head');hd.style.setProperty('--c',c.c);
+      hd.appendChild(el('i'));hd.appendChild(el('h3',null,c.l));hd.appendChild(el('span',null,its.length+(its.length>1?' images':' image')));hd.appendChild(el('p',null,c.d));
+      blk.appendChild(hd);var gr=el('div','pg-grid');
+      its.forEach(function(it,k){
+        var b=el('button','pg-tile'+(it.big?' big':'')+(it.flat?' flat':''));b.type='button';b.setAttribute('aria-label','Open: '+it.cap);
+        var im=el('img');im.loading='lazy';im.alt='';im.src=it.big&&!it.flat?it.src:it.th;b.appendChild(im);
+        if(it.big&&k===0&&!it.flat){var st=el('span','pg-star','Featured');b.appendChild(st)}
+        var cp=el('span','pg-cap');cp.appendChild(badge(c));cp.appendChild(el('span',null,it.cap));b.appendChild(cp);
+        b.addEventListener('click',function(){openLb(list.indexOf(it))});gr.appendChild(b);
+      });
+      blk.appendChild(gr);body.appendChild(blk);
+    });
+    body.scrollTop=0;
+  }
+  function open(cat){
+    if(!built){buildTabs();built=true}
+    opener=document.activeElement;show(cat||'all');pg.hidden=false;document.documentElement.classList.add('pg-lock');
+    document.getElementById('pgClose').focus();
+    pushed=false;if(location.hash!=='#gallery')try{history.pushState({pg:1},'','#gallery');pushed=location.hash==='#gallery'}catch(e){}
+  }
+  function close(fromPop){
+    closeLb();pg.hidden=true;document.documentElement.classList.remove('pg-lock');
+    if(!fromPop&&pushed&&location.hash==='#gallery'){pushed=false;try{history.back()}catch(e){}}else if(!fromPop&&location.hash==='#gallery'){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+    if(opener&&opener.focus)opener.focus();
+  }
+  function setLb(i){
+    idx=(i+list.length)%list.length;var it=list[idx],c=byId[it.t];
+    lbImg.classList.add('fade');
+    var n=new Image();n.onload=n.onerror=function(){lbImg.src=n.currentSrc||n.src;lbImg.classList.remove('fade')};
+    if(it.set){n.srcset=it.set;n.sizes='100vw'}n.src=it.src;
+    lbImg.alt=it.cap;lbImg.className=it.flat?'flat':'';
+    lbCap.textContent=it.cap;lbN.textContent=(idx+1)+' / '+list.length;
+    lbBadge.textContent=c.l;lbBadge.style.setProperty('--c',c.c);
+    [].forEach.call(lbStrip.children,function(b,k){b.setAttribute('aria-current',k===idx?'true':'false');if(k===idx&&b.scrollIntoView)b.scrollIntoView({block:'nearest',inline:'center'})});
+  }
+  function openLb(i){
+    lbStrip.innerHTML='';
+    list.forEach(function(it,k){var b=el('button');b.type='button';b.setAttribute('aria-label',it.cap);var im=el('img');im.src=it.th;im.alt='';im.loading='lazy';b.appendChild(im);b.addEventListener('click',function(){setLb(k)});lbStrip.appendChild(b)});
+    lb.hidden=false;setLb(i);document.getElementById('lbNext').focus();
+  }
+  function closeLb(){if(!lb.hidden){lb.hidden=true;lbImg.removeAttribute('src')}}
+  document.getElementById('pgClose').addEventListener('click',function(){close()});
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',function(){setLb(idx-1)});
+  document.getElementById('lbNext').addEventListener('click',function(){setLb(idx+1)});
+  var sx=null,sy=null,st=document.getElementById('lbStage');
+  st.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+  st.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))setLb(idx+(dx<0?1:-1));sx=null},{passive:true});
+  st.addEventListener('click',function(e){if(e.target===st)closeLb()});
+  document.addEventListener('keydown',function(e){
+    if(pg.hidden)return;
+    if(e.key==='Escape'){e.preventDefault();if(!lb.hidden)closeLb();else close()}
+    else if(!lb.hidden&&e.key==='ArrowRight')setLb(idx+1);
+    else if(!lb.hidden&&e.key==='ArrowLeft')setLb(idx-1);
+    else if(e.key==='Tab'){var root=lb.hidden?pg:lb,f=root.querySelectorAll('button'),a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+  });
+  [].forEach.call(document.querySelectorAll('[data-gallery]'),function(a){a.addEventListener('click',function(e){e.preventDefault();open(a.dataset.gallery||'all')})});
+  window.addEventListener('popstate',function(){if(!pg.hidden&&location.hash!=='#gallery')close(true)});
+  window.openGallery=open;
+  if(location.hash==='#gallery')setTimeout(function(){open()},60);
 })();
 </script>
 </body>
