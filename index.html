@@ -88,6 +88,9 @@ button{font:inherit;color:inherit}
 .brand .logo{width:118px}
 .nav-links{display:flex;gap:22px;margin-left:auto;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .nav-links a{text-decoration:none;opacity:.8}
+.nav-links a,.nav .btn{white-space:nowrap}
+@media (max-width:1380px){.nav-links{gap:14px;font-size:11px;letter-spacing:.1em}.nav-in{gap:16px}}
+@media (max-width:1240px){.nav-links a[href="#builder"],.nav-links a[href="#visit"]{display:none}}
 .nav-links a:hover{opacity:1}
 
 /* hero */
@@ -618,6 +621,31 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 .made-by b{color:var(--brass-lt);font-weight:600}
 .made-by a{color:var(--on-dark);text-decoration:none;border-bottom:1px solid rgba(242,240,234,.35)}
 .made-by a:hover{color:var(--brass-lt);border-color:currentColor}
+/* prices */
+.prices{background:var(--limestone);padding-block:clamp(76px,12vh,140px)}
+.price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(28px,5vh,48px)}
+.price-card{background:var(--paper);border:1px solid var(--line);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.price-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(10,12,13,.45)}
+.pc-img{position:relative;aspect-ratio:4/3;background:#cfd6dc}
+.pc-img img{width:100%;height:100%;object-fit:cover}
+.pc-tag{position:absolute;left:12px;top:12px;font:700 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;background:var(--c);color:#15191a;padding:7px 9px;border-radius:2px}
+.pc-body{display:flex;flex-direction:column;gap:10px;padding:18px 18px 20px;flex:1}
+.pc-meta{font:600 12px/1.3 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pc-desc{font-size:14.5px;color:var(--ink);flex:1}
+.pc-price{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
+.pc-price span{font:600 11px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pc-price b{font-family:var(--f-display);font-weight:300;font-size:20px;letter-spacing:.02em;color:var(--brass-ink)}
+.pc-wa,.pc-call{width:100%;padding:13px 14px;font-size:11.5px}
+.price-contact{margin-top:clamp(28px,5vh,44px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:20px 36px;align-items:center;background:var(--shila);color:var(--on-dark);border-radius:4px;padding:clamp(22px,3.4vw,40px)}
+.price-contact .eyebrow{color:var(--brass-lt)}
+.price-contact h3{font-size:clamp(22px,2.4vw,32px);margin-top:10px}
+.pcc-who p:last-child{margin-top:10px;color:rgba(242,240,234,.75);font-size:15px;max-width:48ch}
+.pcc-list{display:grid;gap:8px;font-size:14.5px;color:rgba(242,240,234,.86)}
+.pcc-list li{display:flex;gap:10px;align-items:baseline}
+.pcc-list li::before{content:"✓";color:var(--brass-lt);font-weight:700}
+.pcc-cta{display:grid;gap:10px}
+@media (max-width:1100px){.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.price-contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.pcc-cta{grid-column:1/-1;grid-template-columns:repeat(2,max-content)}}
+@media (max-width:620px){.price-grid{grid-template-columns:minmax(0,1fr)}.price-contact{grid-template-columns:minmax(0,1fr)}.pcc-cta{grid-template-columns:minmax(0,1fr)}}
 /* assistant */
 .ask-btn{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 13px 15px;border:1px solid rgba(242,240,234,.2);border-radius:999px;background:var(--shila);color:var(--on-dark);font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(12,14,15,.3);transition:transform .2s,background .2s}
 .ask-btn:hover{background:var(--shila-2);transform:translateY(-1px)}
@@ -687,6 +715,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
       <a href="#gallery" data-gallery>Gallery</a>
       <a href="#build">Construction</a>
       <a href="#homes">Homes in 3D</a>
+      <a href="#prices">Prices</a>
       <a href="#layout">Layout</a>
       <a href="#gardens">Amenities</a>
       <a href="#location">Location</a>
@@ -854,6 +883,77 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
             <a class="btn btn-brass btn-sm" href="#visit" id="tAsk">Ask about this design</a>
             <a class="btn btn-line btn-sm" href="#layout" id="tLayout">See these units on the layout</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prices" id="prices" aria-labelledby="priceTitle">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Prices</p>
+          <h2 id="priceTitle">The right price for your bungalow</h2>
+        </div>
+        <p>Every bungalow at Shaligram is a little different. The design, the plot, the facing and the road it opens onto all shape its value. So rather than a one-size price list, Rajanikant N Patel personally shares the current price of the exact bungalow you like, with the payment plan and today's availability.</p>
+      </div>
+      <div class="price-grid">
+        <article class="price-card" style="--c:var(--t-glory4)">
+          <div class="pc-img"><img src="img/glory-cars-480.jpg" srcset="img/glory-cars-480.jpg 480w, img/glory-cars-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Glory 4 BHK bungalow" loading="lazy"><span class="pc-tag">Glory 4 BHK</span></div>
+          <div class="pc-body">
+            <p class="pc-meta">Units 1–16 · Ground + 2 floors</p>
+            <p class="pc-desc">The family favourite: four bedrooms over three floors, an open terrace and parking at your door.</p>
+            <div class="pc-price"><span>Price</span><b>On request</b></div>
+            <a class="btn btn-brass pc-wa" href="https://wa.me/919825038288?text=Hello%20Rajanikant%20ji%2C%20I%20am%20interested%20in%20the%20Glory%204%20BHK%20bungalow%20at%20Shaligram%2C%20Kadi.%20Please%20share%20the%20current%20price%2C%20payment%20plan%20and%20available%20units." target="_blank" rel="noopener">Get the price on WhatsApp</a>
+            <a class="btn btn-line pc-call" href="tel:+919825038288">Call +91 98250 38288</a>
+          </div>
+        </article>
+        <article class="price-card" style="--c:var(--t-glory3)">
+          <div class="pc-img"><img src="img/glory-row-480.jpg" srcset="img/glory-row-480.jpg 480w, img/glory-row-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Glory 3 BHK bungalow" loading="lazy"><span class="pc-tag">Glory 3 BHK</span></div>
+          <div class="pc-body">
+            <p class="pc-meta">Units 17–32 · Ground + 1 floor + terrace</p>
+            <p class="pc-desc">Three bedrooms on two floors with two large open terraces on top for evenings outdoors.</p>
+            <div class="pc-price"><span>Price</span><b>On request</b></div>
+            <a class="btn btn-brass pc-wa" href="https://wa.me/919825038288?text=Hello%20Rajanikant%20ji%2C%20I%20am%20interested%20in%20the%20Glory%203%20BHK%20bungalow%20at%20Shaligram%2C%20Kadi.%20Please%20share%20the%20current%20price%2C%20payment%20plan%20and%20available%20units." target="_blank" rel="noopener">Get the price on WhatsApp</a>
+            <a class="btn btn-line pc-call" href="tel:+919825038288">Call +91 98250 38288</a>
+          </div>
+        </article>
+        <article class="price-card" style="--c:var(--t-prime)">
+          <div class="pc-img"><img src="img/prime-front-480.jpg" srcset="img/prime-front-480.jpg 480w, img/prime-front-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Prime 4 BHK bungalow" loading="lazy"><span class="pc-tag">Prime 4 BHK</span></div>
+          <div class="pc-body">
+            <p class="pc-meta">Units 33–44 · Ground + 2 floors</p>
+            <p class="pc-desc">Our signature design: gold-framed windows, glass balconies and a verandah canopy on the 7.5 m road.</p>
+            <div class="pc-price"><span>Price</span><b>On request</b></div>
+            <a class="btn btn-brass pc-wa" href="https://wa.me/919825038288?text=Hello%20Rajanikant%20ji%2C%20I%20am%20interested%20in%20the%20Prime%204%20BHK%20bungalow%20at%20Shaligram%2C%20Kadi.%20Please%20share%20the%20current%20price%2C%20payment%20plan%20and%20available%20units." target="_blank" rel="noopener">Get the price on WhatsApp</a>
+            <a class="btn btn-line pc-call" href="tel:+919825038288">Call +91 98250 38288</a>
+          </div>
+        </article>
+        <article class="price-card" style="--c:var(--t-pride)">
+          <div class="pc-img"><img src="img/glory-garden-480.jpg" srcset="img/glory-garden-480.jpg 480w, img/glory-garden-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Pride 3 BHK bungalow" loading="lazy"><span class="pc-tag">Pride 3 BHK</span></div>
+          <div class="pc-body">
+            <p class="pc-meta">Units 45–66 · Ground + 1 floor + terrace</p>
+            <p class="pc-desc">A smart three-bedroom bungalow with a private terrace, ideal for a growing family.</p>
+            <div class="pc-price"><span>Price</span><b>On request</b></div>
+            <a class="btn btn-brass pc-wa" href="https://wa.me/919825038288?text=Hello%20Rajanikant%20ji%2C%20I%20am%20interested%20in%20the%20Pride%203%20BHK%20bungalow%20at%20Shaligram%2C%20Kadi.%20Please%20share%20the%20current%20price%2C%20payment%20plan%20and%20available%20units." target="_blank" rel="noopener">Get the price on WhatsApp</a>
+            <a class="btn btn-line pc-call" href="tel:+919825038288">Call +91 98250 38288</a>
+          </div>
+        </article>
+      </div>
+      <div class="price-contact">
+        <div class="pcc-who">
+          <p class="eyebrow">To know the price of your bungalow type</p>
+          <h3>Contact Rajanikant N Patel</h3>
+          <p>One call is all it takes. You speak directly with the builder, not an agent, and get honest answers about price, booking and possession.</p>
+        </div>
+        <ul class="pcc-list">
+          <li>Current price and availability for the unit you choose</li>
+          <li>Booking amount and payment schedule, explained clearly</li>
+          <li>Guidance on home loans from your bank</li>
+          <li>A site visit at a time that suits you</li>
+        </ul>
+        <div class="pcc-cta">
+          <a class="btn btn-brass" href="https://wa.me/919825038288?text=Hello%20Rajanikant%20ji%2C%20I%20would%20like%20to%20know%20the%20prices%20of%20the%20bungalows%20at%20Shaligram%2C%20Kadi." target="_blank" rel="noopener">WhatsApp for prices</a>
+          <a class="btn btn-ghost" href="tel:+919825038288">Call +91 98250 38288</a>
         </div>
       </div>
     </div>
@@ -3254,7 +3354,7 @@ function initStory(){
       case'greet':return A('Namaste! I can answer questions about Shaligram: the four bungalow designs, room sizes, location, amenities, construction and site visits. What would you like to know?');
       case'price':
         var who=ts.length?ts.map(fullName).join(' and '):'';
-        return A('Prices aren’t listed on the website, because they depend on the design and the bungalow you choose. Rajanikant Patel will share the current price'+(who?' of the '+who:'')+' on WhatsApp or by phone.',{acts:[wa('Please share the price list'+(who?' for '+who:'')+'.','Ask for the price list'),call()]});
+        return A('Prices aren’t listed on the website, because they depend on the design and the bungalow you choose. Rajanikant Patel will share the current price'+(who?' of the '+who:'')+' on WhatsApp or by phone.',{acts:[wa('Please share the price list'+(who?' for '+who:'')+'.','Ask for the price list'),call(),go('See the prices section','#prices')]});
       case'types':case'see':
         if(id==='see')return A('You can walk through every design floor by floor, turn each one in 3D, and see the furnished rooms in the Interior view.',{acts:TYPES.map(function(t){return walkAct(t)}).concat([go('See the architect’s renders','#homes',function(){setMode('photos')})])});
         return A('There are four designs, 66 bungalows in phase 1:',{list:TYPES.map(oneLine),acts:[go('Explore the homes in 3D','#homes'),go('Open the layout plan','#layout')]});
