@@ -1579,11 +1579,11 @@ function facadeDetail(tid){
     var top=tid==='glory4'?39.5:33.5,nF=d.length;
     function fl(y){return Math.max(0,Math.min(nF-1,Math.floor((y-1.5)/10)))}
     /* white portal frame: bottom beam at the first floor, posts at the outer edge and the shared wall, deep top beam */
-    B('white',X0,10.4,zB,-.5,11.6,zF,1);
+    B('white',X0,10.4,zB,.1,11.6,zF,1);
     var cuts=[11.6];for(var k=2;1.5+10*k<top-1.6;k++)cuts.push(1.5+10*k);cuts.push(top-1.6);
     for(var c=0;c<cuts.length-1;c++){var y=cuts[c],y2=cuts[c+1],fi=fl(y+.1);
-      B('white',X0,y,zB,X0+1.3,y2,zF,fi);B('wood',X0+1.5,y,zB,X0+7.0,y2,zB+.42,fi)}
-    B('white',X0,top-1.6,zB-2.6,-.5,top,zF,nF-1);
+      B('white',X0,y,zB,X0+1.3,y2,zF,fi);B('white',-1.2,y,zB,.1,y2,zF,fi);B('wood',X0+1.5,y,zB,X0+7.0,y2,zB+.42,fi)}
+    B('white',X0,top-1.6,zB-2.6,.1,top,zF,nF-1);
     /* terracotta jaali: high in the wood panel, and a strip on the outer face of the frame */
     B('jaali',X0+2.6,top-8.6,zB+.42,X0+4.7,top-2.4,zB+.52,nF-1);
     B('jaali',X0-.08,13,zF-1.7,X0,top-3,zF-.7,1);
@@ -1610,7 +1610,7 @@ function facadeDetail(tid){
   }
   return out;
 }
-var FD_COL={white:'#F4F3EF',wood:null,jaali:'#A8432A',groove:'#C9C8C4',band:'#C7C6C2',goldc:'#CDAE63',vent:'#2A2E31'};
+var FD_COL={white:'#F4F3EF',wood:null,jaali:'#A8432A',groove:'#C9C8C4',band:'#C7C6C2',goldc:'#CDAE63',vent:'#2A2E31',frame:'#25282B',glassP:'#3B4A54',door:'#7A4E2C'};
 function fdTextures(T){if(fdTextures.c)return fdTextures.c;
   function cv(w,h,draw){var c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);var t=new T.CanvasTexture(c);t.encoding=T.sRGBEncoding;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=8;return t}
   var r=rng(41);
@@ -1631,6 +1631,62 @@ function fdBox(T,b){var g=new T.BoxGeometry(b[3]-b[0],b[4]-b[1],b[5]-b[2]);var u
   for(var i=0;i<uv.count;i++){var x=p.getX(i)+(b[0]+b[3])/2,y=p.getY(i)+(b[1]+b[4])/2,z=p.getZ(i)+(b[2]+b[5])/2,ax=Math.abs(n.getX(i)),ay=Math.abs(n.getY(i));
     if(ax>.5)uv.setXY(i,z,y);else if(ay>.5)uv.setXY(i,x,z);else uv.setXY(i,x,y)}
   g.translate((b[0]+b[3])/2,(b[1]+b[4])/2,(b[2]+b[5])/2);return g}
+/* ---------- side elevation of Glory and Pride, plus real window frames for every type ---------- */
+function facadeSide(tid){
+  var d=MODELS[tid],out=[],g=tid!=='prime',nF=d.length;
+  function B(m,x1,y1,z1,x2,y2,z2,fl){out.push({m:m,b:[Math.min(x1,x2),Math.min(y1,y2),Math.min(z1,z2),Math.max(x1,x2),Math.max(y1,y2),Math.max(z1,z2)],f:fl})}
+  function bb(p){var b=[1e9,1e9,-1e9,-1e9];p[0].forEach(function(v){b[0]=Math.min(b[0],v[0]);b[2]=Math.max(b[2],v[0]);b[1]=Math.min(b[1],v[1]);b[3]=Math.max(b[3],v[1])});return b}
+  function faceX(f,z1,z2){var x=1e9;(f.wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[1]>=z1&&v[1]<=z2)x=Math.min(x,v[0])})})});return x>1e8?null:x}
+  /* frames: perimeter + centre mullion for every opening */
+  function frame(b,y1,y2,fl,mull){var alongX=(b[2]-b[0])>=(b[3]-b[1]),t=.2;
+    if(alongX){var z1=b[1]-.03,z2=b[3]+.03;B('frame',b[0],y1,z1,b[0]+t,y2,z2,fl);B('frame',b[2]-t,y1,z1,b[2],y2,z2,fl);B('frame',b[0],y2-t,z1,b[2],y2,z2,fl);B('frame',b[0],y1,z1,b[2],y1+t,z2,fl);
+      if(mull)B('frame',(b[0]+b[2])/2-.07,y1,z1,(b[0]+b[2])/2+.07,y2,z2,fl)}
+    else{var x1=b[0]-.03,x2=b[2]+.03;B('frame',x1,y1,b[1],x2,y2,b[1]+t,fl);B('frame',x1,y1,b[3]-t,x2,y2,b[3],fl);B('frame',x1,y2-t,b[1],x2,y2,b[3],fl);B('frame',x1,y1,b[1],x2,y1+t,b[3],fl);
+      if(mull)B('frame',x1,y1,(b[1]+b[3])/2-.07,x2,y2,(b[1]+b[3])/2+.07,fl)}}
+  d.forEach(function(f,i){var L=1.5+10*i,W=(((INTERIOR.win||{})[tid]||[])[i]||[]);
+    W.forEach(function(q){var door=isFrontDoor(tid,i,q);frame(q,door?L:L+3,door?L+7.6:L+7,i,(q[2]-q[0])>2.4||(q[3]-q[1])>2.4)});
+    (f.gext||[]).forEach(function(p){var q=bb(p);if(W.some(function(w){return q[0]<w[2]+.05&&q[2]>w[0]-.05&&q[1]<w[3]+.05&&q[3]>w[1]-.05}))return;frame(q,L+3,L+7,i,Math.max(q[2]-q[0],q[3]-q[1])>2.4)});
+    if(i>0)(f.gdoor||[]).forEach(function(p){var q=bb(p);frame(q,L,L+7,i,true)})});
+  if(!g)return out;
+  var f1=d[1],zw=f1.bbox[3]-2.1;(f1.wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[0]<f1.bbox[0]+8)zw=Math.max(zw,v[1])})})});
+  var zFront=zw-4.7,bay=(f1.gext||[]).map(bb).filter(function(q){return q[3]-q[1]>4})[0],bz1=bay?bay[1]+.4:zFront-6.6,bz2=Math.min(zFront-.2,bay?bay[3]-.2:zFront-.2);
+  var Xo=faceX(f1,2,bz2)||f1.bbox[0];
+  /* projecting white bay box with a corner window, first floor */
+  var L1=11.5,xo=Xo-1.7;
+  B('white',xo,L1+.6,bz1,Xo+.05,L1+1.2,bz2,1);B('white',xo,L1+8.2,bz1,Xo+.05,L1+8.9,bz2,1);B('white',xo,L1+.6,bz1,Xo+.05,L1+8.9,bz1+.45,1);
+  B('glassP',xo+.15,L1+1.2,bz1+.45,xo+.25,L1+8.2,bz2-.05,1);B('glassP',xo+.25,L1+1.2,bz2-.15,Xo,L1+8.2,bz2-.05,1);
+  B('frame',xo+.1,L1+1.2,bz1+.45,xo+.3,L1+8.2,bz1+.65,1);B('frame',xo+.1,L1+1.2,bz2-.25,xo+.3,L1+8.2,bz2,1);B('frame',xo+.1,L1+1.2,(bz1+bz2)/2-.08,xo+.3,L1+8.2,(bz1+bz2)/2+.08,1);
+  B('frame',xo+.1,L1+4.4,bz1+.45,xo+.3,L1+4.6,bz2,1);
+  /* small square windows with grey surrounds in the white front part of the side */
+  for(var i=1;i<nF;i++){var fx=faceX(d[i],zFront+.5,zw-.5);if(fx==null||fx>-6)continue;var L=1.5+10*i,zc=(zFront+zw)/2,s=.8;
+    B('groove',fx-.35,L+4.2-s-.35,zc-s-.35,fx+.02,L+4.2+s+.35,zc+s+.35,i);B('glassP',fx-.4,L+4.2-s,zc-s,fx-.36,L+4.2+s,zc+s,i);
+    B('frame',fx-.42,L+4.2-s,zc-.06,fx-.38,L+4.2+s,zc+.06,i)}
+  /* windows in the stone block: ground (from the plans), first floor with a white L frame, second floor plain */
+  var gw=((((INTERIOR.win||{})[tid]||[])[0])||[]).filter(function(q){return q[2]-q[0]<1.6})[0],wz1=gw?gw[1]:bz1-6,wz2=gw?gw[3]:bz1-3;
+  for(i=1;i<nF;i++){var fx2=faceX(d[i],wz1,wz2);if(fx2==null||fx2>-6)continue;L=1.5+10*i;
+    B('glassP',fx2-.12,L+3,wz1,fx2-.06,L+7,wz2,i);B('frame',fx2-.16,L+3,wz1,fx2-.04,L+3.2,wz2,i);B('frame',fx2-.16,L+6.8,wz1,fx2-.04,L+7,wz2,i);
+    B('frame',fx2-.16,L+3,wz1,fx2-.04,L+7,wz1+.2,i);B('frame',fx2-.16,L+3,wz2-.2,fx2-.04,L+7,wz2,i);B('frame',fx2-.16,L+3,(wz1+wz2)/2-.07,fx2-.04,L+7,(wz1+wz2)/2+.07,i);
+    if(i===1){B('white',fx2-1.3,L+7.2,wz1-.5,fx2,L+7.8,wz2+.5,i);B('white',fx2-1.3,L+2.4,wz2,fx2,L+7.8,wz2+.5,i)}}
+  /* tall slit window in the stair tower */
+  var top=nF-1,fx3=faceX(d[top],bz1,bz1+2);if(fx3!=null&&fx3<-6){var Lt=1.5+10*top;B('glassP',fx3-.1,Lt+1.2,bz1+.6,fx3-.05,Lt+8.6,bz1+1.1,top);B('groove',fx3-.3,Lt+.9,bz1+.35,fx3+.02,Lt+8.9,bz1+1.35,top)}
+  /* side entrance door at ground level under the bay */
+  var fx0=faceX(d[0],bz1,bz2);if(fx0!=null&&fx0<-6){B('door',fx0-.12,1.5,bz1+.6,fx0-.02,8.6,bz1+3.6,0);B('frame',fx0-.18,8.6,bz1+.4,fx0-.02,8.85,bz1+3.8,0)}
+  return out;
+}
+function isFrontDoor(tid,i,q){var f=MODELS[tid][i];return i>0&&(q[2]-q[0])>3&&q[3]>f.bbox[3]-4}
+/* which wall faces are stone / white on the Glory-Pride elevations */
+function inPolys(polys,x,z){var inside=false;(polys||[]).forEach(function(p){var c=false;p.forEach(function(r,ri){for(var a=0,b=r.length-1;a<r.length;b=a++){var A=r[a],Bv=r[b];if(((A[1]>z)!==(Bv[1]>z))&&(x<(Bv[0]-A[0])*(z-A[1])/(Bv[1]-A[1])+A[0]))c=!c}});if(c)inside=true});return inside}
+var WF_ZW={};
+function wallFinish(tid,i,cx,cz,nx,ny,nz){
+  if(tid==='prime'||Math.abs(ny)>.5)return'p';var d=MODELS[tid],f=d[i],f1=d[1];
+  if(WF_ZW[tid]==null){var zw=f1.bbox[3]-2.1;(f1.wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[0]<f1.bbox[0]+8)zw=Math.max(zw,v[1])})})});WF_ZW[tid]=zw}
+  var zw=WF_ZW[tid];if(!(nx<-.5||nz<-.5))return'p';
+  if(nx<-.5&&i>0&&cz>zw-4.7&&cz<zw+.3&&cx<f1.bbox[0]+5)return'w';
+  /* outward face: open sky in front of it at this level (outside this floor's roof and the floor above) */
+  var px=cx+nx*1.2,pz=cz+nz*1.2,cover=(f.roof||[]).concat(d[i+1]?d[i+1].slab:[]);
+  if(inPolys(cover,px,pz)&&!(nx<-.5&&cx<f1.bbox[0]+1.2))return'p';
+  if(nx<-.5&&i>0&&cz>zw-4.7)return'w';
+  return's'}
 
 function initViewer(){
   if(!window.THREE||!THREE.OrbitControls)return null;
@@ -1654,7 +1710,10 @@ function initViewer(){
   var FACADE={glory4:['#A4A5A1','#A4A5A1'],glory3:['#A4A5A1','#A4A5A1'],prime:['#B39699','#EDE7E1'],pride:['#A4A5A1','#A4A5A1']};
   var FDM=null;function fdMats(){if(FDM)return FDM;var tx=fdTextures(T);FDM={};Object.keys(FD_COL).forEach(function(k){FDM[k]=new T.MeshStandardMaterial({color:FD_COL[k]?C(FD_COL[k]):0xffffff,roughness:k==='white'?.8:.7})});
     var w=tx.wood.clone();w.needsUpdate=true;w.repeat.set(1/8,1/8);FDM.wood.map=w;var j=tx.jaali.clone();j.needsUpdate=true;j.repeat.set(1/1.8,1/3.6);FDM.jaali.map=j;FDM.jaali.color.set(0xffffff);FDM.jaali.alphaTest=.5;FDM.jaali.side=T.DoubleSide;
-    var gr=tx.groove.clone();gr.needsUpdate=true;gr.repeat.set(1/.6,1/12);FDM.groove.map=gr;FDM.groove.color.set(0xffffff);return FDM}
+    var gr=tx.groove.clone();gr.needsUpdate=true;gr.repeat.set(1/.6,1/12);FDM.groove.map=gr;FDM.groove.color.set(0xffffff);
+    FDM.frame.roughness=.4;FDM.frame.metalness=.5;FDM.glassP.roughness=.08;FDM.glassP.metalness=.5;FDM.glassP.envMapIntensity=1.2;
+    var st=tx.stone.clone();st.needsUpdate=true;st.repeat.set(1/8,1/8);FDM.stone=new T.MeshStandardMaterial({color:0xffffff,map:st,roughness:.75});
+    var wd=tx.wood.clone();wd.needsUpdate=true;wd.repeat.set(1/3,1/7);FDM.door.map=wd;FDM.door.color=C('#9A6A44');return FDM}
   var interiorOn=false,tourOn=false,curK=-1,styleName='warm',tourEye=null,locked=false;
 
   /* ---------- interior palettes ---------- */
@@ -1886,10 +1945,10 @@ function initViewer(){
       bb[0]=Math.min(bb[0],f.bbox[0]);bb[1]=Math.min(bb[1],f.bbox[1]);bb[2]=Math.max(bb[2],f.bbox[2]);bb[3]=Math.max(bb[3],f.bbox[3]);
       var L=1.5+10*i,g=new T.Group(),roof=new T.Group(),walls=[];
       var mats={ext:new T.MeshStandardMaterial({color:C(fc[0]),roughness:.85}),int:new T.MeshStandardMaterial({color:C('#EEE8DE'),roughness:.9}),
-        trim:new T.MeshStandardMaterial({color:C(fc[1]),roughness:.85}),slabSide:new T.MeshStandardMaterial({color:C('#D9D3C7'),roughness:.9}),
+        trim:new T.MeshStandardMaterial({color:C(fc[1]),roughness:.85}),slabSide:new T.MeshStandardMaterial({color:C(id==='prime'?'#EFEDE9':'#A6A7A3'),roughness:.9}),
         glass:new T.MeshStandardMaterial({color:C('#6F8796'),roughness:.15,metalness:.2,transparent:true,opacity:.45}),
         para:new T.MeshStandardMaterial({color:C('#ECE7DE'),roughness:.9}),
-        rglass:new T.MeshStandardMaterial({color:C('#B9D3D6'),roughness:.05,metalness:.1,transparent:true,opacity:.32,depthWrite:false,side:T.DoubleSide}),rail:new T.MeshStandardMaterial({color:C('#1F2326'),roughness:.4,metalness:.6}),roof:new T.MeshStandardMaterial({color:C('#E6E1D7'),roughness:.95})};
+        rglass:new T.MeshStandardMaterial({color:C('#B9D3D6'),roughness:.05,metalness:.1,transparent:true,opacity:.32,depthWrite:false,side:T.DoubleSide}),rail:new T.MeshStandardMaterial({color:C('#1F2326'),roughness:.4,metalness:.6}),roof:new T.MeshStandardMaterial({color:C('#E4E3DF'),roughness:.95})};
       mats.base={ext:fc[0],int:'#EEE8DE',trim:fc[1]};
       var W=f.bbox[2]-f.bbox[0],H=f.bbox[3]-f.bbox[1];
       pending++;
@@ -1901,16 +1960,25 @@ function initViewer(){
       function wl(m,b,d,kind){if(m){walls.push([m,b,d]);if(kind)m.userData.paint=kind}}
       ext(f.slab,i===0?1.5:.5,i===0?0:L-.5,mats.slabSide,g,i>0);
       if(f.slab.length){var fg=new T.ShapeGeometry(shapes(f.slab));fg.rotateX(-Math.PI/2);var fm=new T.Mesh(fg,cap);fm.position.y=L+.04;fm.receiveShadow=true;g.add(fm)}
-      wl(ext(f.wext,9.5,L,mats.ext,g),0,9.5,'ext');wl(ext(f.wint,9.5,L,mats.int,g),0,9.5);
+      function splitWalls(polys,base,kind){var em=ext(polys,9.5,L,base,g);if(!em)return;if(id==='prime'){wl(em,0,9.5,kind);return}
+        var geo=em.geometry,P=geo.attributes.position.array,N=geo.attributes.normal.array,UV=geo.attributes.uv?geo.attributes.uv.array:null,grp={p:[[],[],[]],s:[[],[],[]],w:[[],[],[]]};
+        for(var t=0;t<P.length/9;t++){var o=t*9,cx=(P[o]+P[o+3]+P[o+6])/3,cz=(P[o+2]+P[o+5]+P[o+8])/3,k=wallFinish(id,i,cx,cz,N[o],N[o+1],N[o+2]),G=grp[k];
+          for(var j=0;j<9;j++){G[0].push(P[o+j]);G[1].push(N[o+j])}for(j=0;j<6;j++)G[2].push(UV?UV[t*6+j]:0)}
+        g.remove(em);var FMm=fdMats();
+        ['p','s','w'].forEach(function(k){var G=grp[k];if(!G[0].length)return;var bg=new T.BufferGeometry();bg.setAttribute('position',new T.Float32BufferAttribute(G[0],3));bg.setAttribute('normal',new T.Float32BufferAttribute(G[1],3));bg.setAttribute('uv',new T.Float32BufferAttribute(G[2],2));
+          var mt=k==='p'?base:k==='s'?(mats.stone=mats.stone||FMm.stone.clone()):(mats.white=mats.white||FMm.white.clone());var m=new T.Mesh(bg,mt);m.position.y=L;m.castShadow=m.receiveShadow=true;g.add(m);wl(m,0,9.5,k==='p'?kind:null)})}
+      splitWalls(f.wext,mats.ext,'ext');splitWalls(f.wint,mats.int,null);
       var WINR=((INTERIOR.win||{})[id]||[])[i]||[];
       function hitW(p){var x1=1e9,z1=1e9,x2=-1e9,z2=-1e9;p[0].forEach(function(v){x1=Math.min(x1,v[0]);x2=Math.max(x2,v[0]);z1=Math.min(z1,v[1]);z2=Math.max(z2,v[1])});
         return WINR.some(function(q){return x1<q[2]+.05&&x2>q[0]-.05&&z1<q[3]+.05&&z2>q[1]-.05})}
-      var gextP=(f.gext||[]).filter(function(p){return!hitW(p)}).concat(WINR.map(function(q){return[[[q[0],q[1]],[q[2],q[1]],[q[2],q[3]],[q[0],q[3]]]]})),
+      var FDR=WINR.filter(function(q){return isFrontDoor(id,i,q)}).map(function(q){return[[[q[0],q[1]],[q[2],q[1]],[q[2],q[3]],[q[0],q[3]]]]});
+      var gextP=(f.gext||[]).filter(function(p){return!hitW(p)}).concat(WINR.filter(function(q){return!isFrontDoor(id,i,q)}).map(function(q){return[[[q[0],q[1]],[q[2],q[1]],[q[2],q[3]],[q[0],q[3]]]]})),
           gintP=(f.gint||[]).filter(function(p){return!hitW(p)}),gdoorP=(f.gdoor||[]).filter(function(p){return!hitW(p)});
-      var FM=frameMats();wl(ext(gextP,3,L,mats.trim,g),0,3,'trim');wl(ext(gextP,4,L+3,mats.glass,g,false),3,4);ext(gextP,4,L+3,FM[0],g,false);wl(ext(gextP,2.5,L+7,mats.trim,g),7,2.5,'trim');
-      if(i>0&&gdoorP.length){var sg=ext(gdoorP,7,L,mats.glass,g,false),sf=ext(gdoorP,7,L,FM[1],g,false);if(sg){sg.userData.sdoor=1;SDOORS.push(sg)}if(sf)SDOORS.push(sf)}
+      wl(ext(gextP,3,L,mats.trim,g),0,3,'trim');wl(ext(gextP,4,L+3,mats.glass,g,false),3,4);wl(ext(gextP,2.5,L+7,mats.trim,g),7,2.5,'trim');
+      if(FDR.length){wl(ext(FDR,7.6,L,mats.glass,g,false),0,7.6);wl(ext(FDR,1.9,L+7.6,mats.trim,g),7.6,1.9,'trim')}
+      if(i>0&&gdoorP.length){var sg=ext(gdoorP,7,L,mats.glass,g,false);if(sg){sg.userData.sdoor=1;SDOORS.push(sg)}}
       wl(ext(gintP,2.5,L+7,mats.int,g),7,2.5);wl(ext(gdoorP,2.5,L+7,mats.trim,g),7,2.5,'trim');
-      if(i>0&&f.para&&f.para.length){ext(f.para,.45,L,mats.para,g);var gm=ext(f.para,2.6,L+.45,mats.rglass,g,false);if(gm)gm.renderOrder=2;ext(f.para,.16,L+3.05,mats.rail,g)}
+      if(i>0&&f.para&&f.para.length){ext(f.para,.45,L,mats.para,g);var gm=ext(f.para,2.6,L+.45,mats.rglass,g,false);if(gm)gm.renderOrder=2;ext(f.para,.1,L+3.05,mats.rail,g)}
       ext(f.roof,.5,L+9.5,mats.roof,roof);
       root.add(g);root.add(roof);
       var fl={g:g,roof:roof,level:L,mats:mats,a:1,ra:1,ta:1,tra:1,walls:walls,ptex:tex,data:f};
@@ -1919,11 +1987,11 @@ function initViewer(){
     });
     floors.forEach(function(fl,i){fl.cover=(data[i].roof||[]).concat(data[i+1]?data[i+1].slab:[]).map(function(p){return p[0]})});
     /* elevation details: portal frame, wood and jaali, pilaster, balcony frames, gold boxes */
-    var FM2=fdMats(),byF={};facadeDetail(id).forEach(function(q){var k=q.f+'|'+q.m;(byF[k]=byF[k]||[]).push(fdBox(T,q.b).toNonIndexed())});
+    var FM2=fdMats(),byF={};facadeDetail(id).concat(facadeSide(id)).forEach(function(q){var k=q.f+'|'+q.m;(byF[k]=byF[k]||[]).push(fdBox(T,q.b).toNonIndexed())});
     Object.keys(byF).forEach(function(k){var fi=+k.split('|')[0],m=k.split('|')[1],fl=floors[fi];if(!fl)return;var list=byF[k],n=0;list.forEach(function(g){n+=g.attributes.position.count});
       var P=new Float32Array(n*3),N=new Float32Array(n*3),U=new Float32Array(n*2),o=0;list.forEach(function(g){var c=g.attributes.position.count;P.set(g.attributes.position.array,o*3);N.set(g.attributes.normal.array,o*3);U.set(g.attributes.uv.array,o*2);o+=c});
       var gg=new T.BufferGeometry();gg.setAttribute('position',new T.BufferAttribute(P,3));gg.setAttribute('normal',new T.BufferAttribute(N,3));gg.setAttribute('uv',new T.BufferAttribute(U,2));
-      var mat=FM2[m].clone();var mesh=new T.Mesh(gg,mat);mesh.castShadow=mesh.receiveShadow=true;if(!fl.det){fl.det=new T.Group();fl.g.add(fl.det);fl.mats.det=[]}fl.det.add(mesh);fl.mats.det.push(mat)});
+      var mat=FM2[m].clone();var mesh=new T.Mesh(gg,mat);if(m==='frame'||m==='glassP')mesh.castShadow=false;mesh.castShadow=mesh.receiveShadow=true;if(!fl.det){fl.det=new T.Group();fl.g.add(fl.det);fl.mats.det=[]}fl.det.add(mesh);fl.mats.det.push(mat)});
     var cx=(bb[0]+bb[2])/2,cz=(bb[1]+bb[3])/2;root.position.set(-cx,0,-cz);
     model={id:id,root:root,floors:floors,bb:bb,size:Math.max(bb[2]-bb[0],bb[3]-bb[1]),height:10*data.length+2};
     return model;
@@ -1998,7 +2066,7 @@ function initViewer(){
   function setOpacity(f,key,v){
     var group=key==='a'?f.g:f.roof;
     group.visible=v>.02;group.position.y=(1-v)*14;
-    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass,f.mats.rglass,f.mats.rail].concat(f.mats.det||[]):[f.mats.roof];
+    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass,f.mats.rglass,f.mats.rail].concat(f.mats.det||[],f.mats.stone?[f.mats.stone]:[],f.mats.white?[f.mats.white]:[]):[f.mats.roof];
     ms.forEach(function(m){var g=m===f.mats.glass,rg=m===f.mats.rglass;m.opacity=(g?GLASS:rg?.32:1)*v;m.transparent=v<.999||g||rg||m===f.mats.cap;if(m.alphaTest)m.transparent=false})
   }
   /* ---------- eye-level room tour ---------- */
@@ -2381,6 +2449,7 @@ function initViewer(){
   resize();
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;update()},{rootMargin:'100px'}).observe(box);else{visible=true;update()}
   document.addEventListener('visibilitychange',update);
+  if(location.hash.indexOf('viewtest')>=0)window.__vcam=function(az,el,dist,ty){controls.autoRotate=false;camGoal=null;var A=az*Math.PI/180,E=el*Math.PI/180;controls.target.set(0,ty,0);camera.position.set(Math.cos(E)*Math.sin(A)*dist,ty+Math.sin(E)*dist,Math.cos(E)*Math.cos(A)*dist);controls.update();need=true};
   controls.addEventListener('start',function(){controls.autoRotate=false;
     if(tourOn&&camGoal){camera.position.copy(camGoal);controls.target.copy(tgt);lockTour()}
     camGoal=null;$('#vHint').classList.add('gone')});
@@ -2674,7 +2743,7 @@ function initStory(){
 
   var texWin=canTex(256,function(g,s){var gr=g.createLinearGradient(0,0,s,s);gr.addColorStop(0,'#6F8794');gr.addColorStop(.5,'#33444F');gr.addColorStop(1,'#56707E');g.fillStyle=gr;g.fillRect(0,0,s,s);
     g.fillStyle='rgba(255,255,255,.10)';g.beginPath();g.moveTo(s*.15,0);g.lineTo(s*.45,0);g.lineTo(s*.2,s);g.lineTo(0,s);g.closePath();g.fill();
-    g.fillStyle='#1E2124';g.fillRect(0,0,s,s*.07);g.fillRect(0,s*.93,s,s*.07);g.fillRect(0,0,s*.05,s);g.fillRect(s*.95,0,s*.05,s);g.fillRect(s*.485,0,s*.03,s)},[1/4.4,.25]);
+    },[1/4.4,.25]);
   var mWhite=new T.MeshStandardMaterial({color:0xffffff,map:texPlaster,roughness:.86});
   var mMauve=new T.MeshStandardMaterial({color:0xffffff,map:texClad,roughness:.62,metalness:.04});
   var mBrickRaw=new T.MeshStandardMaterial({color:0xffffff,map:texBrick,roughness:1});
@@ -2694,7 +2763,8 @@ function initStory(){
       mJaaliT=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.jaali,1/1.8,1/3.6),alphaTest:.5,side:T.DoubleSide,roughness:.8}),mGroove=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.groove,1/.6,1/12),roughness:.85}),
       mGoldC=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.goldc,1/6,1/6),roughness:.75}),mVent=new T.MeshStandardMaterial({color:C('#2A2E31'),roughness:.5}),
       mPlasterL=new T.MeshStandardMaterial({color:C('#E9E8E4'),map:texPlaster,roughness:.88});
-  var FDSM={white:mWhite,wood:mWoodC,jaali:mJaaliT,groove:mGroove,band:mBand,goldc:mGoldC,vent:mVent};
+  var mFrameS=new T.MeshStandardMaterial({color:C('#25282B'),roughness:.4,metalness:.5});
+  var FDSM={white:mWhite,wood:mWoodC,jaali:mJaaliT,groove:mGroove,band:mBand,goldc:mGoldC,vent:mVent,frame:mFrameS,glassP:mGlassD,door:mDoor};
   var mDoor=new T.MeshStandardMaterial({color:0xffffff,map:texWood,roughness:.62});
   var mPot=new T.MeshStandardMaterial({color:C('#A65A36'),roughness:.9});
   var mBush=new T.MeshStandardMaterial({color:C('#4D7A35'),roughness:.95});
@@ -2746,23 +2816,24 @@ function initStory(){
     data.forEach(function(f,i){
       var L=1.5+10*i,aW=TL.wall0+TL.dF*i,aSl=TL.wall0+TL.dF*(i-1)+.06,WR=(((INTERIOR.win||{})[tid]||[])[i]||[]);
       function hitW(p){var b=bboxP(p);return WR.some(function(q){return b[0]<q[2]+.05&&b[2]>q[0]-.05&&b[1]<q[3]+.05&&b[3]>q[1]-.05})}
-      function gextP(){return(f.gext||[]).filter(function(p){return!hitW(p)}).concat(WR.map(rectP))}
+      function gextP(){return(f.gext||[]).filter(function(p){return!hitW(p)}).concat(WR.filter(function(q){return!isFrontDoor(tid,i,q)}).map(rectP))}
+      function fdP(){return WR.filter(function(q){return isFrontDoor(tid,i,q)}).map(rectP)}
       function gdoorP(){return(f.gdoor||[]).filter(function(p){return!hitW(p)})}
-      function shell(){return mergeG([exG(f.wext,9.5,L),exG(gextP(),3,L),exG(gextP(),2.5,L+7),exG(gdoorP(),2.5,L+7)])}
+      function shell(){return mergeG([exG(f.wext,9.5,L),exG(f.wint,9.5,L),exG(gextP(),3,L),exG(gextP(),2.5,L+7),exG(gdoorP(),2.5,L+7),exG(fdP(),1.9,L+7.6)])}
       /* Prime: mauve top floor and front ends, mauve band near the front of the sides, light plaster elsewhere */
       var isM=function(cx,cy,cz,nx,ny,nz){
         if(Math.abs(ny)>.5||i===0)return false;
         if(nz>.5)return i===2||cx<-19.5||cx>-5.5;
         if(Math.abs(nx)>.5)return cz>zP1-8;
         return false};
-      var isSide=function(cx,cy,cz,nx,ny,nz){return Math.abs(nx)>.5&&Math.abs(ny)<.5};
+      var isSide=function(cx,cy,cz,nx,ny,nz){return wallFinish(tid,i,cx,cz,nx,ny,nz)==='s'},isWhite=function(cx,cy,cz,nx,ny,nz){return wallFinish(tid,i,cx,cz,nx,ny,nz)==='w'};
       /* concrete: plinth, then each slab as the floor below is finished */
       if(i===0)addPart(tid,exG(f.slab,1.5,0),0,mPave,TL.plinth,.05);
       else{addPart(tid,exG(f.slab,.5,L-.5),L-.5,mConc,aSl,.03,{fa:TL.fin,fd:TL.finD});(fam==='g'?FB:FW).push(exG(f.slab,.5,L-.5))}
       /* brick shell with its window openings */
       addPart(tid,shell(),L,mBrickRaw,aW,.06,{fa:TL.fin,fd:TL.finD});
-      if(fam==='g'){var parts=splitG(shell(),isSide);FG.push(parts[0]);FS.push(parts[1])}else{var parts=splitG(shell(),isM);FL.push(parts[0]);FM.push(parts[1])}
-      GLl.push(exG(gextP(),4,L+3));GLd.push(exG(gextP(),4,L+3));if(i>0)SL.push(exG(gdoorP(),7,L));else DR.push(exG(gdoorP(),7,L));
+      if(fam==='g'){var parts=splitG(shell(),isSide),p2=splitG(parts[0],isWhite);FG.push(p2[0]);FW.push(p2[1]);FS.push(parts[1])}else{var parts=splitG(shell(),isM);FL.push(parts[0]);FM.push(parts[1])}
+      GLl.push(exG(gextP(),4,L+3));GLd.push(exG(gextP(),4,L+3));if(i>0)SL.push(exG(gdoorP(),7,L));else DR.push(exG(gdoorP(),7,L));GLd.push(exG(fdP(),7.6,L));GLl.push(exG(fdP(),7.6,L));
       if(i>0&&f.para&&f.para.length){
         (fam==='g'?FB:FW).push(exG(f.para,.45,L));RG.push(exG(f.para,2.6,L+.45));BK.push(exG(f.para,.16,L+3.05));
 
@@ -2782,8 +2853,8 @@ function initStory(){
     addPart(tid,mergeG(FW),1.5,mWhite,TL.fin,TL.finD,{inflate:1.004});
     addPart(tid,mergeG(FG),1.5,mGreyP,TL.fin,TL.finD,{inflate:1.004});addPart(tid,mergeG(FS),1.5,mStone,TL.fin,TL.finD,{inflate:1.004});
     addPart(tid,mergeG(FB),1.5,mBand,TL.fin,TL.finD,{inflate:1.004});addPart(tid,mergeG(FL),1.5,mPlasterL,TL.fin,TL.finD,{inflate:1.004});
-    var DD={};facadeDetail(tid).forEach(function(q){(DD[q.m]=DD[q.m]||[]).push(nonIdx(fdBox(T,q.b)))});
-    Object.keys(DD).forEach(function(m){var late=m==='wood'||m==='jaali'||m==='vent';addPart(tid,mergeG(DD[m]),1.5,FDSM[m],late?TL.extra:TL.fin,late?.05:TL.finD,{cast:m!=='jaali'&&m!=='vent'})});
+    var DD={};facadeDetail(tid).concat(facadeSide(tid)).forEach(function(q){(DD[q.m]=DD[q.m]||[]).push(nonIdx(fdBox(T,q.b)))});
+    Object.keys(DD).forEach(function(m){var late=m==='wood'||m==='jaali'||m==='vent'||m==='frame'||m==='glassP'||m==='door';addPart(tid,mergeG(DD[m]),1.5,FDSM[m],late?TL.extra:TL.fin,late?.05:TL.finD,{cast:m!=='jaali'&&m!=='vent'&&m!=='frame'&&m!=='glassP'})});
     addPart(tid,mergeG(FM),1.5,mMauve,TL.fin,TL.finD,{inflate:1.004});
     addPart(tid,mergeG(GLl),1.5,mGlassL,TL.glass,.05,{lit:true,cast:false});
     addPart(tid,mergeG(GLd),1.5,mGlassD,TL.glass,.05,{lit:false,cast:false});
