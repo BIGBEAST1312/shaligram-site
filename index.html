@@ -153,11 +153,13 @@ html.no-gl #gl{display:none}
 .panel.spacer{min-height:140vh;min-height:140svh;align-items:center}
 .panel.spacer.hold{min-height:220vh;min-height:220svh}
 .done-chip{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);background:rgba(21,25,26,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:12px 16px;border-radius:999px;position:sticky;top:calc(50vh + 120px)}
-.card{width:min(470px,100%);background:rgba(250,250,247,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:clamp(22px,3vw,34px);border-radius:3px;box-shadow:0 24px 60px -30px rgba(10,12,13,.55)}
+.card{width:min(330px,100%);background:rgba(250,250,247,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:16px 18px 18px;border-radius:3px;box-shadow:0 24px 60px -30px rgba(10,12,13,.55)}
 .card .kicker{display:flex;justify-content:space-between;gap:12px;font:600 11px/1.3 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.card .script{display:block;font-family:var(--f-script);font-size:clamp(58px,6.6vw,92px);line-height:.9;color:var(--brass-ink);margin:18px 0 0 -4px;font-weight:400}
-.card h3{font-size:clamp(19px,1.9vw,25px);font-weight:400;margin-top:14px}
-.card p{margin-top:12px;color:var(--muted)}
+.card .script{display:block;font-family:var(--f-script);font-size:clamp(40px,3.6vw,54px);line-height:.9;color:var(--brass-ink);margin:8px 0 0 -3px;font-weight:400}
+.card h3{font-size:clamp(15px,1.3vw,18px);font-weight:400;margin-top:8px}
+.card p{margin-top:8px;color:var(--muted);font-size:13.5px;line-height:1.5}
+.card .kicker{font-size:10px}
+@media (max-width:760px){.card{width:min(300px,86vw);padding:12px 14px 14px}.card .script{font-size:36px}.card p{font-size:12.5px}.panel{padding-block:0 18px}}
 
 /* section heads */
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(20px,4vw,64px);align-items:end}
@@ -1561,6 +1563,75 @@ function makeCarParts(T){
   return CARPARTS;
 }
 
+/* ---------- façade details from the architect's elevations (feet, house-local, x≈0 is the shared wall, +z is the road) ---------- */
+function facadeDetail(tid){
+  var d=MODELS[tid],out=[],g=tid!=='prime';
+  function B(m,x1,y1,z1,x2,y2,z2,fl){out.push({m:m,b:[Math.min(x1,x2),Math.min(y1,y2),Math.min(z1,z2),Math.max(x1,x2),Math.max(y1,y2),Math.max(z1,z2)],f:fl})}
+  function bb(p){var b=[1e9,1e9,-1e9,-1e9];p[0].forEach(function(v){b[0]=Math.min(b[0],v[0]);b[2]=Math.max(b[2],v[0]);b[1]=Math.min(b[1],v[1]);b[3]=Math.max(b[3],v[1])});return b}
+  function wins(f,i){var W=(((INTERIOR.win||{})[tid]||[])[i]||[]).map(function(q){return[q[0],q[1],q[2],q[3]]});(f.gext||[]).forEach(function(p){W.push(bb(p))});return W}
+  var f1=d[1],X0=f1.bbox[0];
+  if(g){
+    /* front wall line on the outer half, and the front balconies */
+    var zw=0;(f1.wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[0]<X0+8)zw=Math.max(zw,v[1])})})});
+    var balc=[];d.forEach(function(f,i){if(!i)return;(f.para||[]).forEach(function(p){var b=bb(p);if(b[3]>f1.bbox[3]-3&&b[2]-b[0]>3&&b[2]-b[0]<16)balc.push({i:i,b:b})})});
+    var pz2=balc.length?Math.max.apply(null,balc.map(function(q){return q.b[3]})):zw+1.3;
+    var zF=Math.max(zw+2.4,pz2+.6),zB=zw+.02;
+    var top=tid==='glory4'?39.5:33.5,nF=d.length;
+    function fl(y){return Math.max(0,Math.min(nF-1,Math.floor((y-1.5)/10)))}
+    /* white portal frame: bottom beam at the first floor, posts at the outer edge and the shared wall, deep top beam */
+    B('white',X0,10.4,zB,-.5,11.6,zF,1);
+    var cuts=[11.6];for(var k=2;1.5+10*k<top-1.6;k++)cuts.push(1.5+10*k);cuts.push(top-1.6);
+    for(var c=0;c<cuts.length-1;c++){var y=cuts[c],y2=cuts[c+1],fi=fl(y+.1);
+      B('white',X0,y,zB,X0+1.3,y2,zF,fi);B('wood',X0+1.5,y,zB,X0+7.0,y2,zB+.42,fi)}
+    B('white',X0,top-1.6,zB-2.6,-.5,top,zF,nF-1);
+    /* terracotta jaali: high in the wood panel, and a strip on the outer face of the frame */
+    B('jaali',X0+2.6,top-8.6,zB+.42,X0+4.7,top-2.4,zB+.52,nF-1);
+    B('jaali',X0-.08,13,zF-1.7,X0,top-3,zF-.7,1);
+    /* grooved pilaster on the shared wall, ground to above the frame */
+    for(var k=0;k<nF;k++)B('groove',-.55,1.5+10*k,zB,.1,k===nF-1?top+.8:11.5+10*k,zF+.3,k);
+    /* white box frame round every front balcony, grey slab band under the glass */
+    balc.forEach(function(q){var b=q.b,L=1.5+10*q.i;
+      B('white',b[0]-1.0,L+7.6,b[1]-.6,b[2]+.3,L+8.4,b[3]+.5,q.i);
+      B('white',b[2]-.5,L-.9,b[1]-.6,b[2]+.3,L+8.4,b[3]+.5,q.i);B('white',b[0]-1.0,L-.9,b[1]-.6,b[0]-.4,L+8.4,b[3]+.5,q.i);
+      B('band',b[0]-.4,L-.9,b[3]-.25,b[2]-.5,L+.45,b[3]+.42,q.i)});
+    /* white boxes round the windows on the outer side wall */
+    d.forEach(function(f,i){if(!i)return;var L=1.5+10*i;wins(f,i).forEach(function(w){if(w[0]>X0+1.6||w[2]-w[0]>1.6||w[3]-w[1]<1.2)return;var z1=w[1],z2=w[3],xo=X0-1.1;
+      B('white',xo,L+7,z1-.5,X0+.05,L+7.6,z2+.5,i);B('white',xo,L+2.5,z1-.5,X0+.05,L+3.0,z2+.5,i);
+      B('white',xo,L+2.5,z1-.5,X0+.05,L+7.6,z1-.1,i);B('white',xo,L+2.5,z2+.1,X0+.05,L+7.6,z2+.5,i)})});
+  }else{
+    var Xs=f1.bbox[0];
+    /* gold box frame round a side window on the first floor (elevation side view) */
+    var w1=wins(f1,1).filter(function(w){return w[0]<Xs+1.6&&w[2]-w[0]<1.6}).sort(function(a,b){return Math.abs((a[1]+a[3])/2-17)-Math.abs((b[1]+b[3])/2-17)})[0],L=11.5;
+    if(w1){var z1=w1[1]-1.6,z2=w1[3]+1.6,xo=Xs-1.5;
+      B('goldc',xo,L+.6,z1,Xs+.05,L+1.8,z2,1);B('goldc',xo,L+8.2,z1,Xs+.05,L+9.4,z2,1);B('goldc',xo,L+.6,z1,Xs+.05,L+9.4,z1+1.2,1);B('goldc',xo,L+.6,z2-1.2,Xs+.05,L+9.4,z2,1)}
+    /* gold cladding panel across the back, with small vents */
+    var zr=f1.bbox[1];B('goldc',-16.5,11.5,zr-.35,-7.5,30.5,zr+.02,1);
+    [[-14.6,15],[-11.6,15],[-14.6,24],[-12.6,24],[-10.6,24],[-8.8,24]].forEach(function(v){B('vent',v[0],v[1],zr-.4,v[0]+1,v[1]+1,zr-.34,v[1]>20?2:1)});
+  }
+  return out;
+}
+var FD_COL={white:'#F4F3EF',wood:null,jaali:'#A8432A',groove:'#C9C8C4',band:'#C7C6C2',goldc:'#CDAE63',vent:'#2A2E31'};
+function fdTextures(T){if(fdTextures.c)return fdTextures.c;
+  function cv(w,h,draw){var c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);var t=new T.CanvasTexture(c);t.encoding=T.sRGBEncoding;t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=8;return t}
+  var r=rng(41);
+  var wood=cv(256,256,function(g,w,h){g.fillStyle='#B57A3E';g.fillRect(0,0,w,h);for(var i=0;i<16;i++){var y=i*h/16;g.fillStyle='hsl('+(26+r()*6)+','+(52+r()*10)+'%,'+(42+r()*10)+'%)';g.fillRect(0,y+1,w,h/16-2);
+      for(var k=0;k<14;k++){g.strokeStyle='rgba(90,48,18,'+(.08+r()*.12)+')';g.lineWidth=1;g.beginPath();var yy=y+2+r()*(h/16-4);g.moveTo(0,yy);g.bezierCurveTo(w*.3,yy+(r()-.5)*3,w*.6,yy+(r()-.5)*3,w,yy);g.stroke()}
+      g.fillStyle='rgba(60,32,12,.45)';g.fillRect(0,y,w,1.4)}});
+  var jaali=cv(128,256,function(g,w,h){g.fillStyle='#A8432A';g.fillRect(0,0,w,h);g.globalCompositeOperation='destination-out';var c=w/2;
+      for(var y=0;y<h/c;y++)for(var x=0;x<2;x++){var cx=x*c+c/2,cy=y*c+c/2;g.beginPath();g.moveTo(cx,cy-c*.34);g.lineTo(cx+c*.34,cy);g.lineTo(cx,cy+c*.34);g.lineTo(cx-c*.34,cy);g.closePath();g.fill();
+        g.fillRect(cx-c*.06,cy-c*.46,c*.12,c*.1);g.fillRect(cx-c*.06,cy+c*.36,c*.12,c*.1)}g.globalCompositeOperation='source-over'});
+  var groove=cv(64,256,function(g,w,h){g.fillStyle='#CAC9C5';g.fillRect(0,0,w,h);for(var y=0;y<h;y+=h/8){g.fillStyle='rgba(70,70,68,.55)';g.fillRect(0,y,w,2)}});
+  var stone=cv(512,512,function(g,w,h){g.fillStyle='#8F908E';g.fillRect(0,0,w,h);for(var y=0;y<2;y++)for(var x=0;x<4;x++){g.fillStyle='hsl(60,2%,'+(52+r()*7)+'%)';g.fillRect(x*w/4+2,y*h/2+2,w/4-4,h/2-4)}
+      for(var i=0;i<9000;i++){g.fillStyle=r()<.5?'rgba(40,40,40,.12)':'rgba(255,255,255,.1)';g.fillRect(r()*w,r()*h,1.5,1.5)}});
+  var plaster=cv(256,256,function(g,w,h){g.fillStyle='#A6A7A4';g.fillRect(0,0,w,h);for(var i=0;i<5000;i++){g.fillStyle=r()<.5?'rgba(60,60,60,.1)':'rgba(255,255,255,.1)';g.fillRect(r()*w,r()*h,1.4,1.4)}});
+  var goldc=cv(256,256,function(g,w,h){g.fillStyle='#CDAE63';g.fillRect(0,0,w,h);for(var i=0;i<6000;i++){g.fillStyle=r()<.5?'rgba(120,90,30,.14)':'rgba(255,240,200,.14)';g.fillRect(r()*w,r()*h,1.5,1.5)}});
+  fdTextures.c={wood:wood,jaali:jaali,groove:groove,stone:stone,plaster:plaster,goldc:goldc};return fdTextures.c}
+/* box geometry with UVs in feet, so textures tile at real scale (repeat set on the texture) */
+function fdBox(T,b){var g=new T.BoxGeometry(b[3]-b[0],b[4]-b[1],b[5]-b[2]);var uv=g.attributes.uv,p=g.attributes.position,n=g.attributes.normal;
+  for(var i=0;i<uv.count;i++){var x=p.getX(i)+(b[0]+b[3])/2,y=p.getY(i)+(b[1]+b[4])/2,z=p.getZ(i)+(b[2]+b[5])/2,ax=Math.abs(n.getX(i)),ay=Math.abs(n.getY(i));
+    if(ax>.5)uv.setXY(i,z,y);else if(ay>.5)uv.setXY(i,x,z);else uv.setXY(i,x,y)}
+  g.translate((b[0]+b[3])/2,(b[1]+b[4])/2,(b[2]+b[5])/2);return g}
+
 function initViewer(){
   if(!window.THREE||!THREE.OrbitControls)return null;
   var T=THREE,canvas=$('#vcanvas'),box=$('#viewer'),renderer;
@@ -1580,7 +1651,10 @@ function initViewer(){
   var lamp=new T.PointLight(C('#FFEBCF'),0,36,1.1);scene.add(lamp);
   var ground=new T.Mesh(new T.PlaneGeometry(600,600),new T.ShadowMaterial({opacity:.16}));ground.rotation.x=-Math.PI/2;ground.receiveShadow=true;scene.add(ground);
   var loader=new T.TextureLoader(),cache={},current=null,pending=0;
-  var FACADE={glory4:['#F4F2EE','#B7A0A3'],glory3:['#F4F2EE','#B7A0A3'],prime:['#B39699','#EDE7E1'],pride:['#F4F2EE','#B7A0A3']};
+  var FACADE={glory4:['#A4A5A1','#A4A5A1'],glory3:['#A4A5A1','#A4A5A1'],prime:['#B39699','#EDE7E1'],pride:['#A4A5A1','#A4A5A1']};
+  var FDM=null;function fdMats(){if(FDM)return FDM;var tx=fdTextures(T);FDM={};Object.keys(FD_COL).forEach(function(k){FDM[k]=new T.MeshStandardMaterial({color:FD_COL[k]?C(FD_COL[k]):0xffffff,roughness:k==='white'?.8:.7})});
+    var w=tx.wood.clone();w.needsUpdate=true;w.repeat.set(1/8,1/8);FDM.wood.map=w;var j=tx.jaali.clone();j.needsUpdate=true;j.repeat.set(1/1.8,1/3.6);FDM.jaali.map=j;FDM.jaali.color.set(0xffffff);FDM.jaali.alphaTest=.5;FDM.jaali.side=T.DoubleSide;
+    var gr=tx.groove.clone();gr.needsUpdate=true;gr.repeat.set(1/.6,1/12);FDM.groove.map=gr;FDM.groove.color.set(0xffffff);return FDM}
   var interiorOn=false,tourOn=false,curK=-1,styleName='warm',tourEye=null,locked=false;
 
   /* ---------- interior palettes ---------- */
@@ -1844,6 +1918,12 @@ function initViewer(){
       floors.push(fl);
     });
     floors.forEach(function(fl,i){fl.cover=(data[i].roof||[]).concat(data[i+1]?data[i+1].slab:[]).map(function(p){return p[0]})});
+    /* elevation details: portal frame, wood and jaali, pilaster, balcony frames, gold boxes */
+    var FM2=fdMats(),byF={};facadeDetail(id).forEach(function(q){var k=q.f+'|'+q.m;(byF[k]=byF[k]||[]).push(fdBox(T,q.b).toNonIndexed())});
+    Object.keys(byF).forEach(function(k){var fi=+k.split('|')[0],m=k.split('|')[1],fl=floors[fi];if(!fl)return;var list=byF[k],n=0;list.forEach(function(g){n+=g.attributes.position.count});
+      var P=new Float32Array(n*3),N=new Float32Array(n*3),U=new Float32Array(n*2),o=0;list.forEach(function(g){var c=g.attributes.position.count;P.set(g.attributes.position.array,o*3);N.set(g.attributes.normal.array,o*3);U.set(g.attributes.uv.array,o*2);o+=c});
+      var gg=new T.BufferGeometry();gg.setAttribute('position',new T.BufferAttribute(P,3));gg.setAttribute('normal',new T.BufferAttribute(N,3));gg.setAttribute('uv',new T.BufferAttribute(U,2));
+      var mat=FM2[m].clone();var mesh=new T.Mesh(gg,mat);mesh.castShadow=mesh.receiveShadow=true;if(!fl.det){fl.det=new T.Group();fl.g.add(fl.det);fl.mats.det=[]}fl.det.add(mesh);fl.mats.det.push(mat)});
     var cx=(bb[0]+bb[2])/2,cz=(bb[1]+bb[3])/2;root.position.set(-cx,0,-cz);
     model={id:id,root:root,floors:floors,bb:bb,size:Math.max(bb[2]-bb[0],bb[3]-bb[1]),height:10*data.length+2};
     return model;
@@ -1889,7 +1969,7 @@ function initViewer(){
     current.floors.forEach(function(fl,i){
       if(fl.fin){fl.fin.visible=interiorOn;fl.froof.visible=interiorOn;fl.fceil.visible=interiorOn&&(tourOn||walkOn)}
       paintWalls(fl,interiorOn,paint);
-      var cut=interiorOn&&!tourOn&&!walkOn&&i===curK;
+      var cut=interiorOn&&!tourOn&&!walkOn&&i===curK;if(fl.det)fl.det.visible=!cut;
       fl.walls.forEach(function(w){var m=w[0],b=w[1],d=w[2];if(!cut){m.visible=true;m.scale.y=1;return}
         if(b>=CUT)m.visible=false;else{m.visible=true;m.scale.y=(Math.min(b+d,CUT)-b)/d}});
     });
@@ -1918,8 +1998,8 @@ function initViewer(){
   function setOpacity(f,key,v){
     var group=key==='a'?f.g:f.roof;
     group.visible=v>.02;group.position.y=(1-v)*14;
-    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass,f.mats.rglass,f.mats.rail]:[f.mats.roof];
-    ms.forEach(function(m){var g=m===f.mats.glass,rg=m===f.mats.rglass;m.opacity=(g?GLASS:rg?.32:1)*v;m.transparent=v<.999||g||rg||m===f.mats.cap})
+    var ms=key==='a'?[f.mats.ext,f.mats.int,f.mats.trim,f.mats.slabSide,f.mats.para,f.mats.cap,f.mats.glass,f.mats.rglass,f.mats.rail].concat(f.mats.det||[]):[f.mats.roof];
+    ms.forEach(function(m){var g=m===f.mats.glass,rg=m===f.mats.rglass;m.opacity=(g?GLASS:rg?.32:1)*v;m.transparent=v<.999||g||rg||m===f.mats.cap;if(m.alphaTest)m.transparent=false})
   }
   /* ---------- eye-level room tour ---------- */
   function lockTour(){if(!tourOn||!tourEye)return;controls.minDistance=.55;controls.maxDistance=.65;locked=true}
@@ -2561,6 +2641,12 @@ function initStory(){
     return{no:u.no,t:tid,x:x,z:z,rot:rot,cos:Math.cos(rot),sin:Math.sin(rot),sw:1,sd:1,mx:u.no%2?1:-1,dist:dist,lit:rnd()<.72};
   });
   houses.forEach(function(h){h.d=.1*h.dist/maxD+rnd()*.02});
+  /* mirror each bungalow so its shared wall (local +x) faces its pair partner, the nearest unit in the same row */
+  houses.forEach(function(h,i){var u=SITE.units[i],best=null,bg=1e9;SITE.units.forEach(function(v,j){if(j===i||v.face!==u.face)return;var vert=u.face==='L'||u.face==='R',g;
+      if(vert){if(Math.abs(v.x-u.x)>6)return;g=v.y>u.y?v.y-(u.y+u.h):u.y-(v.y+v.h)}else{if(Math.abs(v.y-u.y)>6)return;g=v.x>u.x?v.x-(u.x+u.w):u.x-(v.x+v.w)}
+      if(g<bg){bg=g;best=j}});
+    if(best==null||bg>12)return;var o=houses[best];h.mx=((o.x-h.x)*h.cos+(o.z-h.z)*(-h.sin))>0?1:-1;h.partner=o.no;h.shift=Math.max(0,bg)/PXM/2});
+  houses.forEach(function(h){if(!h.shift)return;var sx=h.mx*h.cos,sz=-h.mx*h.sin;h.x+=sx*h.shift;h.z+=sz*h.shift});
   function localToWorld(h,lx,lz){return[h.x+lx*h.cos+lz*h.sin,h.z-lx*h.sin+lz*h.cos]}
 
   /* surface textures, tiled in feet */
@@ -2588,7 +2674,7 @@ function initStory(){
 
   var texWin=canTex(256,function(g,s){var gr=g.createLinearGradient(0,0,s,s);gr.addColorStop(0,'#6F8794');gr.addColorStop(.5,'#33444F');gr.addColorStop(1,'#56707E');g.fillStyle=gr;g.fillRect(0,0,s,s);
     g.fillStyle='rgba(255,255,255,.10)';g.beginPath();g.moveTo(s*.15,0);g.lineTo(s*.45,0);g.lineTo(s*.2,s);g.lineTo(0,s);g.closePath();g.fill();
-    g.fillStyle='#1E2124';g.fillRect(0,0,s,s*.07);g.fillRect(0,s*.93,s,s*.07);g.fillRect(0,0,s*.05,s);g.fillRect(s*.95,0,s*.05,s);g.fillRect(s*.485,0,s*.03,s);g.fillRect(0,s*.32,s,s*.025)},[.5,.25]);
+    g.fillStyle='#1E2124';g.fillRect(0,0,s,s*.07);g.fillRect(0,s*.93,s,s*.07);g.fillRect(0,0,s*.05,s);g.fillRect(s*.95,0,s*.05,s);g.fillRect(s*.485,0,s*.03,s)},[1/4.4,.25]);
   var mWhite=new T.MeshStandardMaterial({color:0xffffff,map:texPlaster,roughness:.86});
   var mMauve=new T.MeshStandardMaterial({color:0xffffff,map:texClad,roughness:.62,metalness:.04});
   var mBrickRaw=new T.MeshStandardMaterial({color:0xffffff,map:texBrick,roughness:1});
@@ -2601,6 +2687,14 @@ function initStory(){
   var mBlackM=new T.MeshStandardMaterial({color:C('#23262A'),roughness:.42,metalness:.55});
   var mJaali=new T.MeshStandardMaterial({color:0xffffff,map:texJaali,alphaTest:.5,side:T.DoubleSide,roughness:.38,metalness:.6});
   var mGoldS=new T.MeshStandardMaterial({color:C('#C9A257'),roughness:.36,metalness:.62});
+  /* Glory and Pride elevations: grey plaster, grey stone tiles, wood with terracotta jaali, grooved pilaster */
+  var FTX=fdTextures(T);function rp(t,x,y){t=t.clone();t.needsUpdate=true;t.repeat.set(x,y);t.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());return t}
+  var mGreyP=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.plaster,1/8,1/8),roughness:.9}),mStone=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.stone,1/8,1/8),roughness:.75}),
+      mBand=new T.MeshStandardMaterial({color:C('#C7C6C2'),roughness:.85}),mWoodC=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.wood,1/8,1/8),roughness:.6}),
+      mJaaliT=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.jaali,1/1.8,1/3.6),alphaTest:.5,side:T.DoubleSide,roughness:.8}),mGroove=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.groove,1/.6,1/12),roughness:.85}),
+      mGoldC=new T.MeshStandardMaterial({color:0xffffff,map:rp(FTX.goldc,1/6,1/6),roughness:.75}),mVent=new T.MeshStandardMaterial({color:C('#2A2E31'),roughness:.5}),
+      mPlasterL=new T.MeshStandardMaterial({color:C('#E9E8E4'),map:texPlaster,roughness:.88});
+  var FDSM={white:mWhite,wood:mWoodC,jaali:mJaaliT,groove:mGroove,band:mBand,goldc:mGoldC,vent:mVent};
   var mDoor=new T.MeshStandardMaterial({color:0xffffff,map:texWood,roughness:.62});
   var mPot=new T.MeshStandardMaterial({color:C('#A65A36'),roughness:.9});
   var mBush=new T.MeshStandardMaterial({color:C('#4D7A35'),roughness:.95});
@@ -2648,27 +2742,29 @@ function initStory(){
     MC[tid]=[(bb[0]+bb[2])/2,(bb[1]+bb[3])/2];
     var st=((INTERIOR.stairs||{})[tid]||[])[1],sr=st?st.rect:null;
     /* finished pieces are gathered per material and wash over the whole house at once */
-    var FW=[],FM=[],GLl=[],GLd=[],DR=[],RG=[],BK=[],JA=[],GO=[],SL=[];
+    var FW=[],FM=[],GLl=[],GLd=[],DR=[],RG=[],BK=[],JA=[],GO=[],SL=[],FG=[],FS=[],FB=[],FL=[],zP1=data[1].bbox[3];
     data.forEach(function(f,i){
       var L=1.5+10*i,aW=TL.wall0+TL.dF*i,aSl=TL.wall0+TL.dF*(i-1)+.06,WR=(((INTERIOR.win||{})[tid]||[])[i]||[]);
       function hitW(p){var b=bboxP(p);return WR.some(function(q){return b[0]<q[2]+.05&&b[2]>q[0]-.05&&b[1]<q[3]+.05&&b[3]>q[1]-.05})}
       function gextP(){return(f.gext||[]).filter(function(p){return!hitW(p)}).concat(WR.map(rectP))}
       function gdoorP(){return(f.gdoor||[]).filter(function(p){return!hitW(p)})}
       function shell(){return mergeG([exG(f.wext,9.5,L),exG(gextP(),3,L),exG(gextP(),2.5,L+7),exG(gdoorP(),2.5,L+7)])}
+      /* Prime: mauve top floor and front ends, mauve band near the front of the sides, light plaster elsewhere */
       var isM=function(cx,cy,cz,nx,ny,nz){
-        if(Math.abs(ny)>.5)return false;
-        if(fam==='p')return!(i===0&&nz>.5);
-        if(i>=1&&sr&&cx>sr[0]-2&&cx<sr[2]+2&&cz>sr[1]-2&&cz<sr[3]+2)return true;
-        return i>=1&&nz<.5};
+        if(Math.abs(ny)>.5||i===0)return false;
+        if(nz>.5)return i===2||cx<-19.5||cx>-5.5;
+        if(Math.abs(nx)>.5)return cz>zP1-8;
+        return false};
+      var isSide=function(cx,cy,cz,nx,ny,nz){return Math.abs(nx)>.5&&Math.abs(ny)<.5};
       /* concrete: plinth, then each slab as the floor below is finished */
       if(i===0)addPart(tid,exG(f.slab,1.5,0),0,mPave,TL.plinth,.05);
-      else{addPart(tid,exG(f.slab,.5,L-.5),L-.5,mConc,aSl,.03,{fa:TL.fin,fd:TL.finD});FW.push(exG(f.slab,.5,L-.5))}
+      else{addPart(tid,exG(f.slab,.5,L-.5),L-.5,mConc,aSl,.03,{fa:TL.fin,fd:TL.finD});(fam==='g'?FB:FW).push(exG(f.slab,.5,L-.5))}
       /* brick shell with its window openings */
       addPart(tid,shell(),L,mBrickRaw,aW,.06,{fa:TL.fin,fd:TL.finD});
-      var parts=splitG(shell(),isM);FW.push(parts[0]);FM.push(parts[1]);
+      if(fam==='g'){var parts=splitG(shell(),isSide);FG.push(parts[0]);FS.push(parts[1])}else{var parts=splitG(shell(),isM);FL.push(parts[0]);FM.push(parts[1])}
       GLl.push(exG(gextP(),4,L+3));GLd.push(exG(gextP(),4,L+3));if(i>0)SL.push(exG(gdoorP(),7,L));else DR.push(exG(gdoorP(),7,L));
       if(i>0&&f.para&&f.para.length){
-        FW.push(exG(f.para,.45,L));RG.push(exG(f.para,2.6,L+.45));BK.push(exG(f.para,.16,L+3.05));
+        (fam==='g'?FB:FW).push(exG(f.para,.45,L));RG.push(exG(f.para,2.6,L+.45));BK.push(exG(f.para,.16,L+3.05));
 
       }
       if(f.roof&&f.roof.length)addPart(tid,exG(f.roof,.5,L+9.5),L+9.5,mRoof,aW+.06,.03);
@@ -2676,8 +2772,6 @@ function initStory(){
     /* signature details from the architect's renders */
     if(fam==='g'){
       var ff=data[1].bbox,zf=ff[3],top=(tid==='glory4')?32.6:25.4,wallZ=tid==='pride'?26.5:28.9;
-      FW.push(bxG(-13.2,11.5,zf-1.8,-11.9,top,zf+.4),bxG(-1.4,11.5,zf-1.8,-.1,top,zf+.4),bxG(-13.2,top-1.2,zf-1.8,-.1,top,zf+.4));
-      JA.push(bxG(-15.1,11.6,wallZ+.04,-13.3,top-1.3,wallZ+.3));
       DR.push(tid==='pride'?bxG(-14.15,1.5,22.4,-13.85,8.6,25.6):bxG(-14.75,1.5,24.9,-14.45,8.6,28.0));
     }else{
       BK.push(bxG(-18.6,10.35,32.7,-.1,10.75,39.5));
@@ -2686,6 +2780,10 @@ function initStory(){
       DR.push(bxG(-13.2,1.5,32.2,-10.0,8.6,32.5));
     }
     addPart(tid,mergeG(FW),1.5,mWhite,TL.fin,TL.finD,{inflate:1.004});
+    addPart(tid,mergeG(FG),1.5,mGreyP,TL.fin,TL.finD,{inflate:1.004});addPart(tid,mergeG(FS),1.5,mStone,TL.fin,TL.finD,{inflate:1.004});
+    addPart(tid,mergeG(FB),1.5,mBand,TL.fin,TL.finD,{inflate:1.004});addPart(tid,mergeG(FL),1.5,mPlasterL,TL.fin,TL.finD,{inflate:1.004});
+    var DD={};facadeDetail(tid).forEach(function(q){(DD[q.m]=DD[q.m]||[]).push(nonIdx(fdBox(T,q.b)))});
+    Object.keys(DD).forEach(function(m){var late=m==='wood'||m==='jaali'||m==='vent';addPart(tid,mergeG(DD[m]),1.5,FDSM[m],late?TL.extra:TL.fin,late?.05:TL.finD,{cast:m!=='jaali'&&m!=='vent'})});
     addPart(tid,mergeG(FM),1.5,mMauve,TL.fin,TL.finD,{inflate:1.004});
     addPart(tid,mergeG(GLl),1.5,mGlassL,TL.glass,.05,{lit:true,cast:false});
     addPart(tid,mergeG(GLd),1.5,mGlassD,TL.glass,.05,{lit:false,cast:false});
@@ -2960,8 +3058,8 @@ function initStory(){
   var GAP=[];
   SITE.units.forEach(function(a){SITE.units.forEach(function(b){if(a===b||a.face!==b.face)return;
     var vert=a.face==='R'||a.face==='L';
-    if(vert){if(Math.abs(a.x-b.x)>4)return;var gap=b.y-(a.y+a.h);if(gap<.5||gap>34)return;GAP.push({x1:wx(Math.max(a.x,b.x)),x2:wx(Math.min(a.x+a.w,b.x+b.w)),z1:wz(a.y+a.h),z2:wz(b.y),v:1,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}
-    else{if(Math.abs(a.y-b.y)>4)return;var gp=b.x-(a.x+a.w);if(gp<.5||gp>34)return;GAP.push({x1:wx(a.x+a.w),x2:wx(b.x),z1:wz(Math.max(a.y,b.y)),z2:wz(Math.min(a.y+a.h,b.y+b.h)),v:0,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}})});
+    if(vert){if(Math.abs(a.x-b.x)>4)return;var gap=b.y-(a.y+a.h);if(gap<10||gap>34)return;GAP.push({x1:wx(Math.max(a.x,b.x)),x2:wx(Math.min(a.x+a.w,b.x+b.w)),z1:wz(a.y+a.h),z2:wz(b.y),v:1,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}
+    else{if(Math.abs(a.y-b.y)>4)return;var gp=b.x-(a.x+a.w);if(gp<10||gp>34)return;GAP.push({x1:wx(a.x+a.w),x2:wx(b.x),z1:wz(Math.max(a.y,b.y)),z2:wz(Math.min(a.y+a.h,b.y+b.h)),v:0,d:Math.min(houseOf(a.no).d,houseOf(b.no).d)})}})});
   var mGapPave=new T.MeshStandardMaterial({color:0xffffff,map:texPave,roughness:.95});
   var mDiv=new T.MeshStandardMaterial({color:C('#EFECE5'),map:texPlaster,roughness:.9}),mCope=new T.MeshStandardMaterial({color:C('#9C8A86'),roughness:.7});
   var mGapP=inst(box,mGapPave,GAP.length,false,true),mGapW=inst(box,mDiv,GAP.length,true,true),mGapC=inst(box,mCope,GAP.length,true,false);
@@ -3216,7 +3314,7 @@ function initStory(){
   resize();addEventListener('resize',resize);
 
   var camOverride=null;
-  if(location.hash.indexOf('storytest')>=0)window.__story={gaps:GAP.length,workers:WK.length,mach:MACH.length,cam:function(x,y,z,tx,ty,tz){camOverride=x==null?null:function(){camera.position.set(x,y,z);camera.lookAt(tx,ty,tz);sky.position.copy(camera.position)}},house:function(no){var h=houseOf(no);return[h.x,h.z,h.rot]}};
+  if(location.hash.indexOf('storytest')>=0)window.__story={gaps:GAP.length,workers:WK.length,mach:MACH.length,cam:function(x,y,z,tx,ty,tz){camOverride=x==null?null:function(){camera.position.set(x,y,z);camera.lookAt(tx,ty,tz);sky.position.copy(camera.position)}},house:function(no){var h=houseOf(no);return[h.x,h.z,h.rot]},front:function(no,d,y,lx,lx2){var h=houseOf(no),c=localToWorld(h,lx||0,ND/2+d),t=localToWorld(h,lx2!=null?lx2:(lx||0),0);camOverride=function(){camera.position.set(c[0],y,c[1]);camera.lookAt(t[0],y*.55+2,t[1]);sky.position.copy(camera.position)};return[c,t,h.mx]}};
   var railItems=$$('#rail li'),pCur=0,pBuilt=-1,railIdx=-1,fresh=true;
   addEventListener('scroll',function(){var vh=innerHeight,sr=story.getBoundingClientRect();stage.classList.toggle('is-off',!(sr.top<vh&&sr.bottom>0))},{passive:true});
   function frame(time){
