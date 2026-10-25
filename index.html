@@ -2101,8 +2101,12 @@ function initViewer(){
     model={id:id,root:root,floors:floors,bb:bb,size:Math.max(bb[2]-bb[0],bb[3]-bb[1]),height:10*nF+2,fin:true,px:true};
     return model;
   }
-  function build(id){
-    if(id==='prime')return buildPX(id);
+  /* Prime: the client's model outside; inside (interior, room tour, walk-through) the original furnished plan model */
+  function mkey(id){return id==='prime'&&interiorOn?'prime:plan':id}
+  function syncModel(){if(!current)return;var key=mkey(current.id);if(current.key===key)return;scene.remove(current.root);
+    if(!cache[key])cache[key]=build(current.id,key!==current.id);current=cache[key];scene.add(current.root);need=true}
+  function build(id,plan){
+    if(id==='prime'&&!plan){var pm=buildPX(id);pm.key=id;return pm}
     var data=MODELS[id],root=new T.Group(),floors=[],bb=[1e9,1e9,-1e9,-1e9],model;
     var fc=FACADE[id];
     data.forEach(function(f,i){
@@ -2157,7 +2161,7 @@ function initViewer(){
       var gg=new T.BufferGeometry();gg.setAttribute('position',new T.BufferAttribute(P,3));gg.setAttribute('normal',new T.BufferAttribute(N,3));gg.setAttribute('uv',new T.BufferAttribute(U,2));
       var mat=FM2[m].clone();var mesh=new T.Mesh(gg,mat);if(m==='frame'||m==='glassP')mesh.castShadow=false;mesh.castShadow=mesh.receiveShadow=true;if(!fl.det){fl.det=new T.Group();fl.g.add(fl.det);fl.mats.det=[]}fl.det.add(mesh);fl.mats.det.push(mat)});
     var cx=(bb[0]+bb[2])/2,cz=(bb[1]+bb[3])/2;root.position.set(-cx,0,-cz);
-    model={id:id,root:root,floors:floors,bb:bb,size:Math.max(bb[2]-bb[0],bb[3]-bb[1]),height:10*data.length+2};
+    model={id:id,key:plan?id+':plan':id,root:root,floors:floors,bb:bb,size:Math.max(bb[2]-bb[0],bb[3]-bb[1]),height:10*data.length+2};
     return model;
   }
   var need=true,tgt=new T.Vector3(0,12,0),camGoal=null;
@@ -2210,8 +2214,8 @@ function initViewer(){
   function show(id,k){
     if(current)scene.remove(current.root);
     if(tourOn){leaveTour();if(interiorOn)$('#vHint').textContent='Pick a room below to step inside'}
-    if(!cache[id])cache[id]=build(id);
-    current=cache[id];scene.add(current.root);applyStyle();
+    var key=mkey(id);if(!cache[key])cache[key]=build(id,key!==id);
+    current=cache[key];scene.add(current.root);applyStyle();
     floor(k==null?-1:k,true);
     camera.position.copy(camGoal);controls.target.copy(tgt);camGoal=null;controls.update();
     $('#vLoad').hidden=pending===0;need=true;
@@ -2549,10 +2553,10 @@ function initViewer(){
     $('#whMapBtn').addEventListener('click',function(){var on=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',on);whMap.hidden=!on;if(on){toggleRooms(false);drawMap(true)}});
   })();
   function enterWalk(id,fi){
-    if(!cache[id]||current!==cache[id])show(id,curK);
+    if(!current||current.id!==id)show(id,curK);
     if(tourOn)leaveTour();
     W.prev={interior:interiorOn,k:curK,pr:renderer.getPixelRatio()};
-    walkOn=true;interiorOn=true;GLASS=.22;SDOORS.forEach(function(m){m.visible=false});W.keys={};W.jx=W.jy=0;W.auto=null;
+    walkOn=true;interiorOn=true;syncModel();GLASS=.22;SDOORS.forEach(function(m){m.visible=false});W.keys={};W.jx=W.jy=0;W.auto=null;
     current.floors.forEach(function(f){f.ta=f.tra=1;f.a=f.ra=1;setOpacity(f,'a',1);setOpacity(f,'r',1)});
     applyInterior();
     controls.enabled=false;controls.autoRotate=false;camGoal=null;
@@ -2582,7 +2586,7 @@ function initViewer(){
     setToneMapping(false);
     renderer.setPixelRatio(W.prev?W.prev.pr:Math.min(window.devicePixelRatio||1,2));
     controls.enabled=true;camera.fov=30;camera.near=1;camera.updateProjectionMatrix();
-    interiorOn=W.prev?W.prev.interior:interiorOn;
+    interiorOn=W.prev?W.prev.interior:interiorOn;syncModel();
     floor(W.prev?W.prev.k:curK,true);camera.position.copy(camGoal);controls.target.copy(tgt);camGoal=null;controls.update();
     resize();
     if(typeof onWalkExit==='function')onWalkExit();
@@ -2623,7 +2627,7 @@ function initViewer(){
     show:show,
     floor:function(k){floor(k)},
     active:function(a){active=a;update();if(a)resize()},
-    interior:function(on,k){if(tourOn)leaveTour();interiorOn=on;floor(k==null?curK:k);if(on)controls.autoRotate=false},
+    interior:function(on,k){if(tourOn)leaveTour();interiorOn=on;syncModel();floor(k==null?curK:k);if(on)controls.autoRotate=false},
     style:function(name){if(!STY[name])return;styleName=name;applyStyle();applyInterior()},
     tour:tour,
     walk:function(id,fi){enterWalk(id,fi)},
