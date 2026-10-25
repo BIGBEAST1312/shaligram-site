@@ -1742,7 +1742,7 @@ function facadeSide(tid){
      rear to front: low stone block with a white-framed window, taller stone block with a slit window,
      stone stair tower with the white bay window under it, white wall with two small windows, white portal face */
   var f1=d[1],X0=f1.bbox[0],zw=f1.bbox[3]-2.1;(f1.wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[0]<X0+8)zw=Math.max(zw,v[1])})})});
-  var top=tid==='glory4'?39.5:33.5,Lb=tid==='glory4'?21.5:11.5,L1=11.5,L2=21.5;
+  var top=tid==='glory4'?39.5:33.5,Lb=tid==='glory4'?21.5:11.5,L1=11.5,L2=21.5,Lt=1.5+10*(nF-1),par=Lt+3.2;
   var zFront=zw-4.7,bay=(f1.gext||[]).map(bb).filter(function(q){return q[3]-q[1]>4})[0],bz1=bay?bay[1]+.4:zFront-6.6,bz2=Math.min(zFront-.2,bay?bay[3]-.2:zFront-.2);
   var zA=+(zw*.235).toFixed(2),zB=+(zw*.44).toFixed(2),xo=X0-.35,xi=X0+.05;
   function flOf(y){return Math.max(0,Math.min(nF-1,Math.floor((y-1.5)/10)))}
@@ -1757,16 +1757,41 @@ function facadeSide(tid){
   function win(y1,y2,z1,z2,x){var fl=flOf((y1+y2)/2);B('glassP',x+.12,y1,z1,x+.2,y2,z2,fl);
     B('frame',x,y1,z1,x+.22,y1+.22,z2,fl);B('frame',x,y2-.22,z1,x+.22,y2,z2,fl);B('frame',x,y1,z1,x+.22,y2,z1+.22,fl);B('frame',x,y1,z2-.22,x+.22,y2,z2,fl);
     if(z2-z1>2)B('frame',x,y1,(z1+z2)/2-.08,x+.22,y2,(z1+z2)/2+.08,fl)}
-  var gWin=[1.5+1.3,1.5+6.6,zA*.42,zA*.42+3.4],fWin=[L1+1.4,L1+8,zA*.42,zA*.42+3.2],slit=[L2+1.2,L2+8.2,zA+1.8,zA+2.35],door=[1.5,8.7,bz1+2.6,bz1+5.6];
+  var gWin=[1.5+1.3,1.5+6.6,zA*.42,zA*.42+3.4],fWin=[L1+1.4,L1+8,zA*.42,zA*.42+3.2],slit=[L1+1.2,L1+8.2,zA+1.8,zA+2.35],door=[1.5,8.7,bz1+2.6,bz1+5.6];
   /* rear low block: ground + first floor, parapet 3 ft above the floor above it */
-  hole('stone',xo,0,0,xi,Lb+3,zA,[gWin,fWin].filter(function(h){return h[1]<=Lb+3}));
-  B('frame',xo-.05,Lb+3,0,xi,Lb+3.25,zA,flOf(Lb+2));
+  var lbTop=tid==='glory4'?par:Lb+3;
+  hole('stone',xo,0,0,xi,lbTop,zA,[gWin,fWin].filter(function(h){return h[1]<=lbTop}));
+  B('frame',xo-.05,lbTop,0,xi,lbTop+.25,zA,flOf(lbTop-1));
   /* middle block, taller, with the slit window */
-  hole('stone',xo,0,zA,xi,top-5,zB,[slit,gWin[2]<zA?null:gWin].filter(Boolean).filter(function(h){return h[2]>=zA&&h[3]<=zB}));
-  B('frame',xo-.05,top-5,zA,xi,top-4.75,zB,nF-1);
+  /* middle block stops at the terrace parapet: above it is the open terrace of the top floor */
+  hole('stone',xo,0,zA,xi,par,zB,[slit,gWin[2]<zA?null:gWin].filter(Boolean).filter(function(h){return h[2]>=zA&&h[3]<=zB&&h[1]<=par}));
+  B('frame',xo-.05,par,zA,xi,par+.25,zB,nF-1);
   /* stair tower: highest stone block, with the bay window and side door below */
-  hole('stone',xo,0,zB,xi,top-2,zFront,[door,[L1-1.6,L1+10,bz1,bz2]]);
-  B('frame',xo-.05,top-2,zB,xi,top-1.75,zFront,nF-1);
+  /* stair tower: full height only where the top-floor room is; parapet height over the terrace */
+  var zR=zFront;(d[nF-1].wext||[]).forEach(function(p){p.forEach(function(r){r.forEach(function(v){if(v[0]<X0+3)zR=Math.min(zR,v[1])})})});zR=Math.max(zB,Math.min(zR,zFront-2));
+  hole('stone',xo,0,zB,xi,par,zFront,[door,[L1-1.6,L1+10,bz1,bz2]]);
+  hole('stone',xo,par,zR,xi,top-2,zFront,[]);
+  B('frame',xo-.05,top-2,zR,xi,top-1.75,zFront,nF-1);if(zR>zB+.1)B('frame',xo-.05,par,zB,xi,par+.25,zR,nF-1);
+  /* ---- rear elevation, in the same manner as Prime: light plaster to the terrace parapet, gold vented panel on the
+     toilet stack, the bedroom windows near the shared wall with white chajjas, a door to the kitchen utility below ---- */
+  (function(){var RZ=-.3,x1=xo,x2=.4,gx1=-19.5,gx2=-11.6,wx1=-9.4,wx2=-3.6,dx1=X0+1.8,dx2=X0+4.8;
+    function rgrid(m,y1,y2,holes){var ys=[y1,y2],xs=[x1,x2];holes.forEach(function(h){ys.push(h[0],h[1]);xs.push(h[2],h[3])});
+      ys=ys.filter(function(v,i,a){return a.indexOf(v)===i&&v>=y1&&v<=y2}).sort(function(a,b){return a-b});xs=xs.filter(function(v,i,a){return a.indexOf(v)===i&&v>=x1&&v<=x2}).sort(function(a,b){return a-b});
+      for(var i=0;i<ys.length-1;i++)for(var j=0;j<xs.length-1;j++){var ym=(ys[i]+ys[i+1])/2,xm=(xs[j]+xs[j+1])/2;if(holes.some(function(h){return ym>h[0]&&ym<h[1]&&xm>h[2]&&xm<h[3]}))continue;S(m,xs[j],ys[i],RZ,xs[j+1],ys[i+1],0)}}
+    function rwin(y1,y2,a,b){var z=RZ+.03,fl=flOf((y1+y2)/2);B('glassP',a,y1,z+.12,b,y2,z+.2,fl);
+      B('frame',a,y1,z,b,y1+.22,z+.22,fl);B('frame',a,y2-.22,z,b,y2,z+.22,fl);B('frame',a,y1,z,a+.22,y2,z+.22,fl);B('frame',b-.22,y1,z,b,y2,z+.22,fl);B('frame',(a+b)/2-.08,y1,z,(a+b)/2+.08,y2,z+.22,fl)}
+    var gD=[1.5,8.6,dx1,dx2],gW=[4.4,8.6,wx1,wx2],holes=[gD,gW];
+    for(var k=1;k<nF;k++){var L=1.5+10*k;if(L+7.1<par)holes.push([L+2.6,L+7.1,wx1,wx2])}
+    rgrid('plasterL',0,par,holes);
+    holes.forEach(function(h){if(h===gD)return;rwin(h[0],h[1],h[2],h[3]);B('white',h[2]-.7,h[1]+.4,RZ-1.8,h[3]+.7,h[1]+.8,RZ,flOf(h[0]))});
+    B('door',dx1,1.5,RZ+.1,dx2,8.6,RZ+.2,0);B('frame',dx1-.15,8.6,RZ,dx2+.15,8.8,RZ+.22,0);B('frame',dx1-.15,1.5,RZ,dx1,8.6,RZ+.22,0);B('frame',dx2,1.5,RZ,dx2+.15,8.6,RZ+.22,0);
+    B('white',dx1-1.0,8.9,RZ-2.2,dx2+1.0,9.4,RZ,0);
+    S('goldc',gx1,9.7,RZ-.4,gx2,par-.35,RZ);
+    [16.8,18.65].forEach(function(y){B('goldd',gx1,y,RZ-.46,gx2,y+.09,RZ-.4,flOf(y))});
+    [[16.9,18.55,-18.4,-16.5],[16.9,18.55,-14.6,-12.7]].forEach(function(v){var fl=flOf(v[0]);B('vent',v[2],v[0],RZ-.5,v[3],v[1],RZ-.38,fl);
+      for(var q=1;q<5;q++){var y=v[0]+q*(v[1]-v[0])/5;B('white',v[2]+.14,y-.05,RZ-.54,v[3]-.14,y+.04,RZ-.48,fl)}});
+    B('white',x1-.1,par,RZ-.1,x2,par+.25,.3,nF-1);
+  })();
   /* rear window frames */
   win(gWin[0],gWin[1],gWin[2],gWin[3],xo-.24);win(fWin[0],fWin[1],fWin[2],fWin[3],xo-.24);
   B('glassP',xo-.15,slit[0],slit[2],xo-.08,slit[1],slit[3],2);B('frame',xo-.2,slit[0]-.15,slit[2]-.15,xo,slit[1]+.15,slit[2],2);B('frame',xo-.2,slit[0]-.15,slit[3],xo,slit[1]+.15,slit[3]+.15,2);
