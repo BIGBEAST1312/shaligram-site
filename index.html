@@ -2897,7 +2897,8 @@ function initStory(){
     })});
     if(POTS.length){addPart(tid,mergeG(POTS),1.5,mPot,TL.car-.02,.05,{cast:false});addPart(tid,mergeG(BUSH),1.5,mBush,TL.car-.02,.05)}
     /* vehicles parked at this design (feet, house-local): from the plans, plus two-wheelers for Prime */
-    var VP=[];fu[0]&&fu[0].forEach(function(it){if(it[0]==='car')VP.push({k:it[0],x:it[1],z:it[2],r:it[5],L:it[4]})});
+    var VP=[];fu[0]&&fu[0].forEach(function(it){if(it[0]==='car'||it[0]==='bike'||it[0]==='scooter')VP.push({k:it[0],x:it[1],z:it[2],r:it[5],L:it[4]})});
+    if(tid==='prime')VP.push({k:'bike',x:-6.6,z:36.6,r:Math.PI},{k:'scooter',x:-9.4,z:36.6,r:Math.PI});
     VPOS[tid]=VP;
   });
   function updateHouses(p){
