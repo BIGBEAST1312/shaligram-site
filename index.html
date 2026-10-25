@@ -149,7 +149,7 @@ html.no-gl #gl{display:none}
 .rail li.on::before{background:currentColor;box-shadow:0 0 0 4px rgba(230,190,114,.25)}
 .story{position:relative}
 .panel{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;padding-block:0 clamp(28px,9vh,96px)}
-.panel:last-child{min-height:135svh}
+.panel:last-child{min-height:100vh;min-height:100svh}
 .panel.spacer{min-height:140vh;min-height:140svh;align-items:center}
 .panel.spacer.hold{min-height:220vh;min-height:220svh}
 .done-chip{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);background:rgba(21,25,26,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:12px 16px;border-radius:999px;position:sticky;top:calc(50vh + 120px)}
@@ -807,7 +807,6 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
       <p>Double-coat plaster, waterproof paint, gold window frames, glass balconies, verandah canopies and street lights. A low wall divides each pair of plots.</p>
     </article></div></div>
     <div class="panel spacer" aria-hidden="true"><div class="wrap"><p class="done-chip"><span class="pulse"></span>66 bungalows · Phase 1 completed with gardens</p></div></div>
-    <div class="panel spacer hold" aria-hidden="true"></div>
     <div class="panel"><div class="wrap"><article class="card">
       <div class="kicker"><span>Stage</span><span>05 / 05</span></div>
       <span class="script">gardens</span>
@@ -3389,15 +3388,15 @@ function initStory(){
 
   /* camera path */
   /* scroll position (new p) -> build progress: everything is finished early in the overview, before the last card */
-  var PN=[0,.0507,.1757,.3016,.4266,.507,1],PO=[0,.09,.32,.55,.78,1,1];
+  var PN=[0,.0746,.2587,.4441,.628,.7465,1],PO=[0,.09,.32,.55,.78,1,1];
   function buildP(p){for(var i=1;i<PN.length;i++)if(p<=PN[i])return lerp(PO[i-1],PO[i],(p-PN[i-1])/(PN[i]-PN[i-1]));return 1}
   var E1=at(36,4.6,-2),E2=at(40,5,-3),HC=[0,0];houses.forEach(function(h){HC[0]+=h.x/houses.length;HC[1]+=h.z/houses.length});var MC2=[(HC[0]+wx(1300))/2,(HC[1]+wz(1300))/2];
   /* camera: construction close-ups, the whole finished site, then a long street-level look before the last card */
-  var KEYS=[{p:0,r:20,h:365,th:0,tx:0,tz:3,ty:0},{p:.0865,r:150,h:250,th:70,tx:-25,tz:-30,ty:0},
-    {p:.1442,r:34,h:13,th:62,tx:E1.x,tz:E1.z,ty:2},{p:.188,r:40,h:17,th:20,tx:E1.x,tz:E1.z,ty:3},
-    {p:.2387,r:46,h:20,th:300,tx:E2.x,tz:E2.z,ty:5},{p:.3016,r:150,h:120,th:74,tx:-25,tz:-45,ty:0},
-    {p:.4266,r:118,h:58,th:70,tx:8,tz:-48,ty:3},{p:.507,r:255,h:190,th:28,tx:MC2[0],tz:MC2[1],ty:0},{p:.6119,r:235,h:160,th:72,tx:MC2[0],tz:MC2[1],ty:0},
-    {p:.704,r:54,h:13,th:52,tx:46,tz:-38,ty:5},{p:1,r:44,h:11,th:36,tx:46,tz:-38,ty:5}];
+  var KEYS=[{p:0,r:20,h:365,th:0,tx:0,tz:3,ty:0},{p:.1274,r:150,h:250,th:70,tx:-25,tz:-30,ty:0},
+    {p:.2122,r:34,h:13,th:62,tx:E1.x,tz:E1.z,ty:2},{p:.2768,r:40,h:17,th:20,tx:E1.x,tz:E1.z,ty:3},
+    {p:.3515,r:46,h:20,th:300,tx:E2.x,tz:E2.z,ty:5},{p:.4441,r:150,h:120,th:74,tx:-25,tz:-45,ty:0},
+    {p:.628,r:118,h:58,th:70,tx:8,tz:-48,ty:3},{p:.7465,r:255,h:190,th:28,tx:MC2[0],tz:MC2[1],ty:0},{p:.9009,r:235,h:160,th:72,tx:MC2[0],tz:MC2[1],ty:0},
+    {p:.963,r:54,h:13,th:52,tx:46,tz:-38,ty:5},{p:1,r:44,h:11,th:36,tx:46,tz:-38,ty:5}];
   var cs={},target=new T.Vector3(),portrait=1;
   function placeCam(p){var i=0;while(i<KEYS.length-2&&p>KEYS[i+1].p)i++;var A=KEYS[i],B=KEYS[i+1],t=smooth((p-A.p)/(B.p-A.p));
     ['r','h','th','tx','tz','ty'].forEach(function(k){cs[k]=lerp(A[k],B[k],t)});var th=cs.th*Math.PI/180;
@@ -3421,7 +3420,7 @@ function initStory(){
     var tgt=clamp01(-sr.top/Math.max(1,sr.height-vh));
     pCur=(fresh||reduce)?tgt:pCur+(tgt-pCur)*.14;fresh=false;if(Math.abs(tgt-pCur)<.0004)pCur=tgt;
     var pb=buildP(pCur),dusk=smooth((pb-.84)/.16),dust=smooth((pb-.12)/.14)*(1-smooth((pb-.58)/.16));
-    var idx=tgt<.112?0:tgt<.239?1:tgt<.362?2:tgt<.477?3:4;
+    var idx=tgt<.165?0:tgt<.352?1:tgt<.533?2:tgt<.702?3:4;
     if(idx!==railIdx){railIdx=idx;railItems.forEach(function(li,i){li.classList.toggle('on',i===idx);li.classList.toggle('done',i<idx)})}
     if(Math.abs(pCur-pBuilt)>.0002){updateBuild(pb);pBuilt=pCur}
     animSite(reduce?0:time,pb);
