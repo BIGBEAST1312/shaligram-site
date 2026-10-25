@@ -153,13 +153,13 @@ html.no-gl #gl{display:none}
 .panel.spacer{min-height:140vh;min-height:140svh;align-items:center}
 .panel.spacer.hold{min-height:220vh;min-height:220svh}
 .done-chip{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);background:rgba(21,25,26,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:12px 16px;border-radius:999px;position:sticky;top:calc(50vh + 120px)}
-.card{width:min(330px,100%);background:rgba(250,250,247,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);padding:16px 18px 18px;border-radius:3px;box-shadow:0 24px 60px -30px rgba(10,12,13,.55)}
+.card{width:min(190px,100%);background:rgba(250,250,247,.28);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);padding:8px 10px 9px;box-shadow:none!important;border:1px solid rgba(255,255,255,.35);border-radius:3px;box-shadow:0 24px 60px -30px rgba(10,12,13,.55)}
 .card .kicker{display:flex;justify-content:space-between;gap:12px;font:600 11px/1.3 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.card .script{display:block;font-family:var(--f-script);font-size:clamp(40px,3.6vw,54px);line-height:.9;color:var(--brass-ink);margin:8px 0 0 -3px;font-weight:400}
-.card h3{font-size:clamp(15px,1.3vw,18px);font-weight:400;margin-top:8px}
-.card p{margin-top:8px;color:var(--muted);font-size:13.5px;line-height:1.5}
-.card .kicker{font-size:10px}
-@media (max-width:760px){.card{width:min(300px,86vw);padding:12px 14px 14px}.card .script{font-size:36px}.card p{font-size:12.5px}.panel{padding-block:0 18px}}
+.card .script{display:none;font-family:var(--f-script);font-size:clamp(40px,3.6vw,54px);line-height:.9;color:var(--brass-ink);margin:8px 0 0 -3px;font-weight:400}
+.card h3{font-size:11.5px;font-weight:600;margin-top:4px;color:#14181a;text-shadow:0 0 6px rgba(255,255,255,.8)}
+.card p{margin-top:3px;color:#1f2426;font-size:10.5px;line-height:1.4;text-shadow:0 0 5px rgba(255,255,255,.85)}
+.card .kicker{font-size:8.5px;color:#2a2f31;letter-spacing:.14em}
+@media (max-width:760px){.card{width:min(170px,52vw);padding:7px 9px 8px}.card h3{font-size:11px}.card p{font-size:10px}.panel{padding-block:0 12px}}
 
 /* section heads */
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(20px,4vw,64px);align-items:end}
@@ -712,7 +712,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></a>
+    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="379"></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#gallery" data-gallery>Gallery</a>
       <a href="#build">Construction</a>
@@ -734,7 +734,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
     <img class="hero-img" src="img/prime-front-1000.jpg" srcset="img/prime-front-1000.jpg 1000w, img/prime-front-2000.jpg 2000w" sizes="(max-aspect-ratio:1/1) 220vh, 100vw" alt="" fetchpriority="high">
     <div class="wrap hero-in">
       <p class="eyebrow">Detroj Road, Kadi <i></i> GujRERA registered</p>
-      <h1 class="hero-logo"><span class="sr-only">Shaligram</span><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></h1>
+      <h1 class="hero-logo"><span class="sr-only">Shaligram</span><img class="logo" src="img/logo.webp" alt="" width="1000" height="379"></h1>
       <p class="guj" lang="gu">શહેરથી નજીક અને સુવિધાઓથી નજીક વૈભવી જીવનનું નવું સરનામું</p>
       <p class="lede">Premium 3 &amp; 4 BHK bungalows in four designs. 66 in this phase, with 140 planned.</p>
       <div class="cta-row">
@@ -750,7 +750,6 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
           <div><dt>Bungalows in phase&nbsp;1</dt><dd>66</dd></div>
           <div><dt>Planned in all</dt><dd>140</dd></div>
           <div><dt>Designs</dt><dd>4</dd></div>
-          <div><dt>Possession</dt><dd>Dec 2029</dd></div>
           <div class="status"><dt class="sr-only">Status</dt><dd><span class="pulse" aria-hidden="true"></span>Construction in progress</dd></div>
         </dl>
         <p class="hero-cap">Prime 4 BHK · architect's render</p>
@@ -776,7 +775,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
         <div><dt>Location</dt><dd>Detroj Road<small>Kadi 382715</small></dd></div>
         <div><dt>GujRERA</dt><dd>RAA16998<small>Registered project</small></dd></div>
         <div><dt>Developer</dt><dd>COT Industries<small>Rajanikant N Patel</small></dd></div>
-        <div><dt>Possession</dt><dd>31 Dec 2029<small>Expected handover</small></dd></div>
+        <div><dt>Amenities</dt><dd>15<small>Two common plots with gardens</small></dd></div>
       </dl>
       <div class="shot"><img src="img/glory-street-1000.jpg" srcset="img/glory-street-1000.jpg 1000w, img/glory-street-2000.jpg 2000w" sizes="(min-width:1320px) 1240px, 100vw" alt="A paved street between two rows of Glory bungalows" loading="lazy"><span class="cap">Glory · architect's render</span></div>
     </div>
@@ -813,7 +812,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
       <div class="kicker"><span>Stage</span><span>05 / 05</span></div>
       <span class="script">gardens</span>
       <h3>Gardens &amp; handover</h3>
-      <p>The common plots become gardens with a club house, children's play area, walking track, yoga park and gazebo. All 66 bungalows of phase 1 are handed over, with possession expected by 31 December 2029.</p>
+      <p>The common plots become gardens with a club house, children's play area, walking track, yoga park and gazebo. All 66 bungalows of phase 1 are handed over to their families.</p>
     </article></div></div>
   </section>
 
@@ -901,7 +900,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
       </div>
       <div class="price-grid">
         <article class="price-card" style="--c:var(--t-glory4)">
-          <div class="pc-img"><img src="img/glory-cars-480.jpg" srcset="img/glory-cars-480.jpg 480w, img/glory-cars-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Glory 4 BHK bungalow" loading="lazy"><span class="pc-tag">Glory 4 BHK</span></div>
+          <div class="pc-img"><img src="img/glory-corner-480.jpg" srcset="img/glory-corner-480.jpg 480w, img/glory-corner-1000.jpg 1000w" sizes="(min-width:1100px) 300px, (min-width:620px) 45vw, 100vw" alt="Glory 4 BHK bungalow" loading="lazy" style="object-position:30% 50%"><span class="pc-tag">Glory 4 BHK</span></div>
           <div class="pc-body">
             <p class="pc-meta">Units 1–16 · Ground + 2 floors</p>
             <p class="pc-desc">The family favourite: four bedrooms over three floors, an open terrace and parking at your door.</p>
@@ -945,7 +944,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
         <div class="pcc-who">
           <p class="eyebrow">To know the price of your bungalow type</p>
           <h3>Contact Rajanikant N Patel</h3>
-          <p>One call is all it takes. You speak directly with the builder, not an agent, and get honest answers about price, booking and possession.</p>
+          <p>One call is all it takes. You speak directly with the builder, not an agent, and get honest answers about price, booking and the bungalow you choose.</p>
         </div>
         <ul class="pcc-list">
           <li>Current price and availability for the unit you choose</li>
@@ -1141,7 +1140,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
     <div class="wrap builder-grid">
       <div class="bv" id="bv">
         <div class="bv-inner" id="bvInner">
-          <div class="bv-frame"><img class="bv-sun" src="img/sun.webp" alt="" width="237" height="99"></div>
+          <div class="bv-frame"><img class="bv-sun" src="img/sun.webp" alt="" width="192" height="86"></div>
           <div class="bv-edge"></div>
           <img class="bv-person" src="img/rajanikant-patel.webp" alt="Rajanikant N Patel" loading="lazy">
           <p class="bv-plate">Rajanikant N Patel<small>COT Industries</small></p>
@@ -1214,7 +1213,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="364"></a>
+    <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="379"></a>
     <div class="foot-mid">
       <b>Shaligram, Opp. Kuber Nagar Society, Nr. Prime Restaurant, Detroj Road, Kadi 382715</b>
       <span>Booking: Rajanikant Patel, +91 98250 38288 · cotgroup17@gmail.com</span>
@@ -1230,7 +1229,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 </footer>
 <div class="pg" id="pg" role="dialog" aria-modal="true" aria-labelledby="pgTitle" hidden>
   <header class="pg-top">
-    <img class="pg-logo" src="img/logo.webp" alt="" width="1000" height="364">
+    <img class="pg-logo" src="img/logo.webp" alt="" width="1000" height="379">
     <div class="pg-title"><h2 id="pgTitle">Gallery</h2><p id="pgSub">Architect's renders, floor plans and maps from the Shaligram brochure</p></div>
     <button class="pg-x" id="pgClose" type="button" aria-label="Close the gallery">&times;</button>
   </header>
@@ -1253,7 +1252,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 </button>
 <section class="ask" id="ask" role="dialog" aria-labelledby="askTitle" hidden tabindex="-1">
   <header class="ask-head">
-    <img class="ask-sun" src="img/sun.webp" alt="" width="237" height="99">
+    <img class="ask-sun" src="img/sun.webp" alt="" width="192" height="86">
     <div><b id="askTitle">Shaligram assistant</b><small>Homes, prices, location and site visits</small></div>
     <button class="ask-x" id="askClose" type="button" aria-label="Close the assistant">&times;</button>
   </header>
@@ -2898,8 +2897,7 @@ function initStory(){
     })});
     if(POTS.length){addPart(tid,mergeG(POTS),1.5,mPot,TL.car-.02,.05,{cast:false});addPart(tid,mergeG(BUSH),1.5,mBush,TL.car-.02,.05)}
     /* vehicles parked at this design (feet, house-local): from the plans, plus two-wheelers for Prime */
-    var VP=[];fu[0]&&fu[0].forEach(function(it){if(it[0]==='car'||it[0]==='bike'||it[0]==='scooter')VP.push({k:it[0],x:it[1],z:it[2],r:it[5],L:it[4]})});
-    if(tid==='prime')VP.push({k:'bike',x:-6.6,z:36.6,r:Math.PI},{k:'scooter',x:-9.4,z:36.6,r:Math.PI});
+    var VP=[];fu[0]&&fu[0].forEach(function(it){if(it[0]==='car')VP.push({k:it[0],x:it[1],z:it[2],r:it[5],L:it[4]})});
     VPOS[tid]=VP;
   });
   function updateHouses(p){
@@ -3466,12 +3464,11 @@ function initStory(){
   function kb(){
     var L=[];
     L.push('Shaligram: a gated community of premium 3 and 4 BHK bungalows on Detroj Road, Kadi, Mehsana district, Gujarat 382715 (opposite Kuber Nagar Society, near Prime Restaurant). Google Maps: '+MAPS);
-    L.push('Expected possession date: 31 December 2029.');
     L.push('Phase 1 has 66 bungalows in 4 designs; 140 homes are planned in all. Two common plots (gardens). Construction is in progress.');
     L.push('Developer: M/s COT Industries, led by Rajanikant N Patel. Architect: Rachaita Sthapatya & Interior Designer.');
     L.push('Booking and enquiries: Rajanikant Patel, '+PHONE+' (call or WhatsApp), email cotgroup17@gmail.com. Site visiting hours: 9:00 am to 12:30 pm and 1:30 pm to 7:00 pm, India time.');
     L.push('GujRERA registration number: '+RERA_NO+'. Brochure: '+BROCHURE);
-    L.push('NOT on the website (do not guess these): prices, home-loan or bank tie-ups, plot area and built-up area, which units are still available, payment schedule.');
+    L.push('NOT on the website (do not guess these): prices, possession date, home-loan or bank tie-ups, plot area and built-up area, which units are still available, payment schedule.');
     TYPES.forEach(function(t){L.push('Design '+oneLine(t)+'. '+t.desc+' Rooms (feet and inches): '+roomsOf(t).join('; ')+'.')});
     L.push('Internal roads: a 9 m main road from the gate; units 33 to 52 face 7.5 m roads, the others 6 m roads.');
     L.push('Amenities: '+AMEN.join(', ')+'.');
@@ -3579,7 +3576,7 @@ function initStory(){
       case'rera':
         return A('Shaligram is registered with GujRERA. Registration number: '+RERA_NO+'.',{acts:[link('View on GujRERA',RERA_URL)]});
       case'possession':
-        return A('Construction is in progress, and possession is expected on 31 December 2029. Rajanikant Patel can update you on the progress of the bungalow you choose.',{acts:[wa('I would like an update on construction progress and possession.','Ask for a progress update')]});
+        return A('Construction is in progress. For the handover schedule of the bungalow you like, please ask Rajanikant Patel.',{acts:[wa('I would like an update on construction progress.','Ask for a progress update')]});
       case'loan':
         return A('Home-loan details, such as which banks finance Shaligram, aren’t on the website yet. Rajanikant Patel can tell you which banks you can use.',{acts:[wa('Which banks give home loans for Shaligram?','Ask about home loans')]});
       case'booking':
@@ -3628,7 +3625,7 @@ function initStory(){
   function me(t){log.appendChild(el('div','msg me',t));scroll();turns.push({role:'user',content:t})}
   function typing(){var m=el('div','msg bot'),d=el('span','typing');d.innerHTML='<i></i><i></i><i></i>';d.setAttribute('aria-label','Writing an answer');m.appendChild(d);log.appendChild(m);scroll();return m}
 
-  var SUGG=[['Prices','What is the price?'],['Home types','Which home types are there?'],['Location','Where is Shaligram?'],['Visit timings','What are the site visit timings?'],['Amenities','What amenities are there?'],['Possession','When is possession?'],['Home loan','Is a home loan available?'],['RERA','Is the project RERA registered?']];
+  var SUGG=[['Prices','What is the price?'],['Home types','Which home types are there?'],['Location','Where is Shaligram?'],['Visit timings','What are the site visit timings?'],['Amenities','What amenities are there?'],['Home loan','Is a home loan available?'],['RERA','Is the project RERA registered?']];
   SUGG.forEach(function(s){var b=el('button',null,s[0]);b.type='button';b.addEventListener('click',function(){send(s[1])});sugg.appendChild(b)});
 
   function askAI(raw,gu){
