@@ -13,7 +13,7 @@ services:
       # security: what the browser may load, and no framing / sniffing / tracking
       - path: /*
         name: Content-Security-Policy
-        value: "default-src 'self'; script-src 'self' 'sha256-N58NObADzL34XbOmurQr0O2dVc29mPxXjejJr/kErLA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+        value: "default-src 'self'; script-src 'self' 'sha256-7FqcjPwI04vXggQp4NlLHCLQ+YjPUCL8JR1n0xXZ9Ao='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
       - path: /*
         name: Strict-Transport-Security
         value: max-age=31536000
