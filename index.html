@@ -134,6 +134,14 @@ main{position:relative;z-index:1}
 .shot{position:relative;overflow:hidden;border-radius:2px;background:#cfd6dc;max-width:100%}
 .shot img{width:100%;height:100%;object-fit:cover}
 .welcome .shot{margin-top:clamp(36px,6vh,64px);aspect-ratio:21/9}
+.film{background:var(--shila);color:var(--on-dark);padding-block:clamp(64px,10vh,120px)}
+.film .eyebrow{color:rgba(242,240,234,.7)}
+.film h2{font-size:clamp(28px,4vw,56px);margin-top:14px;color:var(--on-dark)}
+.film-head{display:flex;justify-content:space-between;align-items:end;gap:12px 24px;flex-wrap:wrap}
+.film .guj{font:600 clamp(20px,2.2vw,30px)/1.3 var(--f-guj);color:var(--brass-lt);margin:0}
+.film-frame{margin-top:clamp(24px,4vh,44px);aspect-ratio:16/9;background:#000;border-radius:4px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.7);border:1px solid var(--line-dark)}
+.film-frame video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.film-cap{margin-top:14px;font-size:13px;line-height:1.5;color:rgba(242,240,234,.6)}
 
 /* construction story */
 #stage{position:fixed;inset:0;z-index:0;background:linear-gradient(#9DB7CB,#E7E2D5)}
@@ -715,6 +723,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
     <a class="brand" href="#top" aria-label="Shaligram, back to top"><img class="logo" src="img/logo.webp" alt="" width="1000" height="379"></a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#gallery" data-gallery>Gallery</a>
+      <a href="#film">Film</a>
       <a href="#build">Construction</a>
       <a href="#homes">Homes in 3D</a>
       <a href="#prices">Prices</a>
@@ -778,6 +787,21 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
         <div><dt>Amenities</dt><dd>15<small>Two common plots with gardens</small></dd></div>
       </dl>
       <div class="shot"><img src="img/glory-street-1000.jpg" srcset="img/glory-street-1000.jpg 1000w, img/glory-street-2000.jpg 2000w" sizes="(min-width:1320px) 1240px, 100vw" alt="A paved street between two rows of Glory bungalows" loading="lazy"><span class="cap">Glory · architect's render</span></div>
+    </div>
+  </section>
+
+  <section class="film" id="film" aria-labelledby="filmTitle">
+    <div class="wrap">
+      <div class="film-head">
+        <div><p class="eyebrow">The film</p><h2 id="filmTitle">Watch Shaligram</h2></div>
+        <p class="guj" lang="gu">ત્રણ પેઢી, એક આંગણું</p>
+      </div>
+      <div class="film-frame">
+        <video id="filmVid" controls playsinline preload="none" poster="img/film-poster.jpg" aria-label="Shaligram film, 78 seconds, Gujarati voice-over">
+          <source src="img/shaligram-film-720.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="film-cap">78 seconds · Gujarati voice-over. Images are artist's impressions; garden and amenity designs are indicative and may change.</p>
     </div>
   </section>
 
@@ -3585,23 +3609,23 @@ function initStory(){
   function resize(){var w=innerWidth,h=innerHeight,aspect=w/h;renderer.setSize(w,h,false);camera.aspect=aspect;camera.fov=aspect<1?48:aspect<1.3?40:35;portrait=aspect<.7?1.45:aspect<1?1.22:1;camera.updateProjectionMatrix()}
   resize();addEventListener('resize',resize);
 
-  var camOverride=null;
-  if(location.hash.indexOf('storytest')>=0)window.__story={gaps:GAP.length,workers:WK.length,mach:MACH.length,cam:function(x,y,z,tx,ty,tz){camOverride=x==null?null:function(){camera.position.set(x,y,z);camera.lookAt(tx,ty,tz);sky.position.copy(camera.position)}},house:function(no){var h=houseOf(no);return[h.x,h.z,h.rot]},front:function(no,d,y,lx,lx2){var h=houseOf(no),c=localToWorld(h,lx||0,ND/2+d),t=localToWorld(h,lx2!=null?lx2:(lx||0),0);camOverride=function(){camera.position.set(c[0],y,c[1]);camera.lookAt(t[0],y*.55+2,t[1]);sky.position.copy(camera.position)};return[c,t,h.mx]}};
+  var camOverride=null,VID=null;
+  if(location.hash.indexOf('storytest')>=0)window.__story={vid:function(p,t){VID=p==null?null:{p:p,t:t}},px:function(x,y){return[wx(x),wz(y)]},gaps:GAP.length,workers:WK.length,mach:MACH.length,cam:function(x,y,z,tx,ty,tz){camOverride=x==null?null:function(){camera.position.set(x,y,z);camera.lookAt(tx,ty,tz);sky.position.copy(camera.position)}},house:function(no){var h=houseOf(no);return[h.x,h.z,h.rot]},front:function(no,d,y,lx,lx2){var h=houseOf(no),c=localToWorld(h,lx||0,ND/2+d),t=localToWorld(h,lx2!=null?lx2:(lx||0),0);camOverride=function(){camera.position.set(c[0],y,c[1]);camera.lookAt(t[0],y*.55+2,t[1]);sky.position.copy(camera.position)};return[c,t,h.mx]}};
   var railItems=$$('#rail li'),pCur=0,pBuilt=-1,railIdx=-1,fresh=true;
   addEventListener('scroll',function(){var vh=innerHeight,sr=story.getBoundingClientRect();stage.classList.toggle('is-off',!(sr.top<vh&&sr.bottom>0))},{passive:true});
   function frame(time){
     requestAnimationFrame(frame);if(document.hidden)return;
     var vh=innerHeight,sr=story.getBoundingClientRect(),visible=sr.top<vh&&sr.bottom>0;
     stage.classList.toggle('is-off',!visible);if(!visible){fresh=true;return}
-    var tgt=clamp01(-sr.top/Math.max(1,sr.height-vh));
-    pCur=(fresh||reduce)?tgt:pCur+(tgt-pCur)*.14;fresh=false;if(Math.abs(tgt-pCur)<.0004)pCur=tgt;
+    var tgt=clamp01(-sr.top/Math.max(1,sr.height-vh));if(VID){tgt=VID.p;time=VID.t}
+    pCur=(fresh||reduce||VID)?tgt:pCur+(tgt-pCur)*.14;fresh=false;if(Math.abs(tgt-pCur)<.0004)pCur=tgt;
     var pb=buildP(pCur),dusk=smooth((pb-.84)/.16),dust=smooth((pb-.12)/.14)*(1-smooth((pb-.58)/.16));
     var idx=tgt<.165?0:tgt<.352?1:tgt<.533?2:tgt<.702?3:4;
     if(idx!==railIdx){railIdx=idx;railItems.forEach(function(li,i){li.classList.toggle('on',i===idx);li.classList.toggle('done',i<idx)})}
     if(Math.abs(pCur-pBuilt)>.0002){updateBuild(pb);pBuilt=pCur}
-    animSite(reduce?0:time,pb);
+    animSite(reduce&&!VID?0:time,pb);
     applyEnv(dusk,dust);
-    if(!reduce)cranes.forEach(function(c,i){if(c.visible){c.userData.top.rotation.y=c.userData.base+Math.sin(time*.00018+i*2)*.9;c.userData.trolley.position.x=18+Math.sin(time*.00025+i)*8}});
+    if(!reduce||VID)cranes.forEach(function(c,i){if(c.visible){c.userData.top.rotation.y=c.userData.base+Math.sin(time*.00018+i*2)*.9;c.userData.trolley.position.x=18+Math.sin(time*.00025+i)*8}});
     placeCam(pCur);if(camOverride)camOverride();fitShadow();renderer.render(scene,camera);
   }
   scene.traverse(function(o){if(o.material&&o.material.isMeshStandardMaterial&&o.material.envMapIntensity===1)o.material.envMapIntensity=.6});
