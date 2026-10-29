@@ -1205,8 +1205,8 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
         <h3>Send an enquiry</h3>
         <p>Fill this in and send it to Rajanikant Patel on WhatsApp.</p>
         <div class="form-grid">
-          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="f-phone">Your phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" maxlength="80" required></div>
+          <div class="field"><label for="f-phone">Your phone</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required></div>
           <div class="field"><label for="f-int">Interested in</label>
             <select id="f-int" name="interest">
               <option>Glory 4 BHK</option>
@@ -1219,7 +1219,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
           </div>
           <div class="field"><label for="f-unit">Unit number (optional)</label><input id="f-unit" name="unit" type="number" min="1" max="66" inputmode="numeric"></div>
           <div class="field"><label for="f-when">Preferred visit day (optional)</label><input id="f-when" name="when" type="date"></div>
-          <div class="field full"><label for="f-msg">Message (optional)</label><textarea id="f-msg" name="message" rows="3"></textarea></div>
+          <div class="field full"><label for="f-msg">Message (optional)</label><textarea id="f-msg" name="message" rows="3" maxlength="500"></textarea></div>
           <div class="form-actions">
             <button class="btn btn-brass" type="submit">Prepare WhatsApp message</button>
             <p class="form-out" id="enqErr" role="alert" hidden></p>
@@ -1289,8 +1289,8 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
   <p class="ask-foot"><span>English, <span lang="gu">ગુજરાતી</span> or <span lang="hi">हिंदी</span></span><span>Prefer a person? <a href="tel:+919825038288">Call</a> · <a href="https://wa.me/919825038288" target="_blank" rel="noopener">WhatsApp</a></span></p>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="vendor/OrbitControls.js"></script>
 <script>
 (function(){
 'use strict';

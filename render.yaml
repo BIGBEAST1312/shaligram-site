@@ -10,9 +10,35 @@ services:
       - path: /*
         name: X-Robots-Tag
         value: noindex, nofollow
+      # security: what the browser may load, and no framing / sniffing / tracking
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'sha256-/AIb1leH9U+0kd7dhfB1i+Ywxsliy08yLmealbd/Ejk='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+      - path: /*
+        name: Strict-Transport-Security
+        value: max-age=31536000
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+      - path: /*
+        name: Cross-Origin-Opener-Policy
+        value: same-origin
+      # speed: images, models and libraries rarely change, so browsers keep them
       - path: /img/*
         name: Cache-Control
         value: public, max-age=604800
       - path: /models/*
         name: Cache-Control
         value: public, max-age=604800
+      - path: /vendor/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
