@@ -542,19 +542,25 @@ html.pg-lock,html.pg-lock body{overflow:hidden}
 }
 
 /* lightbox */
-.lb{position:fixed;inset:0;z-index:96;background:#0A0C0D;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;color:var(--on-dark)}
+.lb{position:fixed;inset:0;z-index:96;background:#0A0C0D;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto auto;color:var(--on-dark)}
 .lb[hidden]{display:none}
 .lb-top{display:flex;align-items:center;gap:12px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gut) 8px}
 .lb-top .pg-badge{font-size:11px}
 .lb-n{font-size:13px;color:rgba(242,240,234,.6);font-variant-numeric:tabular-nums}
-.lb-stage{position:relative;min-height:0;display:grid;place-items:center;padding:0 var(--gut);touch-action:pan-y}
-.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.5);transition:opacity .2s}
+.lb-stage{position:relative;min-height:0;height:100%;overflow:hidden;display:grid;place-items:center;padding:0 var(--gut);touch-action:pan-y}
+.lb-stage img{max-width:100%;max-height:100%;min-height:0;object-fit:contain;border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,.5);transition:opacity .2s}
 .lb-stage img.flat{background:#fff}
 .lb-stage img.fade{opacity:.15}
 .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(242,240,234,.3);background:rgba(16,20,21,.6);color:#fff;font-size:24px;cursor:pointer;display:grid;place-items:center}
 .lb-nav:hover{border-color:var(--brass-lt);color:var(--brass-lt)}
 .lb-prev{left:max(10px,calc(var(--gut) - 6px))}.lb-next{right:max(10px,calc(var(--gut) - 6px))}
 .lb-cap{padding:12px var(--gut) 6px;font-size:15px;text-align:center}
+.lb-disc{margin:0 auto;max-width:760px;padding:0 var(--gut) 6px;font-size:12px;line-height:1.45;text-align:center;color:var(--brass-lt)}
+.lb-disc[hidden]{display:none}
+.pg-tile.tall{grid-row:span 2}
+.pg-tile.tall img{object-position:50% 40%}
+.pg-disc{margin:-4px 0 14px;padding:10px 14px;border-left:3px solid var(--brass-lt);background:rgba(242,240,234,.05);font-size:13px;line-height:1.5;color:rgba(242,240,234,.75);max-width:900px}
+.pg-disc b{color:var(--brass-lt);font-weight:600}
 .lb-strip{display:flex;gap:6px;padding:6px var(--gut) calc(14px + env(safe-area-inset-bottom,0px));overflow-x:auto;scrollbar-width:none;justify-content:safe center}
 .lb-strip::-webkit-scrollbar{display:none}
 .lb-strip button{flex:none;width:70px;height:48px;padding:0;border:2px solid transparent;border-radius:3px;overflow:hidden;cursor:pointer;opacity:.5;background:#fff}
@@ -1253,7 +1259,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
 <div class="pg" id="pg" role="dialog" aria-modal="true" aria-labelledby="pgTitle" hidden>
   <header class="pg-top">
     <img class="pg-logo" src="img/logo.webp" alt="" width="1000" height="379">
-    <div class="pg-title"><h2 id="pgTitle">Gallery</h2><p id="pgSub">Architect's renders, floor plans and maps from the Shaligram brochure</p></div>
+    <div class="pg-title"><h2 id="pgTitle">Gallery</h2><p id="pgSub">Architect's renders, sample interiors, floor plans and maps</p></div>
     <button class="pg-x" id="pgClose" type="button" aria-label="Close the gallery">&times;</button>
   </header>
   <div class="pg-tabs" id="pgTabs" role="tablist" aria-label="Photo types"></div>
@@ -1267,6 +1273,7 @@ html.walk-lock .wm,html.pg-lock .wm{display:none}
     <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next photo">&#8250;</button>
   </div>
   <p class="lb-cap" id="lbCap"></p>
+  <p class="lb-disc" id="lbDisc" hidden></p>
   <div class="lb-strip" id="lbStrip"></div>
 </div>
 <button class="ask-btn" id="askBtn" type="button" aria-expanded="false" aria-controls="ask">
@@ -3886,6 +3893,7 @@ function initStory(){
     {id:'prime',l:'Prime 4 BHK',c:'#A9CDE3',d:'Units 33 to 44 · three floors'},
     {id:'glory4',l:'Glory 4 BHK',c:'#E9DFA8',d:'Units 1 to 16 · three floors'},
     {id:'g3',l:'Glory & Pride 3 BHK',c:'#E3B9AC',d:'Glory 17 to 32 · Pride 45 to 66'},
+    {id:'g3int',l:'Glory 3 BHK interiors',c:'#D8C3A0',d:'Sample interior · ground, first and terrace floor',disc:'Sample interior design, for illustration only. Furniture, décor, lighting and finishes are not part of the home, and the actual home is built as per the approved plans and specifications.'},
     {id:'site',l:'Entrance & site',c:'#E6BE72',d:'The gate, the aerial view and the layout'},
     {id:'plans',l:'Floor plans',c:'#C3D0D6',d:'Every floor of each design'},
     {id:'loc',l:'Location',c:'#AFCDA9',d:'Kadi–Detroj Road'}
@@ -3904,6 +3912,9 @@ function initStory(){
     R('glory-row','g3','Glory and Pride 3 BHK homes',1),
     R('glory-lawn','g3','3 BHK homes behind the lawn'),
     R('glory-garden','g3','3 BHK homes beside the garden'),
+    {t:'g3int',cap:'Glory 3 BHK · ground floor: living, kitchen, bedroom and parking',tall:1,th:'img/g3int-ground-480.jpg',src:'img/g3int-ground-1600.jpg',set:''},
+    {t:'g3int',cap:'Glory 3 BHK · first floor: family lounge, two bedrooms and balcony',tall:1,th:'img/g3int-first-480.jpg',src:'img/g3int-first-1600.jpg',set:''},
+    {t:'g3int',cap:'Glory 3 BHK · terrace floor: open terrace and seating',tall:1,th:'img/g3int-terrace-480.jpg',src:'img/g3int-terrace-1600.jpg',set:''},
     {t:'site',cap:'Aerial view of the whole site',big:1,th:'img/aerial-480.jpg',src:'img/aerial-1200.jpg',set:'img/aerial-1200.jpg 1200w, img/aerial-2400.jpg 2400w'},
     R('gate','site','The elegant entrance gate'),
     {t:'site',cap:'Layout plan with all 66 bungalows',flat:1,th:'img/layout-plan-480.jpg',src:'img/layout-plan.webp',set:''},
@@ -3937,11 +3948,12 @@ function initStory(){
       var its=ITEMS.filter(function(it){return it.t===c.id});if(!its.length)return;
       var blk=el('section','pg-block'),hd=el('div','pg-head');hd.style.setProperty('--c',c.c);
       hd.appendChild(el('i'));hd.appendChild(el('h3',null,c.l));hd.appendChild(el('span',null,its.length+(its.length>1?' images':' image')));hd.appendChild(el('p',null,c.d));
-      blk.appendChild(hd);var gr=el('div','pg-grid');
+      blk.appendChild(hd);if(c.disc){var dn=el('p','pg-disc');dn.appendChild(el('b',null,'Disclaimer: '));dn.appendChild(document.createTextNode(c.disc));blk.appendChild(dn)}var gr=el('div','pg-grid');
       its.forEach(function(it,k){
-        var b=el('button','pg-tile'+(it.big?' big':'')+(it.flat?' flat':''));b.type='button';b.setAttribute('aria-label','Open: '+it.cap);
+        var b=el('button','pg-tile'+(it.big?' big':'')+(it.flat?' flat':'')+(it.tall?' tall':''));b.type='button';b.setAttribute('aria-label','Open: '+it.cap);
         var im=el('img');im.loading='lazy';im.alt='';im.src=it.big&&!it.flat?it.src:it.th;b.appendChild(im);
         if(it.big&&k===0&&!it.flat){var st=el('span','pg-star','Featured');b.appendChild(st)}
+        if(c.disc)b.appendChild(el('span','pg-star','Sample design'));
         var cp=el('span','pg-cap');cp.appendChild(badge(c));cp.appendChild(el('span',null,it.cap));b.appendChild(cp);
         b.addEventListener('click',function(){openLb(list.indexOf(it))});gr.appendChild(b);
       });
@@ -3966,7 +3978,7 @@ function initStory(){
     var n=new Image();n.onload=n.onerror=function(){lbImg.src=n.currentSrc||n.src;lbImg.classList.remove('fade')};
     if(it.set){n.srcset=it.set;n.sizes='100vw'}n.src=it.src;
     lbImg.alt=it.cap;lbImg.className=it.flat?'flat':'';
-    lbCap.textContent=it.cap;lbN.textContent=(idx+1)+' / '+list.length;
+    lbCap.textContent=it.cap;var ld=document.getElementById('lbDisc');if(ld){ld.hidden=!c.disc;ld.textContent=c.disc?'Disclaimer: '+c.disc:''}lbN.textContent=(idx+1)+' / '+list.length;
     lbBadge.textContent=c.l;lbBadge.style.setProperty('--c',c.c);
     [].forEach.call(lbStrip.children,function(b,k){b.setAttribute('aria-current',k===idx?'true':'false');if(k===idx&&b.scrollIntoView)b.scrollIntoView({block:'nearest',inline:'center'})});
   }
