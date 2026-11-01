@@ -1,0 +1,6 @@
+{
+  // Shaligram website: a plain static site served by Cloudflare (no server code)
+  "name": "cotshaligram",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./" }
+}
