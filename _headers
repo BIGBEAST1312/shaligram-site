@@ -1,5 +1,4 @@
 /*
-  X-Robots-Tag: noindex, nofollow
   Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-Te0QzcYNtb4hGhwyAfAOtPFUNVtxtFHwpQpCJ52hfTQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
@@ -17,5 +16,8 @@
 /vendor/*
   Cache-Control: public, max-age=31536000, immutable
 
-/render.yaml
+https://:sub.workers.dev/*
+  X-Robots-Tag: noindex
+
+https://:ver.:sub.workers.dev/*
   X-Robots-Tag: noindex

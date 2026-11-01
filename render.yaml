@@ -6,7 +6,7 @@ services:
     buildCommand: echo "Plain HTML site, nothing to build"
     staticPublishPath: ./
     headers:
-      # preview only: keep it out of Google until the real launch
+      # the old Render copy stays out of Google; the live site is www.cotshaligram.com
       - path: /*
         name: X-Robots-Tag
         value: noindex, nofollow

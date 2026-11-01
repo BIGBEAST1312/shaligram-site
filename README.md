@@ -15,8 +15,8 @@ Hosted on Cloudflare Pages at www.cotshaligram.com (also builds on Render as a p
 
 Cloudflare Pages serves these files as they are. Every push to the `main` branch redeploys the site automatically.
 
-The preview is marked `noindex`, so Google will not list it. Remove the `noindex` meta tag in
-`index.html` and the `X-Robots-Tag` header in `render.yaml` at the real launch.
+The live site at www.cotshaligram.com is open to search engines (`robots.txt`, `sitemap.xml`).
+The `workers.dev` address and the old Render copy send `noindex`, so Google only lists the real domain.
 
 ## Note on the assistant
 
